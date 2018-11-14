@@ -10,10 +10,11 @@ class MyCoordsTest {
     MyCoords coordsConvert = new MyCoords();
     Point3D Building9 = new Point3D(32.103315,35.209039,670);
     Point3D Humus = new Point3D(32.106352,35.205225,650);
-
+    Point3D vector = new Point3D(0,0,0);
 
     @Test
     void add() {
+        coordsConvert.add(Building9,vector);
 
     }
 
