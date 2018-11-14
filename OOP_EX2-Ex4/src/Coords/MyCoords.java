@@ -6,7 +6,10 @@ public class MyCoords implements coords_converter {
     @Override
     public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 
-        return null;
+        double x=gps.x()+local_vector_in_meter.x();
+        double y=gps.y()+local_vector_in_meter.y();
+        double z=gps.z()+local_vector_in_meter.z();
+        return new Point3D(x,y,z);
     }
 
     @Override
