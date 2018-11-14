@@ -2,26 +2,29 @@ package Coords;
 
 import Geom.Point3D;
 
+
+
 public class MyCoords implements coords_converter {
+    private static long RADIUS = 6371000;
+
     @Override
     public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
-        //update: Check if it is what we asked
-        double x=gps.x()+local_vector_in_meter.x();
-        double y=gps.y()+local_vector_in_meter.y();
-        double z=gps.z()+local_vector_in_meter.z();
-        return new Point3D(x,y,z);
+
+        return null;
     }
 
     @Override
     public double distance3d(Point3D gps0, Point3D gps1) {
-    //computes distance between 2 dots, p1,p2
-        double dx = gps0.x()-gps1.x();
-        double dy = gps0.y()-gps1.y();
-        double dz = gps0.z()-gps1.z();
-        dx = Math.pow(dx,2);
-        dy = Math.pow(dy,2);
-        dz = Math.pow(dz,2);
-        return Math.sqrt(dx+dy+dz);
+        double latDiff = gps0.x()-gps1.x();
+        double lonDiff = gps0.y()-gps1.y();
+        double altDiff = gps0.z()-gps1.z();
+        double lonNorm = Math.cos(gps0.x()*Math.PI/180);
+        double latDiffRadian = latDiff*Math.PI/180;
+        double lonDiffRadian = lonDiff*Math.PI/180;
+        double toMeter1 = Math.sin(latDiffRadian)*RADIUS;
+        double toMeter2 = Math.sin(lonDiffRadian)*RADIUS*lonNorm;
+        return Math.sqrt(Math.pow(toMeter1,2)+Math.pow(toMeter2,2));
+
     }
 
     @Override
