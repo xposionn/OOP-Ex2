@@ -11,10 +11,12 @@ class MyCoordsTest {
     Point3D Building9 = new Point3D(32.103315,35.209039,670);
     Point3D Humus = new Point3D(32.106352,35.205225,650);
     Point3D vector = new Point3D(0,0,0);
+    Point3D test = new Point3D( 41.7307619 , -71.276195,74);
+
 
     @Test
     void add() {
-        coordsConvert.add(Building9,vector);
+        coordsConvert.add(test,vector);
 
     }
 
@@ -32,6 +34,7 @@ class MyCoordsTest {
 
     @Test
     void azimuth_elevation_dist() {
+    coordsConvert.azimuth_elevation_dist(Building9,Humus);
     }
 
     @Test
