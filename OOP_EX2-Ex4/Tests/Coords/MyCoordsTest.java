@@ -31,17 +31,18 @@ class MyCoordsTest {
     void vector3D() {
         Point3D diffVector = coords.vector3D(b9, bHummus);
         Point3D expected = new Point3D(337.6989921, -359.2492069, -20); //from excel.
-        assertEquals(expected.x(), diffVector.x(), ERROR_MARGIN);
-        assertEquals(expected.y(), diffVector.y(), ERROR_MARGIN);
-        assertEquals(expected.z(), diffVector.z(), ERROR_MARGIN);
+        assertEquals(expected.x(), diffVector.x(), ERROR_MARGIN,"Something is wrong with the X logic in Vector3D function");
+        assertEquals(expected.y(), diffVector.y(), ERROR_MARGIN,"Something is wrong with the Y logic in Vector3D function");
+        assertEquals(expected.z(), diffVector.z(), ERROR_MARGIN,"Something is wrong with the Z logic in Vector3D function");
     }
 
     @Test
     void azimuth_elevation_dist() {
         double[] azim_ele_dist = coords.azimuth_elevation_dist(zeroPt, onLonoPt);
-        assertEquals(270.0,azim_ele_dist[0],ERROR_MARGIN);
-        System.out.println(Arrays.toString(azim_ele_dist));
-    }
+        assertEquals(270.0,azim_ele_dist[0],ERROR_MARGIN,"Something is wrong with the azimuth calculation");
+        assertEquals(0,azim_ele_dist[1],ERROR_MARGIN,"Something is wrong with the elevation calculation");
+        assertEquals(1106312.539916,azim_ele_dist[1],ERROR_MARGIN,"Something is wrong with the distance calculation");
+        }
 
     @Test
     void isValid_GPS_Point() {
