@@ -39,6 +39,7 @@ class MyCoordsTest {
     @Test
     void azimuth_elevation_dist() {
         double[] azim_ele_dist = coords.azimuth_elevation_dist(zeroPt, onLonoPt);
+        assertEquals(270.0,azim_ele_dist[0],ERROR_MARGIN);
         System.out.println(Arrays.toString(azim_ele_dist));
     }
 
