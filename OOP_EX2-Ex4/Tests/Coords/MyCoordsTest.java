@@ -24,13 +24,16 @@ class MyCoordsTest {
 
     @Test
     void distance3d() {
-        assertEquals(493.45780156501763,coords.distance3d(b9, bHummus),ERROR_MARGIN);
+        assertEquals(493.45780156501763,coords.distance3d(b9, bHummus),ERROR_MARGIN); //from excel.
     }
 
     @Test
     void vector3D() {
         Point3D diffVector = coords.vector3D(b9, bHummus);
-
+        Point3D expected = new Point3D(337.6989921, -359.2492069, -20); //from excel.
+        assertEquals(expected.x(), diffVector.x(), ERROR_MARGIN);
+        assertEquals(expected.y(), diffVector.y(), ERROR_MARGIN);
+        assertEquals(expected.z(), diffVector.z(), ERROR_MARGIN);
     }
 
     @Test
