@@ -7,8 +7,9 @@ public class Csv2kml {
 
 
     //parsing the csv file is inspired by the code from this link: https://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
-    public changeToKml(String csvFileName) {
-        String fileNameForNewKML = "KMLdata.kml";
+    //returns file path for KML.
+    public String changeToKML(String csvFileName) {
+        String fileNameForNewKML = csvFileName+"_inKMLdata.kml";
         ArrayList<String> kmlContent = new ArrayList<>();
         String kmlStart = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<kml xmlns=\"http://www.opengis.net/kml/2.2\"><Document><Style id=\"red\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href></Icon></IconStyle></Style><Style id=\"yellow\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon></IconStyle></Style><Style id=\"green\"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style><Folder><name>Wifi Networks</name>\n";
@@ -36,11 +37,10 @@ public class Csv2kml {
                 String[] wifiPoint = line.split(cvsSplitBy);
                 String kmlElement = "<Placemark>\n" +
                         "<name><![CDATA[" + wifiPoint[1] + "]]</name>\n" +
-                        "<description><![CDATA[MAC: <b>" + wifiPoint[0] + "</b><br/>Capabilities: <b>" + wifiPoint[2] + "</b><br/>FirstSeen: <b>" + wifiPoint[3] + "</b><br/>Channel: <b>" + wifiPoint[4] + "</b><br/>RSSI: <b>" + wifiPoint[5] + "</b><br/>AccuracyMeters: <b>" + wifiPoint[9] + "</b><br/>Type: <b>" + wifiPoint[10] + "</description>\n" +
-                        "<coordinates>" + wifiPoint[6] + "," + wifiPoint[7] + "," + wifiPoint[8] + "</coordinates>\n" +
+                        "<description><![CDATA[MAC: <b>" + wifiPoint[0] + "</b><br/>Capabilities: <b>" + wifiPoint[2] + "</b><br/>FirstSeen: <b>" + wifiPoint[3] + "</b><br/>Channel: <b>" + wifiPoint[4] + "</b><br/>RSSI: <b>" + wifiPoint[5] +  "</b><br/>AltitudeMeters: <b>" + wifiPoint[8] + "</b><br/>AccuracyMeters: <b>" + wifiPoint[9] + "</b><br/>Type: <b>" + wifiPoint[10] + "</description>\n" +
+                        "<coordinates>" + wifiPoint[6] + "," + wifiPoint[7] +",0"+ "</coordinates>\n" +
                         "</Point>\n" +
                         "</Placemark>\n";
-
                 kmlContent.add(kmlElement);
             }
             kmlContent.add(kmlEnd);
@@ -50,5 +50,6 @@ public class Csv2kml {
         }catch (IOException e) {
             e.printStackTrace();
         }
-    }
+        return fileNameForNewKML;
+    } //end of changeToKML function
 }
