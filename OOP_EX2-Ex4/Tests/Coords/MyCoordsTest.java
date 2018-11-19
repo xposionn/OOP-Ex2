@@ -15,6 +15,7 @@ class MyCoordsTest {
     Point3D vectorBetween = new Point3D(337.6989921, -359.2492069, -20);
     Point3D zeroPt = new Point3D(0, 0, 0);
     Point3D onLonoPt = new Point3D(-10, 0, 0);
+    final double ERROR_MARGIN = 0.0001;
 
     @Test
     void add() {
@@ -23,13 +24,12 @@ class MyCoordsTest {
 
     @Test
     void distance3d() {
-        coords.distance3d(b9, bHummus);
+        assertEquals(493.45780156501763,coords.distance3d(b9, bHummus),ERROR_MARGIN);
     }
 
     @Test
     void vector3D() {
         Point3D diffVector = coords.vector3D(b9, bHummus);
-        //update: finish this test
 
     }
 
