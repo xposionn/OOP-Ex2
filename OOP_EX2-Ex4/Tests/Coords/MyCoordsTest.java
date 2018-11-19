@@ -30,7 +30,7 @@ class MyCoordsTest {
     @Test
     void vector3D() {
         Point3D diffVector = coords.vector3D(b9, bHummus);
-        Point3D expected = new Point3D(337.6989921, -359.2492069, -20); //from excel.
+        Point3D expected = vectorBetween; //for easier readability
         assertEquals(expected.x(), diffVector.x(), ERROR_MARGIN,"Something is wrong with the X logic in Vector3D function");
         assertEquals(expected.y(), diffVector.y(), ERROR_MARGIN,"Something is wrong with the Y logic in Vector3D function");
         assertEquals(expected.z(), diffVector.z(), ERROR_MARGIN,"Something is wrong with the Z logic in Vector3D function");
