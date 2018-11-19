@@ -7,7 +7,7 @@ public class Csv2kml {
 
 
     //parsing the csv file is inspired by the code from this link: https://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
-    //returns file path for KML.
+    //returns filepath for KML file.
     public String changeToKML(String csvFileName) {
         String fileNameForNewKML = csvFileName+"_inKMLdata.kml";
         ArrayList<String> kmlContent = new ArrayList<>();
@@ -19,7 +19,7 @@ public class Csv2kml {
 
         //We also read the CSV file.
         String csvFile = "/dataExamples/data/WigleWifi_20171201110209.csv";
-        String line = "";
+        String line;
         String cvsSplitBy = ",";
 
         try {
@@ -30,9 +30,7 @@ public class Csv2kml {
             if (br.readLine() != null) {
                 br.readLine();
             }
-
             while ((line = br.readLine()) != null) {
-
                 // using comma as separator
                 String[] wifiPoint = line.split(cvsSplitBy);
                 String kmlElement = "<Placemark>\n" +
