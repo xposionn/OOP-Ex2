@@ -12,12 +12,13 @@ public class Meta_data_obj implements Meta_data {
         this.color = rgbColor;
         this.UTCtime = UTCtimeLONG;
     }
+
     /**
      * returns the Universal Time Clock associated with this data;
      */
     @Override
     public long getUTC() {
-        return 0;
+        return this.UTCtime;
     }
 
     /**
