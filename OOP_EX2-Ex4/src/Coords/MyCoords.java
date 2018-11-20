@@ -85,7 +85,10 @@ public class MyCoords implements coords_converter {
     @Override
     public boolean isValid_GPS_Point(Point3D p) {
 
-        return false;
+        boolean lat = (-180 <= p.x()) && (p.x() <= 180);
+        boolean lon = (-90 <= p.y()) && (p.y() <= 90);
+        boolean alt = (-450 <= p.z()) && (p.z() <= 8848); // Everest High -> 8848
+        return lat&&lon&&alt;
     }
 
 }
