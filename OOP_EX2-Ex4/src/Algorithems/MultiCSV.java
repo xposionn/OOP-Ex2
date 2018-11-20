@@ -1,5 +1,7 @@
 package Algorithems;
 
+import File_format.Csv2kml;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +11,10 @@ public class MultiCSV {
     public static void main(String[] args) {
         Collection<File> all = new ArrayList<File>();
         addTree(new File("."), all);
-        System.out.println(all);
+        for(File file:all){
+         Csv2kml c2k = new Csv2kml();
+         c2k.changeToKML("D:/Projects/IdeaProjects/OOP-Ex2-4/OOP_EX2-Ex4/" + file.toString().substring(1)); //update Location
+        }
     }
 
     //Scan all the folder
@@ -18,7 +23,8 @@ public class MultiCSV {
         File[] children = file.listFiles();
         if (children != null) {
             for (File child : children) {
-                all.add(child);
+                if (child.toString().endsWith(".csv"))
+                    all.add(child);
                 addTree(child, all);
             }
         }

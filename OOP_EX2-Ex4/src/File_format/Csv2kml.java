@@ -8,6 +8,12 @@ public class Csv2kml {
 
     //parsing the csv file is inspired by the code from this link: https://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
     //returns filepath for KML file.
+    //Added by timor
+
+
+    public Csv2kml() {
+    }
+
     public String changeToKML(String csvFileName) {
         String fileNameForNewKML = csvFileName+"_inKMLdata.kml";
         ArrayList<String> kmlContent = new ArrayList<>();
