@@ -24,13 +24,14 @@ public class Csv2kml {
                 "</Document></kml>";
 
         //We also read the CSV file.
-        String csvFile = "D:\\Projects\\IdeaProjects\\OOP-Ex2-4\\OOP_EX2-Ex4\\dataExamples\\data\\"+csvFileName;
+        String path = "D:\\Projects\\IdeaProjects\\OOP-Ex2-4\\OOP_EX2-Ex4\\dataExamples\\data\\";
+        String csvFile = path+csvFileName;
         String line;
         String cvsSplitBy = ",";
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(csvFile));
-            FileWriter fw = new FileWriter(fileNameForNewKML);
+            FileWriter fw = new FileWriter(path+fileNameForNewKML);
             BufferedWriter bw = new BufferedWriter(fw);
             //first two lines is irrelevant for the google format KML.
             if (br.readLine() != null) {
