@@ -46,5 +46,16 @@ class MyCoordsTest {
 
     @Test
     void isValid_GPS_Point() {
+        boolean test1 = coords.isValid_GPS_Point(vectorBetween);
+        if(test1){
+            fail(vectorBetween.toString() + "is not valid.");
+        }
+        boolean test2 = coords.isValid_GPS_Point(b9);
+        if(test2) {
+        //all good
+        }else{
+            fail(b9 + " is vaild.");
+        }
+
     }
 }
