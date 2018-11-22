@@ -9,11 +9,15 @@ import java.util.Collection;
 public class MultiCSV {
 
     public static void main(String[] args) {
+
+
         Collection<File> all = new ArrayList<File>();
         addTree(new File("."), all);
-        for(File file:all){
-         Csv2kml c2k = new Csv2kml();
-         c2k.changeToKML("D:/Projects/IdeaProjects/OOP-Ex2-4/OOP_EX2-Ex4/" + file.toString().substring(1)); //update Location
+        for (File file : all) {
+            Csv2kml c2k = new Csv2kml();
+            String fileName = file.toString();
+            fileName = fileName.substring(fileName.indexOf("a\\")+2);
+            c2k.changeToKML(fileName); //update Location
         }
     }
 
@@ -23,8 +27,9 @@ public class MultiCSV {
         File[] children = file.listFiles();
         if (children != null) {
             for (File child : children) {
-                if (child.toString().endsWith(".csv"))
+                if (child.toString().endsWith(".csv")) {
                     all.add(child);
+                }
                 addTree(child, all);
             }
         }

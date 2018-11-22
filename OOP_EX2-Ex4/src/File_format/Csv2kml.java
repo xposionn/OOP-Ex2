@@ -24,7 +24,7 @@ public class Csv2kml {
                 "</Document></kml>";
 
         //We also read the CSV file.
-        String csvFile = "/dataExamples/data/WigleWifi_20171201110209.csv";
+        String csvFile = "D:\\Projects\\IdeaProjects\\OOP-Ex2-4\\OOP_EX2-Ex4\\dataExamples\\data\\"+csvFileName;
         String line;
         String cvsSplitBy = ",";
 
