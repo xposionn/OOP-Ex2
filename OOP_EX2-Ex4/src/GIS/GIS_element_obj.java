@@ -3,13 +3,17 @@ package GIS;
 import Geom.Geom_element;
 import Geom.Point3D;
 
-public class GIS_Element_obj implements GIS_element {
+public class GIS_element_obj implements GIS_element {
     Geom_element geom;
     Meta_data metaData;
-
-    public GIS_Element_obj(Geom_element geometryOfElement,Meta_data dataOfElement){
+    String[] alldata //update : remove.
+    public GIS_element_obj(Geom_element geometryOfElement, Meta_data dataOfElement){
         this.geom = geometryOfElement;
         this.metaData = dataOfElement;
+    }
+
+    public GIS_element_obj(String[] element) {
+        alldata = element;
     }
 
     @Override
