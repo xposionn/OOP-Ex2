@@ -3,7 +3,6 @@ package Coords;
 import Geom.Point3D;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
