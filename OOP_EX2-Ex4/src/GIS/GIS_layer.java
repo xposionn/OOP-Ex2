@@ -7,5 +7,5 @@ public interface GIS_layer extends Set<GIS_element> {
 	public Meta_data get_Meta_data();
 
 	public void setMeta(Meta_data meta);
-	
+	public String toKml();
 }

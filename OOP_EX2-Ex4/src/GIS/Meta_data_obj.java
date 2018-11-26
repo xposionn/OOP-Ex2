@@ -15,6 +15,13 @@ public class Meta_data_obj implements Meta_data {
         this.UTCtime = UTCtimeLONG;
     }
 
+    public String allInfo(){
+        StringBuilder string = new StringBuilder();
+        string.append(this.color.toString()+",");
+        string.append(this.UTCtime+",");
+    return string.toString();
+    }
+
     /**
      * returns the Universal Time Clock associated with this data;
      */
@@ -29,5 +36,10 @@ public class Meta_data_obj implements Meta_data {
     @Override
     public Point3D get_Orientation() {
         return null;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 }

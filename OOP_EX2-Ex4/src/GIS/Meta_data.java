@@ -11,4 +11,8 @@ public interface Meta_data {
 	 * @return the orientation: yaw, pitch and roll associated with this data;
 	 */
 	public Point3D get_Orientation();
+
+	String getName();
+
+	public String allInfo();
 }

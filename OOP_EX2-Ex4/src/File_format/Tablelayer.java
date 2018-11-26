@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class Tablelayer {
 
 
-    public static GIS_layer TableLayer(csvTable csvTable, String fileName){
+    public GIS_layer TableLayer(csvTable csvTable, String fileName){
 
         GIS_layer layer = new GIS_layer_obj();
         Iterator<String []> iterator = csvTable.iterator();
@@ -23,14 +23,14 @@ public class Tablelayer {
             if (header[i].equals("CurrentLatitude")) {
                 latIndex = i;
             } else if (header[i].equals("CurrentLongitude")) {
-                latIndex = i;
+                longIndex = i;
             } else if (header[i].equals("AltitudeMeters")) {
                 altIndex = i;
             } else if (header[i].equals("SSID") || header[i].equals("Name")) { //name
                 nameIndex = i;
             } else if (header[i].equals("Color")) {
                 colorIndex = i;
-            } else if (header[i].equals("Time")) {
+            } else if (header[i].equals("FirstSeen")) {
                 timeIndex = i;
             }
         }
@@ -39,14 +39,14 @@ public class Tablelayer {
         double elemLon = 0;
         double elemAlt = 0;
         long elemTime=0;
-
+        iterator.next(); //ignore the header
         while(iterator.hasNext()){
             String[] element = iterator.next();
             try {
                 elemLat = Double.parseDouble(element[latIndex]);
                 elemLon = Double.parseDouble(element[longIndex]);
                 elemAlt = Double.parseDouble(element[altIndex]);
-                elemTime = Long.parseLong(element[timeIndex]);
+//                elemTime = Long.parseLong(element[timeIndex]);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
