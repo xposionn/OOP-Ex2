@@ -9,7 +9,8 @@ public class Csv2kml {
 
 
     public static void makeKmlFile(String fileName) {
-        File csv = new File(fileName);
+        String path = System.getProperty("user.dir")+ File.separator;;
+        File csv = new File(path+File.separator+"OOP_Ex2-Ex4"+File.separator+"dataExamples"+File.separator+fileName);
         csvTable csvTable = null;
         try {
             csvTable = new csvTable(csv);
