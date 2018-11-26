@@ -10,7 +10,11 @@ import java.util.List;
 
 public class csvTable {
 
-    List csvTable;
+    ArrayList<String[]> csvTable;
+
+    public String[] getHeader() {
+        return csvTable.get(0);
+    }
 
     @Override
     public String toString() {
@@ -22,14 +26,11 @@ public class csvTable {
     public csvTable(File csv) throws IOException {
         csvTable = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(csv));
-        String line = reader.readLine();
-        String[] first = line.split(",");
-        csvTable.add(first);
+        String line;
         while((line = reader.readLine())!=null){
             String[] add = line.split(",");
             csvTable.add(add);
         }
-
     }
 
     public List getCsvTable() {

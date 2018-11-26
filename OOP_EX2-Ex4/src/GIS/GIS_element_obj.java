@@ -1,20 +1,19 @@
 package GIS;
 
+import Coords.MyCoords;
 import Geom.Geom_element;
 import Geom.Point3D;
 
 public class GIS_element_obj implements GIS_element {
     Geom_element geom;
     Meta_data metaData;
-    String[] alldata //update : remove.
-    public GIS_element_obj(Geom_element geometryOfElement, Meta_data dataOfElement){
+
+
+    public GIS_element_obj(Geom_element geometryOfElement, Meta_data dataOfElement) {
         this.geom = geometryOfElement;
         this.metaData = dataOfElement;
     }
 
-    public GIS_element_obj(String[] element) {
-        alldata = element;
-    }
 
     @Override
     public Geom_element getGeom() {
@@ -28,6 +27,7 @@ public class GIS_element_obj implements GIS_element {
 
     @Override
     public void translate(Point3D vec) {
-
+        MyCoords coords = new MyCoords();
+        this.geom = coords.add((Point3D)this.geom,vec);
     }
 }

@@ -1,76 +1,22 @@
 package GIS;
 
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
-public class GIS_layer_obj implements GIS_layer {
+public class GIS_layer_obj extends ArrayList<GIS_element> implements GIS_layer {
+
+    Meta_data layerMeta;
+
     @Override
     public Meta_data get_Meta_data() {
-        return null;
+        return this.layerMeta;
     }
 
-    @Override
-    public int size() {
-        return 0;
+    public void setMeta(Meta_data meta) {
+        this.layerMeta = meta;
     }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
+    public void toKml(){
+        System.out.println(this.toString());
     }
 
-    @Override
-    public boolean contains(Object o) {
-        return false;
-    }
-
-    @Override
-    public Iterator<GIS_element> iterator() {
-        return null;
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean add(GIS_element gis_element) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends GIS_element> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
-    }
 }
