@@ -1,7 +1,6 @@
 package Algorithms;
 
-import File_format.Csv2kml;
-import File_format.csv2Layer;
+import File_format.Csv2Layer;
 import GIS.GIS_layer;
 import GIS.GIS_project;
 import GIS.GIS_project_obj;
@@ -26,7 +25,7 @@ public class MultiCSV {
         if (children != null) {
             for (File child : children) {
                 if(child.toString().endsWith(".csv")) {
-                    GIS_layer layer = csv2Layer.csv2Layer(child.getName());
+                    GIS_layer layer = Csv2Layer.csv2Layer(child.getName());
                     project.add(layer);
 
                 }
