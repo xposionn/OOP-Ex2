@@ -1,4 +1,4 @@
-package Algorithems;
+package Algorithms;
 
 import java.time.Instant;
 import java.time.ZoneOffset;

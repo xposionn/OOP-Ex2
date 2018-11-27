@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class csvTable {
+public class CsvTable {
 
     ArrayList<String[]> csvTable;
 
@@ -18,12 +18,12 @@ public class csvTable {
 
     @Override
     public String toString() {
-        return "csvTable{" +
-                "csvTable=" + csvTable +
+        return "CsvTable{" +
+                "CsvTable=" + csvTable +
                 '}';
     }
 
-    public csvTable(File csv) throws IOException {
+    public CsvTable(File csv) throws IOException {
         csvTable = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(csv));
         String line;
