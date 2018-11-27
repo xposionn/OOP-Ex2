@@ -55,6 +55,18 @@ public class Circle2D implements Geom_element{
         return p.distance2D(this.middlePoint);
     }
 
+    public double getArea() {
+        return radius * radius * PI;
+    }
+
+    public double getKoter() {
+        return 2*radius;
+    }
+
+    public double getEkef() {
+        return 2*PI*radius;
+    }
+
     /***** Getters and Setters ******/
     public Point3D getMiddlePoint() {
         return middlePoint;
