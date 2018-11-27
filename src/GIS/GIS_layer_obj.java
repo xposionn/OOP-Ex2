@@ -61,7 +61,7 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
     }
 
     @Override
-    public String toKmlforproject() {
+    public String toKmlForProject() {
 
         //first two lines is irrelevant for the google format KML.
 
