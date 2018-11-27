@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class Tablelayer {
 
 
-    public GIS_layer TableLayer(csvTable csvTable, String fileName){
+    public GIS_layer TableLayer(CsvTable csvTable, String fileName){
 
         GIS_layer layer = new GIS_layer_obj();
         Iterator<String []> iterator = csvTable.iterator();
