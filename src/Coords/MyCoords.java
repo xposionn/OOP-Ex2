@@ -30,8 +30,7 @@ public class MyCoords implements coords_converter {
     @Override
     public double distance3d(Point3D gps0, Point3D gps1) {
         Point3D diffVec = vector3D(gps0, gps1);
-        double distance = Math.sqrt(diffVec.x() * diffVec.x() + diffVec.y() * diffVec.y()+ diffVec.z()*diffVec.z());
-        return distance;
+        return diffVec.distance3D(new Point3D(0,0,0)); //difference vector is related to 0,0,0 point hence we calc distance according to that.
     }
 
     /**
@@ -62,10 +61,10 @@ public class MyCoords implements coords_converter {
             }
         }
         azimuth = Math.toDegrees(Math.atan(vectorBetween.x() / vectorBetween.y())); //in degrees.
-        while (azimuth<0){
+        while (azimuth<0){ //only positive azimuth.
             azimuth += 360;
         }
-        while (azimuth >= 360){
+        while (azimuth >= 360){ //between 0 to 360.
             azimuth -= 360;
         }
         double elevation = Math.asin(vectorBetween.z() / dist);
@@ -77,10 +76,10 @@ public class MyCoords implements coords_converter {
     }
 
     /**
-     * return true iff this point is a valid lat, lon , lat coordinate: [-180,+180],[-90,+90],[-450, +inf]
+     * return true iff this point is a valid lat, lon , alt coordinate: [-180,+180],[-90,+90],[-450, +8848]
      *
-     * @param p
-     * @return
+     * @param p the GPS point to check if it is a valid point.
+     * @return true iff valid.
      */
     @Override
     public boolean isValid_GPS_Point(Point3D p) {
