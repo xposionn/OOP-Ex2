@@ -43,9 +43,10 @@ public class GIS_layer_obj extends ArrayList<GIS_element> implements GIS_layer {
             for(GIS_element elem: this){
                 Point3D point = (Point3D)elem.getGeom();
                 String kmlElement = "<Placemark>\n" +
-                        "<name>"+elem.getData().getName()+"</name>\n" +
-                        "<description>" + elem.getData().allInfo()+ "</description>\n" +
-                        "<coordinates>" + point.x() + "," + point.y() +",0 </coordinates>\n" + //0 at Z is relative to ground height
+                        "<name>" + elem.getData().getName() + "</name>\n" +
+                        "<description>" + elem.getData().allInfo() + "</description>\n" +
+                        "<Point>\n"+
+                        "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
                         "</Point>\n" +
                         "</Placemark>\n";
                 kmlContent.add(kmlElement);
@@ -57,6 +58,25 @@ public class GIS_layer_obj extends ArrayList<GIS_element> implements GIS_layer {
             e.printStackTrace();
         }
         return fileNameForNewKML;
+    }
+
+    @Override
+    public String toKmlforproject() {
+
+        //first two lines is irrelevant for the google format KML.
+
+        String kmlElement="";
+        for(GIS_element elem: this) {
+            Point3D point = (Point3D) elem.getGeom();
+             kmlElement += "<Placemark>\n" +
+                    "<name>" + elem.getData().getName() + "</name>\n" +
+                    "<description>" + elem.getData().allInfo() + "</description>\n" +
+                     "<Point>\n"+
+                    "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
+                    "</Point>\n" +
+                    "</Placemark>\n";
+        }
+        return kmlElement;
     }
 
 }

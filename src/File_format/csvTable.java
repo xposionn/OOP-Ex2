@@ -27,6 +27,7 @@ public class csvTable {
         csvTable = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(csv));
         String line;
+        reader.readLine();
         while((line = reader.readLine())!=null){
             String[] add = line.split(",");
             csvTable.add(add);

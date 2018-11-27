@@ -1,5 +1,11 @@
 package Algorithems;
 
+import File_format.Csv2kml;
+import File_format.csv2Layer;
+import GIS.GIS_layer;
+import GIS.GIS_project;
+import GIS.GIS_project_obj;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,19 +13,24 @@ import java.util.Collection;
 public class MultiCSV {
 
     public static void main(String[] args) {
-        Collection<File> all = new ArrayList<File>();
-        addTree(new File("."), all);
-        System.out.println(all);
+        GIS_project project = new GIS_project_obj("Filename");
+        Collection<GIS_layer> all = new ArrayList<>();
+        addTree(new File("."), all,project);
+        project.toKml("test.kml");
     }
 
     //Scan all the folder
 
-    static void addTree(File file, Collection<File> all) {
+    static void addTree(File file, Collection<GIS_layer> all,GIS_project project) {
         File[] children = file.listFiles();
         if (children != null) {
             for (File child : children) {
-                all.add(child);
-                addTree(child, all);
+                if(child.toString().endsWith(".csv")) {
+                    GIS_layer layer = csv2Layer.csv2Layer(child.getName());
+                    project.add(layer);
+
+                }
+                addTree(child, all,project);
             }
         }
     }
