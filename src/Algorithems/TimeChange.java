@@ -1,26 +1,22 @@
 package Algorithems;
 
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 public class TimeChange {
 
-    public static long UTCtolong(String dateinstring){
+//    public static long UTCtolong(String dateinstring){
 //        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 //        format.setTimeZone(TimeZone.getTimeZone("UTC"));
 //
 //        Date date = format.parse(text);
 //        long millis = date.getTime();
-
-        String inputRaw = "2012-06-14 05:01:25";
-        String input = inputRaw.replace( " ", "T" );  // Replace SPACE with a 'T'.
-
-    }
+//
+//        String inputRaw = "2012-06-14 05:01:25";
+//        String input = inputRaw.replace( " ", "T" );  // Replace SPACE with a 'T'.
+//
+//    }
 
     public static String longtoUTC(long time){
 
@@ -34,7 +30,7 @@ public class TimeChange {
     public static void main(String[] args) {
 
         System.out.println(TimeChange.longtoUTC(1427723278405L));
-        System.out.println(TimeChange.UTCtolong("2015-03-30 13:47:58.405"));
+//        System.out.println(TimeChange.UTCtolong("2015-03-30 13:47:58.405"));
     }
 
 }
