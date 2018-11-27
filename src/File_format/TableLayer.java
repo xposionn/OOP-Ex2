@@ -6,7 +6,7 @@ import Geom.Point3D;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class Tablelayer {
+public class TableLayer {
 
 
     public GIS_layer TableLayer(CsvTable csvTable, String fileName){

@@ -15,7 +15,7 @@ public class Csv2Layer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Tablelayer layer = new Tablelayer();
+        TableLayer layer = new TableLayer();
         GIS_layer testlayer = layer.TableLayer(csvTable, csv.getName());
         return testlayer;
     }
