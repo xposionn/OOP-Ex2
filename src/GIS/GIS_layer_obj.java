@@ -6,7 +6,7 @@ import Geom.Point3D;
 import java.io.*;
 import java.util.*;
 
-public class GIS_layer_obj extends ArrayList<GIS_element> implements GIS_layer {
+public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
 
     Meta_data layerMeta;
 
