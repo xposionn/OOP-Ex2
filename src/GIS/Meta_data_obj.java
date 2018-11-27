@@ -16,10 +16,10 @@ public class Meta_data_obj implements Meta_data {
     }
 
     public String allInfo(){
-        StringBuilder string = new StringBuilder();
-        string.append(this.color.toString()+",");
-        string.append(this.UTCtime+",");
-    return string.toString();
+        String string = "";
+        string += "Color: ";
+        string += "Time: ";
+    return string;
     }
 
     /**

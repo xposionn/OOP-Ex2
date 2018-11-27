@@ -3,6 +3,7 @@ package File_format;
 import GIS.*;
 import Geom.Point3D;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class Tablelayer {
@@ -42,6 +43,7 @@ public class Tablelayer {
         iterator.next(); //ignore the header
         while(iterator.hasNext()){
             String[] element = iterator.next();
+            System.out.println(Arrays.toString(element));
             try {
                 elemLat = Double.parseDouble(element[latIndex]);
                 elemLon = Double.parseDouble(element[longIndex]);
