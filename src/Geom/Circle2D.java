@@ -83,4 +83,12 @@ public class Circle2D implements Geom_element{
     public void setRadius(double radius) {
         this.radius = radius;
     }
+
+    @Override
+    public String toString() {
+        return "Circle2D{" +
+                "middlePoint=" + middlePoint +
+                ", radius=" + radius +
+                '}';
+    }
 }
