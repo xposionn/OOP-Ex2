@@ -17,7 +17,7 @@ public class Csv2kml {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Tablelayer layer = new Tablelayer();
+        TableLayer layer = new TableLayer();
         GIS_layer testlayer = layer.TableLayer(csvTable, csv.getName());
         testlayer.toKml();
     }

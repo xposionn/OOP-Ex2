@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class GIS_project_obj implements GIS_project {
+public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
 
     Set<GIS_layer> set;
     Meta_data projectMeta;
@@ -14,6 +14,11 @@ public class GIS_project_obj implements GIS_project {
     public GIS_project_obj(String projectName) {
         set = new HashSet<>();
         projectMeta = new Meta_data_obj(projectName,null,0);
+    }
+
+    @Override
+    public Meta_data get_Meta_data() {
+        return projectMeta;
     }
 
     public void toKml(String fileNameForNewKML) {
@@ -39,14 +44,14 @@ public class GIS_project_obj implements GIS_project {
             Iterator<GIS_layer> iterator = set.iterator();
             while (iterator.hasNext()) {
                 GIS_layer layer = iterator.next();
-                String kmllayer = layer.toKmlforproject();
-                kmlContent.add(kmllayer);
+                String kmlLayer = layer.toKmlForProject();
+                kmlContent.add(kmlLayer);
             }
             kmlContent.add(kmlEnd);
-            String writeto = kmlContent.toString().replaceAll(", <P", "<P");
-            writeto = writeto.substring(1);
-            writeto = writeto.substring(0,writeto.length()-1);
-            bw.write(writeto);
+            String writeTo = kmlContent.toString().replaceAll(", <P", "<P");
+            writeTo = writeTo.substring(1);
+            writeTo = writeTo.substring(0,writeTo.length()-1);
+            bw.write(writeTo);
             bw.close();
 
         } catch (IOException e) {
@@ -54,76 +59,4 @@ public class GIS_project_obj implements GIS_project {
         }
     }
 
-
-
-    @Override
-    public Meta_data get_Meta_data() {
-        return this.projectMeta;
-    }
-
-    @Override
-    public int size() {
-        return set.size();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return set.isEmpty();
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        return set.contains(o);
-    }
-
-    @Override
-    public Iterator<GIS_layer> iterator() {
-        return set.iterator();
-    }
-
-    @Override
-    public Object[] toArray() {
-        return set.toArray();
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return set.toArray(a);
-    }
-
-    @Override
-    public boolean add(GIS_layer gis_elements) {
-        return set.add(gis_elements);
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return set.remove(o);
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return set.containsAll(c);
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends GIS_layer> c) {
-        return set.addAll(c);
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return set.retainAll(c);
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return set.removeAll(c);
-    }
-
-    @Override
-    public void clear() {
-        set.clear();
-
-    }
 }
