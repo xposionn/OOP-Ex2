@@ -1,0 +1,3540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Style id="red">
+<IconStyle>
+<Icon><href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href></Icon>
+</IconStyle>
+</Style>
+<Style id="yellow"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href></Icon></IconStyle></Style><Style id="green"><IconStyle><Icon><href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href></Icon></IconStyle></Style>
+<Folder>
+<name>Project Name....</name>
+<Folder>
+<name>somethingInside.csv</name>
+<Placemark>
+<name>varda</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81226897382831,32.17254564957508,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>UFI_UF230_B3F</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268553093009,32.170654027529686,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ELCHARAR_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81208525807686,32.16943682725201,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTFiber-400D</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81174537287164,32.16883769901991,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 2.4Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812966284830594,32.17178366806458,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Neeman2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81092582224991,32.16988410573102,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>yotam17</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81334830357392,32.1711226542225,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Beni</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81363414318978,32.17081392063111,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>edimax_5G_A9241C</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>hot</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81210224701049,32.169423702689954,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81291470608912,32.17244003231061,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>dlink-A09C</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81074036189685,32.16939849690679,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Beni</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81367243117691,32.17094894909989,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>stephane</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811098338566204,32.17023774400125,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ter123</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812577158369976,32.1704760444708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811406143585245,32.17079804250259,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>SIEMENS_LivingRoom</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812613739872425,32.17028599663912,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Yotam_Shir</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81334830357392,32.1711226542225,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>love</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81436692415887,32.172250875103074,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>iFOREX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81057058716543,32.168881406149175,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>sirocco_2.4o</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81363414318978,32.17081392063111,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81367243117691,32.17094894909989,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Beni</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-4D4E</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81099874038432,32.170053389171805,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Mevohot_1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81336124587249,32.172382685741084,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>oved-main</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.810858045280845,32.169728418133815,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>evanson</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>test012</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81350325265134,32.17106789784238,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-29-HP OfficeJet Pro 8710</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813408321637986,32.1695720901851,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813008839731566,32.17221891605429,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81078259065756,32.168750227662805,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Helen.</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812042356198646,32.17229408710547,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>TUCHLER</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268553093009,32.170654027529686,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Daizad</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813533118254576,32.17024204862788,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HP-Print-AF-Officejet Pro 6830</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81282029540289,32.17095455549593,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Guymic</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811205413681165,32.1704220061369,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Volvo247</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.814448298318844,32.172209259560766,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>mika1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811600945951724,32.17117720998362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Is</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811904195497384,32.17191742911665,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-F028</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81356387819144,32.17042884309843,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Hotbox</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81247911919242,32.1725225188478,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>MNP_HOME_2.4GHz_1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81350325265134,32.17106789784238,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX111</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81362985551846,32.17098714928447,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>forestisthebest</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>love</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.814265874458584,32.17229583572982,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>NIPPON_3687</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812693847413286,32.17248382374769,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>klaiman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>  InnovationEndeavors</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81174537287164,32.16883769901991,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81291470608912,32.17244003231061,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>spielman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81068174685835,32.169212309411726,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>tal</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>KaymeraDev</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8130339454378,32.16957319918231,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Lili</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free GA32E3</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81383247774181,32.172359339129684,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>KaymeraDev</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 5Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812966284830594,32.17178366806458,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Lahav</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81383247774181,32.172359339129684,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>varda</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811768201385796,32.17154067297358,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.810858045280845,32.169728418133815,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Mheta_AP</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81201044802282,32.16927107246911,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>orange</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813537076757704,32.17025406565039,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81293937528084,32.171111089076454,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>INGENEO</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81061687133246,32.16878253500298,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX111</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81129910090613,32.16875525343879,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 5Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812838021973164,32.17104344764023,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>claire</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81275918581424,32.17092410916535,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>sirocco_2.4o</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>spielman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-F028</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81356387819144,32.17042884309843,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Yotam _ work _ room</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81330158971711,32.17107862941617,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-75-HP DeskJet 4670 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Chakir</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.814036899369874,32.17228483399432,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81308167653217,32.1724135732166,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81291470608912,32.17244003231061,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Talfamily</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81183319930766,32.16889805537721,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-8156</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81193255078027,32.16909112707448,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>BezeqFree</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8123924291015,32.17009177038523,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nurit</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Daizad</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81358034712056,32.170307583918806,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ELCHARAR_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>evanson</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Alpha125</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81314408162315,32.17246213445027,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Efrat</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81446401702757,32.17218268216534,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ter123</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813533118254576,32.17024204862788,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81174537287164,32.16883769901991,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>oved-main</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>geller</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8123924291015,32.17009177038523,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>BezeqNGN_001489_2.4GHz_1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8123924291015,32.17009177038523,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>NIPPON_3687</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81247911919242,32.1725225188478,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 2.4Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268528377859,32.17070417266147,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nina</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812206661227876,32.16956688989755,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nina</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812198841457004,32.16964553962474,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>edimax_2.4G_ruty</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>dlink</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Fuck Off Yourself</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81201044802282,32.16927107246911,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>WR</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8119993015223,32.16921657591955,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free T00C36</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Fuck Off ext</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81201044802282,32.16927107246911,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>frank</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81245570309557,32.17019624834832,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>UFI_UF230_B3F</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812577158369976,32.1704760444708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HP-Print-C1-Deskjet 4640 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Liliup</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 5Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268528377859,32.17070417266147,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>oved-main_2EX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81092582224991,32.16988410573102,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>klaiman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8119993015223,32.16921657591955,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>044870715</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-651B</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81191817927795,32.169027594463216,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81183319930766,32.16889805537721,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Candan</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81061687133246,32.16878253500298,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>My_Internet</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81356387819144,32.17042884309843,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HP-Print-C1-Deskjet 4640 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.810619520712386,32.169012321650136,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Laufer-wifi</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812767664505046,32.17081209129427,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ter123</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81249258786661,32.170302961492325,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>hilda</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813408321637986,32.1695720901851,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>amnon</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-651B</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>frank</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81278321992516,32.17026748685567,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Jamcandown</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-a8-HP M477 LaserJet</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81061687133246,32.16878253500298,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81193255078027,32.16909112707448,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>hot</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812577158369976,32.1704760444708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ben Ami_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8118405837912,32.171728186062275,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>TP-LINK_E3CA</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81278321992516,32.17026748685567,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>devolo-0f4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81099874038432,32.170053389171805,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Orit</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81387685906902,32.17230733807558,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>orange</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-1C-HP DeskJet 3830 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812198841457004,32.16964553962474,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Candan</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81347187978352,32.1697212488476,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nina</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81323889640528,32.16955478439471,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>landau</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81230905410695,32.169817000218366,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81191817927795,32.169027594463216,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81154567298425,32.16878953124043,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81287279562144,32.17113625414073,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free 672B84</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81275918581424,32.17092410916535,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>My_Internet</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81350325265134,32.17106789784238,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ronkla2_5</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81168874408503,32.17135803478369,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>UFI_UF230_B3F</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81210224701049,32.169423702689954,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813008839731566,32.17221891605429,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Gana7_2GExt</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81130191879183,32.17061250500982,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free T00C36</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81208525807686,32.16943682725201,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812838021973164,32.17104344764023,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>yotam17</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813608312741444,32.17050412989869,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>tal</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81330158971711,32.17107862941617,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Jamcanup</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>spielman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Baruch_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81367243117691,32.17094894909989,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>tal2</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81407112131554,32.17232233794856,0 </coordinates>
+</Point>
+</Placemark>
+</Folder><Folder>
+<name>WigleWifi_20171201110209.csv</name>
+<Placemark>
+<name>orange</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>sirocco_2.4o</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Efrat</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81446401702757,32.17218268216534,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>mika1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811600945951724,32.17117720998362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Guymic</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811205413681165,32.1704220061369,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Mevohot_1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81336124587249,32.172382685741084,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HP-Print-C1-Deskjet 4640 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.810619520712386,32.169012321650136,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Yotam_Shir</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81334830357392,32.1711226542225,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free 672B84</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81275918581424,32.17092410916535,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>edimax_5G_A9241C</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>WR</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8119993015223,32.16921657591955,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>UFI_UF230_B3F</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268553093009,32.170654027529686,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81367243117691,32.17094894909989,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-651B</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Helen.</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812042356198646,32.17229408710547,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX111</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81129910090613,32.16875525343879,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>yotam17</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813608312741444,32.17050412989869,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>amnon</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81287279562144,32.17113625414073,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Talfamily</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81183319930766,32.16889805537721,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>TP-LINK_E3CA</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81278321992516,32.17026748685567,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.810858045280845,32.169728418133815,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Orit</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81387685906902,32.17230733807558,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-F028</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81356387819144,32.17042884309843,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81174537287164,32.16883769901991,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>tal</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81330158971711,32.17107862941617,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>TUCHLER</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268553093009,32.170654027529686,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>orange</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813537076757704,32.17025406565039,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811904195497384,32.17191742911665,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Liliup</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>dlink</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>SIEMENS_LivingRoom</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812613739872425,32.17028599663912,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>BezeqNGN_001489_2.4GHz_1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81078259065756,32.168750227662805,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-a8-HP M477 LaserJet</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81061687133246,32.16878253500298,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ELCHARAR_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>tal</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81308167653217,32.1724135732166,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>MNP_HOME_2.4GHz_1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81350325265134,32.17106789784238,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>spielman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nina</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81323889640528,32.16955478439471,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>stephane</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811098338566204,32.17023774400125,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81363414318978,32.17081392063111,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 5Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812966284830594,32.17178366806458,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81314408162315,32.17246213445027,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ELCHARAR_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81208525807686,32.16943682725201,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Lahav</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81383247774181,32.172359339129684,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HP-Print-C1-Deskjet 4640 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Jamcandown</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81356387819144,32.17042884309843,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813514176763185,32.17010132675571,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>hot</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812577158369976,32.1704760444708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813008839731566,32.17221891605429,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ben Ami_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8118405837912,32.171728186062275,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>yotam17</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81334830357392,32.1711226542225,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Fuck Off ext</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81201044802282,32.16927107246911,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>My_Internet</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81350325265134,32.17106789784238,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HP-Print-AF-Officejet Pro 6830</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81282029540289,32.17095455549593,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Gana7_2GExt</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81130191879183,32.17061250500982,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>claire</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81275918581424,32.17092410916535,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>oved-main</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.810858045280845,32.169728418133815,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>love</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.814265874458584,32.17229583572982,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813008839731566,32.17221891605429,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811406143585245,32.17079804250259,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Lili</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>UFI_UF230_B3F</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812577158369976,32.1704760444708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Fuck Off Yourself</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81201044802282,32.16927107246911,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Volvo247</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.814448298318844,32.172209259560766,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Beni</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81363414318978,32.17081392063111,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>klaiman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8119993015223,32.16921657591955,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>frank</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81278321992516,32.17026748685567,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nina</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812206661227876,32.16956688989755,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81291470608912,32.17244003231061,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>evanson</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX111</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81362985551846,32.17098714928447,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Is</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Candan</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81347187978352,32.1697212488476,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>geller</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8123924291015,32.17009177038523,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Baruch_2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81367243117691,32.17094894909989,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81191817927795,32.169027594463216,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>edimax_2.4G_ruty</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>sirocco_2.4o</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Jamcanup</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8106650271149,32.16917019230133,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>forestisthebest</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>dlink-A09C</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81074036189685,32.16939849690679,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-8156</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81193255078027,32.16909112707448,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>varda</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.811768201385796,32.17154067297358,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free T00C36</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Neeman2.4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81092582224991,32.16988410573102,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-29-HP OfficeJet Pro 8710</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813408321637986,32.1695720901851,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81193255078027,32.16909112707448,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Laufer-wifi</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812767664505046,32.17081209129427,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>evanson</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-4D4E</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81099874038432,32.170053389171805,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>hot</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81210224701049,32.169423702689954,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8130339454378,32.16957319918231,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Yotam _ work _ room</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81330158971711,32.17107862941617,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81291470608912,32.17244003231061,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>UFI_UF230_B3F</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81210224701049,32.169423702689954,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Beni</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81367243117691,32.17094894909989,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ter123</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81249258786661,32.170302961492325,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Daizad</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813533118254576,32.17024204862788,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>NIPPON_3687</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81247911919242,32.1725225188478,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>KaymeraDev</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>044870715</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ronkla2_5</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81168874408503,32.17135803478369,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>klaiman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 2.4Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812966284830594,32.17178366806458,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>landau</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81230905410695,32.169817000218366,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Chakir</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.814036899369874,32.17228483399432,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Candan</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81061687133246,32.16878253500298,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 2.4Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268528377859,32.17070417266147,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Alpha125</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81077184677352,32.169491346626565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>KaymeraDev</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81183319930766,32.16889805537721,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Beni</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>tal2</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 5Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812838021973164,32.17104344764023,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81407112131554,32.17232233794856,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>spielman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81068174685835,32.169212309411726,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-651B</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81191817927795,32.169027594463216,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-75-HP DeskJet 4670 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8123924291015,32.17009177038523,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nina</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812198841457004,32.16964553962474,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812397786519114,32.17005164614875,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>spielman</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>INGENEO</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81061687133246,32.16878253500298,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free GA32E3</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81383247774181,32.172359339129684,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>BezeqFree</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.8123924291015,32.17009177038523,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>oved-main</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81072496254775,32.16935940800852,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>devolo-0f4</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81099874038432,32.170053389171805,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>frank</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81245570309557,32.17019624834832,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTBOX-F028</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81356387819144,32.17042884309843,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Oded 5Ghz</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81268528377859,32.17070417266147,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Hotbox</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81247911919242,32.1725225188478,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>oved-main_2EX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81092582224991,32.16988410573102,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>test012</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81350325265134,32.17106789784238,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>nurit</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813083395926654,32.17110086640514,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>NIPPON_3687</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812693847413286,32.17248382374769,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Mheta_AP</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81201044802282,32.16927107246911,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812838021973164,32.17104344764023,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ter123</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813533118254576,32.17024204862788,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>My_Internet</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813595071211296,32.17061830172761,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-1C-HP DeskJet 3830 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812198841457004,32.16964553962474,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>  InnovationEndeavors</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81174537287164,32.16883769901991,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>LRWN</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81154567298425,32.16878953124043,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Daizad</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81358034712056,32.170307583918806,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>love</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81436692415887,32.172250875103074,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free T00C36</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81208525807686,32.16943682725201,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>hilda</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.813408321637986,32.1695720901851,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>ter123</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.812577158369976,32.1704760444708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>varda</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81226897382831,32.17254564957508,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>iFOREX</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81057058716543,32.168881406149175,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIR-825-4f83</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81291470608912,32.17244003231061,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HOTFiber-400D</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81174537287164,32.16883769901991,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Partner</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>34.81293937528084,32.171111089076454,0 </coordinates>
+</Point>
+</Placemark>
+</Folder><Folder>
+<name>WigleWifi_20171203085618.csv</name>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21007474,32.10475343,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20978446,32.10305306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20884914,32.10244119,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21137457,32.10487501,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>outsense</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20894955,32.1022576,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>CliClap</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20960715,32.10448173,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871988,32.10301827,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20932755,32.10430866,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>CliClap</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20875946,32.10346795,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>TP-LINK_ADD150</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21007474,32.10475343,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>TP-LINK_ADD150</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20975804,32.10457483,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20917533,32.10419361,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21040928,32.10392655,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20874462,32.10333565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>sinusafe</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>EVE</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20884914,32.10244119,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21138319,32.10423611,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20975804,32.10457483,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21019984,32.10379261,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21138319,32.10423611,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name></name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21138319,32.10423611,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20883622,32.10376365,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20894955,32.1022576,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21060853,32.10495375,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20876629,32.10263124,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21019984,32.10379261,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>EVE</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>yosh</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2098381,32.10199722,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21134308,32.10487307,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871988,32.10301827,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20883622,32.10376365,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>KCG-ADSL</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20983303,32.10290524,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>DIRECT-B1-HP DeskJet 3830 series</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20998301,32.10212708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21044203,32.10490203,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21064312,32.10403138,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20875946,32.10346795,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>magneto</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20875946,32.10346795,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20874462,32.10333565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20992695,32.10357832,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2098381,32.10199722,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20960715,32.10448173,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21158147,32.10450422,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20983303,32.10290524,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21138319,32.10423611,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2098381,32.10199722,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20979335,32.10330416,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21044203,32.10490203,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name></name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20978446,32.10305306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>lab_6.1.3</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20912829,32.10212198,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>paysday</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20917533,32.10419361,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20878096,32.10359721,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20978446,32.10305306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>outsense</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21007474,32.10475343,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871988,32.10301827,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20917533,32.10419361,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>AUC_4_2_24</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20992695,32.10357832,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>KCG-ADSL</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21040928,32.10392655,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20876629,32.10263124,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21150642,32.10434812,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20960153,32.10196459,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21138319,32.10423611,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>shapedo</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>shapedo</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20917533,32.10419361,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21138319,32.10423611,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21107852,32.1050222,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21019984,32.10379261,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>incentive2</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name></name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20935702,32.1020322,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20946023,32.10440239,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21019984,32.10379261,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21019984,32.10379261,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20917533,32.10419361,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20876629,32.10263124,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20935702,32.1020322,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21138319,32.10423611,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21135337,32.10488619,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21135337,32.10488619,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20912829,32.10212198,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>AUC_4_2_24</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21101715,32.10415215,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20878096,32.10359721,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21107852,32.1050222,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20884914,32.10244119,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20978446,32.10305306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20894955,32.1022576,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20979335,32.10330416,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21091349,32.10412387,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HelpDesk</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2098381,32.10199722,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2114539,32.10481492,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21101715,32.10415215,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Guest</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20894955,32.1022576,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21019984,32.10379261,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20874462,32.10333565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>IT-MNG</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2115156,32.10476714,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>IT-MNG</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2114539,32.10481492,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21040928,32.10392655,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871988,32.10301827,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21007474,32.10475343,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20912829,32.10212198,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21135337,32.10488619,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20874462,32.10333565,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20875946,32.10346795,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20978446,32.10305306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21091349,32.10412387,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>KCG-ADSL</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21003281,32.10226153,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20883622,32.10376365,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2098381,32.10199722,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21040928,32.10392655,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>HelpDesk</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20884914,32.10244119,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21091349,32.10412387,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20894955,32.1022576,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20917533,32.10419361,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20978446,32.10305306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20983303,32.10290524,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20998301,32.10212708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21044203,32.10490203,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Afikim_Wifi</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21007474,32.10475343,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21150642,32.10434812,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21025994,32.1048406,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2098381,32.10199722,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871899,32.10282362,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20876629,32.10263124,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20894955,32.1022576,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21044203,32.10490203,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20884914,32.10244119,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>2.4V1</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20978446,32.10305306,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name></name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20917533,32.10419361,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21091349,32.10412387,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20884914,32.10244119,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20979335,32.10330416,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Guest</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20892354,32.10391893,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20871988,32.10301827,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20979335,32.10330416,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>lab_6.1.3</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20977295,32.10314139,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Guest</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21007474,32.10475343,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20876629,32.10263124,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21134308,32.10487307,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20946023,32.10440239,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21092655,32.10503208,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>yosh</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21044203,32.10490203,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>paysday</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name></name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20873143,32.10318952,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>artsim</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20946023,32.10440239,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Bezeq Free</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20998301,32.10212708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20983303,32.10290524,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>yosh</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21150642,32.10434812,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>outsense</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20990936,32.10466627,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20902709,32.10406321,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>036518749</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20876629,32.10263124,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21007474,32.10475343,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20883622,32.10376365,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20912829,32.10212198,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.20998301,32.10212708,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.21118813,32.10418089,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ariel_University</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2115156,32.10476714,0 </coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>036518749</name>
+<description>Color: Time: </description>
+<Point>
+<coordinates>35.2098381,32.10199722,0 </coordinates>
+</Point>
+</Placemark>
+</Folder></Folder>
+</Document></kml>
