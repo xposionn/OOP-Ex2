@@ -43,7 +43,6 @@ public class TableLayer {
         iterator.next(); //ignore the header
         while(iterator.hasNext()){
             String[] element = iterator.next();
-            System.out.println(Arrays.toString(element));
             try {
                 elemLat = Double.parseDouble(element[latIndex]);
                 elemLon = Double.parseDouble(element[longIndex]);

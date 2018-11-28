@@ -65,10 +65,12 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
 
         //first two lines is irrelevant for the google format KML.
 
-        String kmlElement="";
-        for(GIS_element elem: this) {
+        String kmlContent = "<Folder>\n<name>"+layerMeta.getName()+"</name>\n";
+        Iterator<GIS_element> it = this.iterator();
+        while(it.hasNext()) {
+            GIS_element elem = it.next();
             Point3D point = (Point3D) elem.getGeom();
-             kmlElement += "<Placemark>\n" +
+            kmlContent += "<Placemark>\n" +
                     "<name>" + elem.getData().getName() + "</name>\n" +
                     "<description>" + elem.getData().allInfo() + "</description>\n" +
                      "<Point>\n"+
@@ -76,7 +78,7 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
                     "</Point>\n" +
                     "</Placemark>\n";
         }
-        return kmlElement;
+        return kmlContent+"</Folder>";
     }
 
 }

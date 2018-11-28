@@ -7,12 +7,9 @@ import java.util.*;
 
 public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
 
-    Set<GIS_layer> set;
     Meta_data projectMeta;
 
-
     public GIS_project_obj(String projectName) {
-        set = new HashSet<>();
         projectMeta = new Meta_data_obj(projectName,null,0);
     }
 
@@ -40,17 +37,15 @@ public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
         try {
             FileWriter fw = new FileWriter(fileNameForNewKML);
             BufferedWriter bw = new BufferedWriter(fw);
-
-            Iterator<GIS_layer> iterator = set.iterator();
+            Iterator<GIS_layer> iterator = this.iterator();
             while (iterator.hasNext()) {
                 GIS_layer layer = iterator.next();
                 String kmlLayer = layer.toKmlForProject();
                 kmlContent.add(kmlLayer);
             }
             kmlContent.add(kmlEnd);
-            String writeTo = kmlContent.toString().replaceAll(", <P", "<P");
-            writeTo = writeTo.substring(1);
-            writeTo = writeTo.substring(0,writeTo.length()-1);
+            String writeTo = kmlContent.toString().replaceAll(", <", "<");
+            writeTo = writeTo.substring(1,writeTo.length()-1); //first and last are irrelevant
             bw.write(writeTo);
             bw.close();
 

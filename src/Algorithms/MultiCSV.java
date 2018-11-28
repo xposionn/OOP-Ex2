@@ -12,24 +12,22 @@ import java.util.Collection;
 public class MultiCSV {
 
     public static void main(String[] args) {
-        GIS_project project = new GIS_project_obj("Filename");
-        Collection<GIS_layer> all = new ArrayList<>();
-        addTree(new File("."), all,project);
-        project.toKml("test.kml");
+        GIS_project project = new GIS_project_obj("Project Name....");
+        addTree(new File("."),project);
+        project.toKml(project.get_Meta_data().getName()+".kml");
     }
 
     //Scan all the folder
 
-    static void addTree(File file, Collection<GIS_layer> all,GIS_project project) {
-        File[] children = file.listFiles();
+    static void addTree(File file,GIS_project project) {
+        File[] children = file.listFiles(); //all files inside directory
         if (children != null) {
             for (File child : children) {
                 if(child.toString().endsWith(".csv")) {
-                    GIS_layer layer = Csv2Layer.csv2Layer(child.getName());
+                    GIS_layer layer = Csv2Layer.csv2Layer(child.getAbsolutePath());
                     project.add(layer);
-
                 }
-                addTree(child, all,project);
+                addTree(child,project);
             }
         }
     }
