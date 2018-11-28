@@ -11,9 +11,7 @@ public class TimeChange {
 
     public static String longtoUTC(long time){
 
-        String out = Instant.ofEpochMilli(time).atOffset(ZoneOffset.UTC).toString();
-        out = out.replaceAll("T", " ");
-        out = out.substring(0,out.indexOf("Z"));
+        String out = Instant.ofEpochMilli(time).atOffset(ZoneOffset.UTC).toString(); //from long to String output: dateThourZ
         return out;
     }
 
