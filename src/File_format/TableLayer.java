@@ -3,7 +3,6 @@ package File_format;
 import GIS.*;
 import Geom.Point3D;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class TableLayer {
@@ -47,7 +46,7 @@ public class TableLayer {
                 elemLat = Double.parseDouble(element[latIndex]);
                 elemLon = Double.parseDouble(element[longIndex]);
                 elemAlt = Double.parseDouble(element[altIndex]);
-//                elemTime = Long.parseLong(element[timeIndex]);
+//                elemTime = Algorithms.TimeChange.UTCtolong(element[timeIndex]);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
