@@ -10,7 +10,7 @@ public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
     Meta_data projectMeta;
 
     public GIS_project_obj(String projectName) {
-        projectMeta = new Meta_data_obj(projectName,null,0);
+        projectMeta = new Meta_data_obj(projectName,System.currentTimeMillis()); //meta of the project will now initiate the time to be the creation time of the object.
     }
 
     @Override

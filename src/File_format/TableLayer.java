@@ -30,7 +30,7 @@ public class TableLayer {
                 nameIndex = i;
             } else if (header[i].equals("Color")) {
                 colorIndex = i;
-            } else if (header[i].equals("FirstSeen")) {
+            } else if (header[i].equals("FirstSeen") || header[i].equals("Timestamp")) {
                 timeIndex = i;
             }
         }
