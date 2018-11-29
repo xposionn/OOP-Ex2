@@ -27,20 +27,20 @@ public class Meta_data_obj implements Meta_data {
 
     public String allInfo(){ //name is also handled separately, as a placemark name.
         StringBuilder info = new StringBuilder();
-        info.append("Name: " + this.name);
-        info.append(", Time (UTC): " + Algorithms.TimeChange.longtoUTC(this.UTCtime));
+        info.append("Name: " + this.name +"\n");
+        info.append("Time (UTC): " + this.UTCtime + " = " + Algorithms.TimeChange.longtoUTC(this.UTCtime) +"\n");
         if(this.color!=null)
-            info.append(", Color in HEX: " + this.color);
+            info.append("Color in HEX: " + this.color +"\n");
         if(this.type != null) {
             if (this.type.equals("P"))
-                info.append(", Type: Player");
+                info.append("Type: Player\n");
             if (this.type.equals("F"))
-                info.append(", Type: Fruit");
+                info.append("Type: Fruit\n");
         }
         if (this.speed != null)
-            info.append(", Speed: " + this.speed);
+            info.append("Speed: " + this.speed +"\n");
         if(this.radius != null)
-            info.append(", Eating Radius: " + radius);
+            info.append("Eating Radius: " + radius +"\n");
 
     return info.toString();
     }
