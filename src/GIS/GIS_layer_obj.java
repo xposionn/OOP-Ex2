@@ -5,6 +5,7 @@ import Geom.Point3D;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.spec.AlgorithmParameterSpec;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -48,7 +49,7 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
                 String kmlElement = "<Placemark>\n" +
                         "<name>" + elem.getData().getName() + "</name>\n" +
                         "<description>" + elem.getData().allInfo() + "</description>\n" +
-                        "<TimeStamp><when>"+elem.getData().getUTC()+"</when></TimeStamp>\n"+
+                        "<TimeStamp><when>"+ Algorithms.TimeChange.longtoUTC(elem.getData().getUTC())+"</when></TimeStamp>\n"+
                         "<Point>\n"+
                         "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
                         "</Point>\n" +
@@ -77,7 +78,7 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
             kmlContent += "<Placemark>\n" +
                     "<name>" + elem.getData().getName() + "</name>\n" +
                     "<description>" + elem.getData().allInfo() + "</description>\n" +
-                    "<TimeStamp><when>"+elem.getData().getUTC()+"</when></TimeStamp>\n"+
+                    "<TimeStamp><when>"+ Algorithms.TimeChange.longtoUTC(elem.getData().getUTC())+"</when></TimeStamp>\n"+
                      "<Point>\n"+
                     "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
                     "</Point>\n" +

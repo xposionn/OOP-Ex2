@@ -8,18 +8,18 @@ import java.util.Date;
 
 public class TimeChange {
 
-    public static long UTCtolong(String dateinstring){
-        SimpleDateFormat f = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
-        dateinstring = dateinstring.replace(" ","T");
-        dateinstring += "Z";
+    public static long stringUTCtoLong(String dateinstring){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        Date date = null;
         try {
-            Date d = f.parse(dateinstring);
-            long milliseconds = d.getTime();
-            return milliseconds;
+            dateinstring = dateinstring.replaceAll(" ", "T");
+            dateinstring += 'Z';
+            date = (Date)formatter.parse(dateinstring);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return 0;
+        long mills = date.getTime();
+        return mills;
     }
 
     public static String longtoUTC(long time){
