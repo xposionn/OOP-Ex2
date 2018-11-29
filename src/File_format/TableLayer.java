@@ -55,7 +55,7 @@ public class TableLayer {
             GIS_element_obj element_obj = new GIS_element_obj(elementGeom,metaData);
             layer.add(element_obj);
         }
-        layer.setMeta(new Meta_data_obj(fileName,0)); //meta of the layer. initiated with time as the creation time of the layer!
+        layer.setMeta(new Meta_data_obj(fileName,System.currentTimeMillis())); //meta of the layer. initiated with time as the creation time of the layer!
         return layer;
     }
 }
