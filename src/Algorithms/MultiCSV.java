@@ -6,8 +6,7 @@ import GIS.GIS_project;
 import GIS.GIS_project_obj;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
+
 
 public class MultiCSV {
 
