@@ -6,17 +6,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TimeChangeTest {
 
-    String dateInStr = "2015-03-30 13:47:58.405";
-    long dateinlong = 1427723278405L;
+    String dateInStr = "2015-03-30 13:47:58";
+    long dateinlong = 1427712478000L;
 
 
     @Test
-    void UTCtolong() {
-
+    void stringUTCtoLong() {
+        assertEquals(dateinlong, Algorithms.TimeChange.stringUTCtoLong(dateInStr));
     }
 
     @Test
-    void longtoUTC() {
+    void longToUTC() {
         String utc = TimeChange.longtoUTC(dateinlong);
         if(utc.equals(dateInStr)){
 

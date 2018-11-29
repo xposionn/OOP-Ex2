@@ -3,7 +3,6 @@ package File_format;
 import GIS.*;
 import Geom.Point3D;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class TableLayer {
@@ -47,7 +46,7 @@ public class TableLayer {
                 elemLat = Double.parseDouble(element[latIndex]);
                 elemLon = Double.parseDouble(element[longIndex]);
                 elemAlt = Double.parseDouble(element[altIndex]);
-//                elemTime = Long.parseLong(element[timeIndex]);
+                elemTime = Algorithms.TimeChange.stringUTCtoLong(element[timeIndex]);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
@@ -56,7 +55,7 @@ public class TableLayer {
             GIS_element_obj element_obj = new GIS_element_obj(elementGeom,metaData);
             layer.add(element_obj);
         }
-        layer.setMeta(new Meta_data_obj(fileName,null,0));
+        layer.setMeta(new Meta_data_obj(fileName,null,0)); //meta of the layer.
         return layer;
     }
 }

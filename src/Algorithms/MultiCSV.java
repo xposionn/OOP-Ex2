@@ -11,9 +11,9 @@ import java.util.Collection;
 
 public class MultiCSV {
 
-    public static void main(String[] args) {
-        GIS_project project = new GIS_project_obj("Project Name....");
-        addTree(new File("."),project);
+    public static void createProject(String Foldername) {
+        GIS_project project = new GIS_project_obj(Foldername);
+        addTree(new File("./"+Foldername),project);
         project.toKml(project.get_Meta_data().getName()+".kml");
     }
 
