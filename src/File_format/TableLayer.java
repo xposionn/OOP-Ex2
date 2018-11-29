@@ -30,7 +30,7 @@ public class TableLayer {
                 nameIndex = i;
             } else if (header[i].equals("Color")) {
                 colorIndex = i;
-            } else if (header[i].equals("FirstSeen")) {
+            } else if (header[i].equals("FirstSeen") || header[i].equals("Timestamp")) {
                 timeIndex = i;
             }
         }
@@ -51,11 +51,11 @@ public class TableLayer {
                 e.printStackTrace();
             }
             Point3D elementGeom = new Point3D(elemLat,elemLon,elemAlt);
-            Meta_data metaData = new Meta_data_obj(element[nameIndex],element[colorIndex],elemTime);
+            Meta_data metaData = new Meta_data_obj(element[nameIndex],elemTime);
             GIS_element_obj element_obj = new GIS_element_obj(elementGeom,metaData);
             layer.add(element_obj);
         }
-        layer.setMeta(new Meta_data_obj(fileName,null,0)); //meta of the layer.
+        layer.setMeta(new Meta_data_obj(fileName,System.currentTimeMillis())); //meta of the layer. initiated with time as the creation time of the layer!
         return layer;
     }
 }
