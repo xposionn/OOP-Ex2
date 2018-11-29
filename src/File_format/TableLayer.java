@@ -20,11 +20,11 @@ public class TableLayer {
         int colorIndex=0;
         int timeIndex=0;
         for (int i = 0; i < header.length; i++) {
-            if (header[i].equals("CurrentLatitude")) {
+            if (header[i].equals("CurrentLatitude") || header[i].equals("Lat")) {
                 latIndex = i;
-            } else if (header[i].equals("CurrentLongitude")) {
+            } else if (header[i].equals("CurrentLongitude") || header[i].equals("Lon")) {
                 longIndex = i;
-            } else if (header[i].equals("AltitudeMeters")) {
+            } else if (header[i].equals("AltitudeMeters") || header[i].equals("Alt")) {
                 altIndex = i;
             } else if (header[i].equals("SSID") || header[i].equals("Name")) { //name
                 nameIndex = i;

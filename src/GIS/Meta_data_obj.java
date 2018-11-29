@@ -5,21 +5,24 @@ import Geom.Point3D;
 import java.awt.*;
 
 public class Meta_data_obj implements Meta_data {
-    String name;
-    Color color;
-    long UTCtime;
+    String name; //name of the obj (placemark or layer)
+    String color; //color of the placemark specified in HEX.
+    long UTCtime; //timestamp in UTC (long) of the recording time of this placemark (or creation time of a layer).
+    String type; //type will be used to indicate whether specific placemark is a Player (P) or Food/Fruit (F)
+    double speed; //speed is the speed in meters/sec of a player.
+    double radius; //radius is the 'eating radius' of a player, the smallest distance a player can eat a fruit.
 
-    public Meta_data_obj(String name,String rgbColor, long UTCtimeLONG){
+    public Meta_data_obj(String name,String colorHEX, long UTCtimeLONG){
         this.name = name;
-        this.color = new Color(255,255,255); //White
+        this.color = colorHEX;
         this.UTCtime = UTCtimeLONG;
     }
 
     public String allInfo(){
-        String string = "";
-        string += "Color: ";
-        string += "Time: ";
-    return string;
+        StringBuilder info = new StringBuilder();
+        info.append("Color in HEX: " + this.color);
+        info.append("Time (UTC): " + this.UTCtime);
+    return info.toString();
     }
 
     /**
