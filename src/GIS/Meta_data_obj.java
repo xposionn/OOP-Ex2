@@ -38,11 +38,11 @@ public class Meta_data_obj implements Meta_data {
 
     public String allInfo(){ //name is also handled separately, as a placemark name.
         StringBuilder info = new StringBuilder();
-        info.append("Name: " + this.name +"\n");
-        info.append("Timestamp (UTC): " + this.UTCtime +"\n");
-        info.append("Date: " + Algorithms.TimeChange.longtoUTC(this.UTCtime).replaceAll("T"," ").replaceAll("Z"," "));
+        info.append("Name: <br>" + this.name +"</br>\n");
+        info.append("Timestamp (UTC): <br>" + this.UTCtime +"</br>\n");
+        info.append("Date: <br>" + Algorithms.TimeChange.longtoUTC(this.UTCtime).replaceAll("[T,Z]"," ")+"</br>\n");
         if(this.color!=null)
-            info.append("Color in HEX: " + this.color +"\n");
+            info.append("Color in HEX: <br>" + this.color +"</br>\n");
         if(this.type != null)
             if (this.type.equals("P"))
                 info.append("Type: Player\n");
