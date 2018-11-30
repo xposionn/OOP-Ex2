@@ -21,10 +21,10 @@ public class Meta_data_obj implements Meta_data {
     }
 
     //a constructor used relevant for Ex2 with wifi points
-    public Meta_data_obj(String name, long UTCtimeLONG,String[] wifiPointDATA){ //constructor used relevant for Ex2, we only need name and time.
+    public Meta_data_obj(String name, long UTCtimeLONG,String[] wifiPointDATA){ //constructor used relevant for Ex2, we send also wifi points data.
         this.name = name;
         this.UTCtime = UTCtimeLONG;
-        this.wifiPointEx2DATA = wifiPointDATA; //[0] = BSSID,  [1] = Capabilities , [2] = Frequency
+        this.wifiPointEx2DATA = wifiPointDATA; //[0] = BSSID,  [1] = Capabilities , [2] = AccuracyMeters
     }
 
     //a constructor used relevant for Ex3
@@ -44,7 +44,7 @@ public class Meta_data_obj implements Meta_data {
         if(wifiPointEx2DATA!=null){
             info.append("BSSID: <b>" + wifiPointEx2DATA[0] + "</b><br/>");
             info.append("Capabilities: <b>" + wifiPointEx2DATA[1] + "</b><br/>");
-            info.append("Frequency: <b>" + wifiPointEx2DATA[2] + "</b><br/>");
+            info.append("AccuracyMeters: <b>" + wifiPointEx2DATA[2] + "</b><br/>");
         }
         if(this.color!=null)
             info.append("Color in HEX: <b>" + this.color +"</b><br/>");
