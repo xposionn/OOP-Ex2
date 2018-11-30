@@ -58,7 +58,8 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
                 kmlContent.add(kmlElement);
             }
             kmlContent.add(kmlEnd);
-            bw.write(kmlContent.toString().replaceAll(", <P", "<P"));
+            String output = kmlContent.toString().replaceAll(", <", "<");
+            bw.write(output.substring(1,output.length()-1));
             bw.close();
         }catch (IOException e) {
             e.printStackTrace();
