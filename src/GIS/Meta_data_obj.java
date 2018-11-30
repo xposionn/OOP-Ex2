@@ -67,7 +67,7 @@ public class Meta_data_obj implements Meta_data {
             //algorithm to decide if wifi point is green/yellow/red. based on security.
             //this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
             String securityWifi = wifiPointEx2DATA[1];
-            if (securityWifi.contains("WPA")) {
+            if (securityWifi.contains("WPA")) { //includes WPA2. both red.
                 return "#red";
             } else if (securityWifi.contains("WEP")) {
                 return "#yellow";
