@@ -15,17 +15,17 @@ public class Meta_data_obj implements Meta_data {
 
     Double radius; //radius is the 'eating radius' of a player, the smallest distance a player can eat a fruit.
 
-    public Meta_data_obj(String name, long UTCtimeLONG){ //constructor used with only need name and time.
+    public Meta_data_obj(String name, long UTCtimeLONG){ //constructor used with only name and time.
         this.name = name;
         this.UTCtime = UTCtimeLONG;
     }
 
-//    //a constructor used relevant for Ex2
-//    public Meta_data_obj(String name, long UTCtimeLONG,String[] wifiPointDATA){ //constructor used relevant for Ex2, we only need name and time.
-//        this.name = name;
-//        this.UTCtime = UTCtimeLONG;
-//        this.wifiPointEx2DATA.
-//    }
+    //a constructor used relevant for Ex2 with wifi points
+    public Meta_data_obj(String name, long UTCtimeLONG,String[] wifiPointDATA){ //constructor used relevant for Ex2, we only need name and time.
+        this.name = name;
+        this.UTCtime = UTCtimeLONG;
+        this.wifiPointEx2DATA = wifiPointDATA; //[0] = BSSID,  [1] = Capabilities , [2] = Frequency
+    }
 
     //a constructor used relevant for Ex3
     public Meta_data_obj(String name, long UTCtimeLONG, String type, double speed, double radius){
@@ -41,6 +41,11 @@ public class Meta_data_obj implements Meta_data {
         info.append("Name: <b>" + this.name +"</b><br/>");
         info.append("Timestamp (UTC): <b>" + this.UTCtime +"</b><br/>");
         info.append("Date: <b>" + Algorithms.TimeChange.longtoUTC(this.UTCtime).replaceAll("[T,Z]"," ")+"</b><br/>");
+        if(wifiPointEx2DATA!=null){
+            info.append("BSSID: <b>" + wifiPointEx2DATA[0] + "</b><br/>");
+            info.append("Capabilities: <b>" + wifiPointEx2DATA[1] + "</b><br/>");
+            info.append("Frequency: <b>" + wifiPointEx2DATA[2] + "</b><br/>");
+        }
         if(this.color!=null)
             info.append("Color in HEX: <b>" + this.color +"</b><br/>");
         if(this.type != null)
@@ -56,6 +61,17 @@ public class Meta_data_obj implements Meta_data {
     return info.toString();
     }
 
+    @Override
+    public String getStyleUrlColor() {
+        if(this.wifiPointEx2DATA!=null && this.wifiPointEx2DATA[1]!=null){
+            //implement algorithm to decide if point is green/yellow/red.
+
+
+        }
+        else{ //default color to return.
+        }
+        return null;
+    }
 
 
     /******* Setters and Getters ********/
