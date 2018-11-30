@@ -19,6 +19,9 @@ public class TableLayer {
         int nameIndex=0;
         int colorIndex=0;
         int timeIndex=0;
+        int BSSIDindex = -1;
+        int CapabilitiesIndex = -1;
+        int AccuracyMetersIndex = -1;
         for (int i = 0; i < header.length; i++) {
             if (header[i].equals("CurrentLatitude") || header[i].equals("Lat")) {
                 latIndex = i;
@@ -32,9 +35,15 @@ public class TableLayer {
                 colorIndex = i;
             } else if (header[i].equals("FirstSeen") || header[i].equals("Timestamp")) {
                 timeIndex = i;
+            } else if (header[i].equals("MAC")) {
+                BSSIDindex = i;
+            } else if (header[i].equals("AuthMode")) {
+                CapabilitiesIndex = i;
+            } else if (header[i].equals("AccuracyMeters")) {
+                AccuracyMetersIndex = i;
             }
         }
-
+        boolean itsWifiPointObject = (BSSIDindex!= -1) && (CapabilitiesIndex != -1) && (AccuracyMetersIndex != -1);
         double elemLat = 0;
         double elemLon = 0;
         double elemAlt = 0;
@@ -51,7 +60,17 @@ public class TableLayer {
                 e.printStackTrace();
             }
             Point3D elementGeom = new Point3D(elemLat,elemLon,elemAlt);
-            Meta_data metaData = new Meta_data_obj(element[nameIndex],elemTime);
+            Meta_data metaData;
+            if(itsWifiPointObject){ //to call for relevant constructor of meta.
+                String[] wifiMeta = new String[3];
+                wifiMeta[0] = element[BSSIDindex];
+                wifiMeta[1] = element[CapabilitiesIndex];
+                wifiMeta[2] = element[AccuracyMetersIndex];
+                metaData = new Meta_data_obj(element[nameIndex],elemTime,wifiMeta);
+            }
+            else { //its not a wifi point. check if it player or fruit here etc. to call for relevant constructor of meta.
+                metaData = new Meta_data_obj(element[nameIndex], elemTime);
+            }
             GIS_element_obj element_obj = new GIS_element_obj(elementGeom,metaData);
             layer.add(element_obj);
         }

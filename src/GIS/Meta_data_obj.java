@@ -2,6 +2,8 @@ package GIS;
 
 import Geom.Point3D;
 
+import java.util.ArrayList;
+
 
 public class Meta_data_obj implements Meta_data {
     String name; //name of the obj (placemark or layer)
@@ -9,15 +11,24 @@ public class Meta_data_obj implements Meta_data {
     long UTCtime; //timestamp in UTC (long) of the recording time of this placemark (or creation time of a layer).
     String type; //type will be used to indicate whether specific placemark is a Player (P) or Food/Fruit (F)
     Double speed; //speed is the speed in meters/sec of a player.
-
+    String[] wifiPointEx2DATA; //all data used in Ex2 to be saved for same-KML as requested.
 
     Double radius; //radius is the 'eating radius' of a player, the smallest distance a player can eat a fruit.
 
-    public Meta_data_obj(String name, long UTCtimeLONG){ //constructor used relevant for Ex2, we only need name and time.
+    public Meta_data_obj(String name, long UTCtimeLONG){ //constructor used with only name and time.
         this.name = name;
         this.UTCtime = UTCtimeLONG;
     }
-    public Meta_data_obj(String name, long UTCtimeLONG, String type, double speed, double radius){ //constructor used relevant for Ex3
+
+    //a constructor used relevant for Ex2 with wifi points
+    public Meta_data_obj(String name, long UTCtimeLONG,String[] wifiPointDATA){ //constructor used relevant for Ex2, we send also wifi points data.
+        this.name = name;
+        this.UTCtime = UTCtimeLONG;
+        this.wifiPointEx2DATA = wifiPointDATA; //[0] = BSSID,  [1] = Capabilities , [2] = AccuracyMeters
+    }
+
+    //a constructor used relevant for Ex3
+    public Meta_data_obj(String name, long UTCtimeLONG, String type, double speed, double radius){
         this.name = name;
         this.UTCtime = UTCtimeLONG;
         this.type = type;
@@ -27,24 +38,48 @@ public class Meta_data_obj implements Meta_data {
 
     public String allInfo(){ //name is also handled separately, as a placemark name.
         StringBuilder info = new StringBuilder();
-        info.append("Name: " + this.name +"\n");
-        info.append("Time (UTC): " + this.UTCtime + " = " + Algorithms.TimeChange.longtoUTC(this.UTCtime) +"\n");
-        if(this.color!=null)
-            info.append("Color in HEX: " + this.color +"\n");
-        if(this.type != null) {
-            if (this.type.equals("P"))
-                info.append("Type: Player\n");
-            if (this.type.equals("F"))
-                info.append("Type: Fruit\n");
+        info.append("Name: <b>" + this.name +"</b><br/>");
+        info.append("Timestamp (UTC): <b>" + this.UTCtime +"</b><br/>");
+        info.append("Date: <b>" + Algorithms.TimeChange.longtoUTC(this.UTCtime).replaceAll("[T,Z]"," ")+"</b><br/>");
+        if(wifiPointEx2DATA!=null){
+            info.append("BSSID: <b>" + wifiPointEx2DATA[0] + "</b><br/>");
+            info.append("Capabilities: <b>" + wifiPointEx2DATA[1] + "</b><br/>");
+            info.append("AccuracyMeters: <b>" + wifiPointEx2DATA[2] + "</b><br/>");
         }
+        if(this.color!=null)
+            info.append("Color in HEX: <b>" + this.color +"</b><br/>");
+        if(this.type != null)
+            if (this.type.equals("P"))
+                info.append("Type: Player<br/>");
+            else if (this.type.equals("F"))
+                info.append("Type: Fruit<br/>");
         if (this.speed != null)
-            info.append("Speed: " + this.speed +"\n");
+            info.append("Speed: " + this.speed +"<br/>");
         if(this.radius != null)
-            info.append("Eating Radius: " + radius +"\n");
+            info.append("Eating Radius: " + radius +"<br/>");
 
     return info.toString();
     }
 
+    @Override
+    public String getStyleUrlColor() {
+        if(this.wifiPointEx2DATA!=null && this.wifiPointEx2DATA[1]!=null){
+            //algorithm to decide if wifi point is green/yellow/red. based on security.
+            //this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
+            String securityWifi = wifiPointEx2DATA[1];
+            if (securityWifi.contains("WPA")) { //includes WPA2. both red.
+                return "#red";
+            } else if (securityWifi.contains("WEP")) {
+                return "#yellow";
+            }
+            else{ //probably bad security. ESS,WPS,BLE,IBSS, UNKNOWN;il  etc.    wifi point is green.
+                return "#green";
+            }
+        }
+        else{ //default color to return.
+        }
+        return null;
+    }
 
 
     /******* Setters and Getters ********/
@@ -61,7 +96,7 @@ public class Meta_data_obj implements Meta_data {
         this.name = name;
     }
 
-    public String getColor() {
+    public String getColor() { //string in HEX
         return color;
     }
 
