@@ -65,7 +65,7 @@ public class Meta_data_obj implements Meta_data {
     public String getStyleUrlColor() {
         if(this.wifiPointEx2DATA!=null && this.wifiPointEx2DATA[1]!=null){
             //implement algorithm to decide if point is green/yellow/red.
-
+            //this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
 
         }
         else{ //default color to return.
