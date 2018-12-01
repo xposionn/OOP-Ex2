@@ -4,7 +4,10 @@ import Geom.Point3D;
 
 import java.util.ArrayList;
 
-
+/**
+ * This class represents data to be saved for GIS elements, layers, projects.
+ * Meta_data will include a name, color, UTCtime, type, speed, radius, wifi point data(when necessary, such in Ex2 requested in assignment to include everything shown in KML).
+ */
 public class Meta_data_obj implements Meta_data {
     String name; //name of the obj (placemark or layer)
     String color; //color of the placemark specified in HEX.
@@ -12,15 +15,26 @@ public class Meta_data_obj implements Meta_data {
     String type; //type will be used to indicate whether specific placemark is a Player (P) or Food/Fruit (F)
     Double speed; //speed is the speed in meters/sec of a player.
     String[] wifiPointEx2DATA; //all data used in Ex2 to be saved for same-KML as requested.
-
     Double radius; //radius is the 'eating radius' of a player, the smallest distance a player can eat a fruit.
 
+    /**
+     * Constructor function, will be called with only a name and UTCtime as used in GIS layer and GIS project meta data.
+     * @param name name of the object including this meta data.
+     * @param UTCtimeLONG time of creation of the parent object in UTC long value.
+     */
     public Meta_data_obj(String name, long UTCtimeLONG){ //constructor used with only name and time.
         this.name = name;
         this.UTCtime = UTCtimeLONG;
     }
 
     //a constructor used relevant for Ex2 with wifi points
+
+    /**
+     * Constructor function, will be called with only a name, UTCtime and wifiPointDATA -- relevant for Ex2 with wifi points data.
+     * @param name the name of the object including this meta data.
+     * @param UTCtimeLONG time of creation of the parent object in UTC long value OR the timestamp.
+     * @param wifiPointDATA String[] including BSSID, Capabilities, AccuracyMeters of the wifi point data.
+     */
     public Meta_data_obj(String name, long UTCtimeLONG,String[] wifiPointDATA){ //constructor used relevant for Ex2, we send also wifi points data.
         this.name = name;
         this.UTCtime = UTCtimeLONG;
@@ -28,6 +42,16 @@ public class Meta_data_obj implements Meta_data {
     }
 
     //a constructor used relevant for Ex3
+
+    /**
+     * Constructor function, will be called with a name, UTCtime, type, speed, radius.
+     * this constructor is relevant for Ex3 with Pacman (player) or Fruit(food) including all its information.
+     * @param name name of the player.
+     * @param UTCtimeLONG timestamp in UTC long.
+     * @param type indication P = Pacman, F = Fruit.
+     * @param speed speed of the player.
+     * @param radius eating radius of a player, the smallest distance a player can eat a fruit.
+     */
     public Meta_data_obj(String name, long UTCtimeLONG, String type, double speed, double radius){
         this.name = name;
         this.UTCtime = UTCtimeLONG;
@@ -36,6 +60,11 @@ public class Meta_data_obj implements Meta_data {
         this.radius = radius;
     }
 
+    /**
+     * This method will check which of its fields is available (not null) to represent for the user in a KML format string.
+     * it will return a String containing all the meta_data as in KML format ready.
+     * @return String containing all the meta_data as in KML format ready.
+     */
     public String allInfo(){ //name is also handled separately, as a placemark name.
         StringBuilder info = new StringBuilder();
         info.append("Name: <b>" + this.name +"</b><br/>");
@@ -61,10 +90,16 @@ public class Meta_data_obj implements Meta_data {
     return info.toString();
     }
 
+    /**
+     * This method will return a String color in KML format used in Google Earth to indicate if wifi point on map
+     * should be red, yellow, or green, based on security.
+     * algorithm to decide if wifi point is green/yellow/red. based on security.
+     * this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
+     * @return String, red yellow or green in KML format ready.
+     */
     @Override
     public String getStyleUrlColor() {
         if(this.wifiPointEx2DATA!=null && this.wifiPointEx2DATA[1]!=null){
-            //algorithm to decide if wifi point is green/yellow/red. based on security.
             //this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
             String securityWifi = wifiPointEx2DATA[1];
             if (securityWifi.contains("WPA")) { //includes WPA2. both red.

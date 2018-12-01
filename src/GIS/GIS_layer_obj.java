@@ -10,19 +10,37 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
+/**
+ * This class represents a GIS layer as a HashMap including GIS_elements inside, and also meta data for the layer
+ * such as name of the layer, date of creation for the layer, etc.
+ */
 public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
 
     Meta_data layerMeta;
 
+    /**
+     * Getter method for the layer meta data.
+     * @return Meta data, the layer meta data.
+     */
     @Override
     public Meta_data get_Meta_data() {
         return this.layerMeta;
     }
 
+    /**
+     * Setter method for the layer meta data.
+     * @param meta meta data, the layer meta we want to set to.
+     */
     public void setMeta(Meta_data meta) {
         this.layerMeta = meta;
     }
 
+    /**
+     * This method will transform the current GIS_Layer (the current HashMap of GIS_elements) into one KML file.
+     * It will include a complete code which can be run through Google Earth application.
+     * The method will return the filename of the KML output file as string.
+     * @return String, the filename of the KML output file.
+     */
     public String toKml(){
         String fileNameForNewKML = layerMeta.getName().substring(0,layerMeta.getName().length()-4)+"_KML.kml";
         ArrayList<String> kmlContent = new ArrayList<>();
@@ -67,9 +85,13 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
         return fileNameForNewKML;
     }
 
+    /**
+     * This method will transform the current layer (HashMap of GIS_elements) into a working KML FOLDER as part of
+     * a big fully-project KML file. it will work perfectly with Google Earth as an added folder with all elements inside.
+     * @return String, the content of a folder as in KML format.
+     */
     @Override
     public String toKmlForProject() {
-
         //first two lines is irrelevant for the google format KML.
 
         String kmlContent = "<Folder>\n<name>"+layerMeta.getName()+"</name>\n";
