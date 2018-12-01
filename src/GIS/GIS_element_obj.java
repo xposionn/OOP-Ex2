@@ -9,11 +9,28 @@ public class GIS_element_obj implements GIS_element {
     Meta_data metaData;
 
 
+    /**
+     * Constructor for the GIS_element object. gets a Geom_element and Meta_data.
+     * @param geometryOfElement Geom_element, the geometry object of the element.
+     * @param dataOfElement Meta_data, the data of the element.
+     */
     public GIS_element_obj(Geom_element geometryOfElement, Meta_data dataOfElement) {
         this.geom = geometryOfElement;
         this.metaData = dataOfElement;
     }
 
+    /******** Getters and Setters ********/
+    /**
+     *
+     * @param geom
+     */
+    public void setGeom(Geom_element geom) {
+        this.geom = geom;
+    }
+
+    public void setMetaData(Meta_data metaData) {
+        this.metaData = metaData;
+    }
 
     @Override
     public Geom_element getGeom() {
