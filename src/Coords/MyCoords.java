@@ -7,11 +7,12 @@ import java.awt.*;
 
 public class MyCoords implements coords_converter {
     private final long RADIUS = 6371000;
-//    private final double LON_NORM = 0.847091174;
-
 
     /**
      * computes a new point which is the gps point transformed by a 3D vector (in meters)
+     * @param gps Point3D as our initial gps point we want to transform.
+     * @param local_vector_in_meter the vector to transform the point with.
+     * @return the new GPS point transformed by the vector.
      */
     @Override
     public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
@@ -26,6 +27,9 @@ public class MyCoords implements coords_converter {
 
     /**
      * computes the 3D distance (in meters) between the two gps like points
+     * @param gps0 first gps point.
+     * @param gps1 second gps point.
+     * @return double, the distance between the two gps points.
      */
     @Override
     public double distance3d(Point3D gps0, Point3D gps1) {
@@ -35,6 +39,9 @@ public class MyCoords implements coords_converter {
 
     /**
      * computes the 3D vector (in meters) between two gps like points.
+     * @param gps0 the first gps point.
+     * @param gps1 second gps point.
+     * @return the 3D vector between the two gps points.
      */
     @Override
     public Point3D vector3D(Point3D gps0, Point3D gps1) {
@@ -47,7 +54,10 @@ public class MyCoords implements coords_converter {
 
     /**
      * computes the polar representation of the 3D vector be gps0-->gps1
-     * Note: this method should return an azimuth (aka yaw), elevation (pitch), and distance
+     * returns the azimuth, elevation, distance between 2 points.
+     * @param gps0 first gps point.
+     * @param gps1 second gps point.
+     * @return azimuth,elevation,distance between 2 points.
      */
     @Override
     public double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
