@@ -10,9 +10,9 @@ import java.io.File;
 
 public class MultiCSV {
 
-    public static void createProject(String Foldername) {
-        GIS_project project = new GIS_project_obj(Foldername);
-        addTree(new File("./"+Foldername),project);
+    public static void createProject(String folderName) {
+        GIS_project project = new GIS_project_obj(folderName);
+        addTree(new File("./"+folderName),project);
         project.toKml(project.get_Meta_data().getName()+".kml");
     }
 
