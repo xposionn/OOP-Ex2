@@ -16,13 +16,33 @@ public class MyCoords implements coords_converter {
      */
     @Override
     public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+        if(!isValid_GPS_Point(gps)) throw new RuntimeException("You entered invalid GPS point for the add function.");
         double norm = Math.cos(Math.toRadians(gps.x()));
         double diffNewX = Math.toDegrees(Math.asin(local_vector_in_meter.x() / RADIUS));
         double newX = gps.x() + diffNewX;
         double diffNewY = Math.toDegrees(Math.asin(local_vector_in_meter.y() / (RADIUS * norm)));
         double newY = gps.y() + diffNewY;
         double newZ = gps.z() + local_vector_in_meter.z();
-        return new Point3D(newX, newY, newZ);
+        while(newX>90){
+            newX -= 180;
+        }
+        while(newX<-90){
+            newX += 180;
+        }
+        while(newY>180){
+            newX -= 360;
+        }
+        while(newY<-180){
+            newY += 360;
+        }
+        Point3D newPoint = new Point3D(newX, newY, newZ);
+        if(newZ>8848 || newZ<-450){
+            throw new RuntimeException("You tried to move below the lowest point on earth or above the highest point on Mt. Everest. THAT IS UN-ACCEPTABLE!!");
+        }
+        if(!isValid_GPS_Point(newPoint)){
+            throw new RuntimeException("Something is wrong with the vector you tried to add to that point. The calculated point is invalid in our GPS system!");
+        }
+        return newPoint;
     }
 
     /**
@@ -33,6 +53,7 @@ public class MyCoords implements coords_converter {
      */
     @Override
     public double distance3d(Point3D gps0, Point3D gps1) {
+        if(!isValid_GPS_Point(gps0) || !isValid_GPS_Point(gps1)) throw new RuntimeException("You entered invalid GPS point for the distance3D function.");
         Point3D diffVec = vector3D(gps0, gps1);
         return diffVec.distance3D(new Point3D(0,0,0)); //difference vector is related to 0,0,0 point hence we calc distance according to that.
     }
@@ -45,6 +66,7 @@ public class MyCoords implements coords_converter {
      */
     @Override
     public Point3D vector3D(Point3D gps0, Point3D gps1) {
+        if(!isValid_GPS_Point(gps0) || !isValid_GPS_Point(gps1)) throw new RuntimeException("You entered invalid GPS point for the vector3D function.");
         double diffLAT = Math.sin(Math.toRadians(gps1.x()-gps0.x()))*RADIUS;
         double diffLON = Math.sin(Math.toRadians(gps1.y()-gps0.y()))*RADIUS * Math.cos(Math.toRadians(gps0.x()));
         double diffALT = gps1.z()-gps0.z();
@@ -60,6 +82,7 @@ public class MyCoords implements coords_converter {
      */
     @Override
     public double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
+        if(!isValid_GPS_Point(gps0) || !isValid_GPS_Point(gps1)) throw new RuntimeException("You entered invalid GPS point for the azimuth_elevation_dist function.");
         double[] azim_ele_dist = new double[3];
         Point3D vectorBetween = vector3D(gps0, gps1);
         double dist = distance3d(gps0, gps1);
@@ -97,9 +120,8 @@ public class MyCoords implements coords_converter {
      */
     @Override
     public boolean isValid_GPS_Point(Point3D p) {
-
-        boolean lat = (-180 <= p.x()) && (p.x() <= 180);
-        boolean lon = (-90 <= p.y()) && (p.y() <= 90);
+        boolean lat = (-90 <= p.x()) && (p.x() <= 90);
+        boolean lon = (-180 <= p.y()) && (p.y() <= 180);
         boolean alt = (-450 <= p.z()) && (p.z() <= 8848); // Everest High -> 8848
         return lat&&lon&&alt;
     }
