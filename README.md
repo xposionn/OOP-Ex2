@@ -27,4 +27,9 @@ File_formats:
 <br/>, JSON, KML
 <br/>
 <br/>
-<image src="https://i.ibb.co/ZKqLkdb/Screenshot-1.png"> <image/>
+<image src="https://i.ibb.co/ZKqLkdb/Screenshot-1.png"> </image>
+  <h1> Class Diagrams</h1>
+  <br/>
+  <image src="https://github.com/xposionn/OOP-Ex2/blob/master/ClassDiagram/ClassDiagram.png"></image>
+    <h2> Class diagram with dependencies:</h2>
+    <image src="https://github.com/xposionn/OOP-Ex2/blob/master/ClassDiagram/ClassDiagramWithDependencies.png"></image>
