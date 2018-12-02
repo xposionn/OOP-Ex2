@@ -48,8 +48,7 @@ public class MyCoords implements coords_converter {
         double diffLAT = Math.sin(Math.toRadians(gps1.x()-gps0.x()))*RADIUS;
         double diffLON = Math.sin(Math.toRadians(gps1.y()-gps0.y()))*RADIUS * Math.cos(Math.toRadians(gps0.x()));
         double diffALT = gps1.z()-gps0.z();
-        Point3D vectorDiff = new Point3D(diffLAT, diffLON, diffALT);
-        return vectorDiff;
+        return new Point3D(diffLAT, diffLON, diffALT);
     }
 
     /**
@@ -70,7 +69,7 @@ public class MyCoords implements coords_converter {
                 azimuth = 0;
             }
         }
-        azimuth = Math.toDegrees(Math.atan(vectorBetween.x() / vectorBetween.y())); //in degrees.
+        azimuth = Math.atan2(Math.sin(Math.toRadians(gps1.y()-gps0.y())) * Math.cos(Math.toRadians(gps1.x())),Math.cos(Math.toRadians(gps0.x()))*Math.sin(Math.toRadians(gps1.x())) - Math.sin(Math.toRadians(gps0.x()))*Math.cos(Math.toRadians(gps1.x()))*Math.cos(Math.toRadians(gps1.y()-gps0.y())));
         while (azimuth<0){ //only positive azimuth.
             azimuth += 360;
         }
