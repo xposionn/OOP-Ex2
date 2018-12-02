@@ -5,9 +5,21 @@ import Geom.Point3D;
 
 import java.util.Iterator;
 
+/**
+ * This class will transform a CsvTable object into GIS_layer to be used across the application.
+ * It will check for specific values inside the CsvTable including Lon, Lat, Alt, Name, color, type, time(timestamp), and some wifi point datas if available.
+ * it will generate the GIS_layer according to values available inside the csvTable, and if some are not available, it will ignore them and will only apply
+ * and add the values to the GIS_layer if they are present.
+ */
 public class TableLayer {
 
-
+    /**
+     * This method will iterate through the csv header and check for specific index of values, such as Lon,Lat,Alt, name, color, type, etc.
+     * Then, for each available variable it founds, it will add it to an GIS_layer object accordingly and will return the completed GIS layer.
+     * @param csvTable The Csv table we are transforming into the GIS_layer.
+     * @param fileName the file name of the Csv table, it will be used to update the GIS layer META DATA with this name.
+     * @return GIS_layer, completed layer with all relevant variables.
+     */
     public GIS_layer TableLayer(CsvTable csvTable, String fileName){
 
         GIS_layer layer = new GIS_layer_obj();
