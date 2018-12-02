@@ -109,7 +109,7 @@ class MyCoordsTest {
     @Test
     void azimuth_elevation_dist() {
         double[] azim_ele_dist = coords.azimuth_elevation_dist(zeroPt, onLonoPt);
-        assertEquals(270.0,azim_ele_dist[0],ERROR_MARGIN,"Something is wrong with the azimuth calculation");
+        assertEquals(180,azim_ele_dist[0],ERROR_MARGIN,"Something is wrong with the azimuth calculation");
         assertEquals(0,azim_ele_dist[1],ERROR_MARGIN,"Something is wrong with the elevation calculation");
         assertEquals(1106312.539916,azim_ele_dist[2],ERROR_MARGIN,"Something is wrong with the distance calculation");
         }

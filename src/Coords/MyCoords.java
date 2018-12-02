@@ -63,13 +63,18 @@ public class MyCoords implements coords_converter {
         double[] azim_ele_dist = new double[3];
         Point3D vectorBetween = vector3D(gps0, gps1);
         double dist = distance3d(gps0, gps1);
-        double azimuth;
+        double azimuth = 0;
+        boolean azimuthMikreKaze = false;
         if(vectorBetween.y() == 0){
             if(vectorBetween.x()==0){
                 azimuth = 0;
+                azimuthMikreKaze = true;
             }
         }
-        azimuth = Math.atan2(Math.sin(Math.toRadians(gps1.y()-gps0.y())) * Math.cos(Math.toRadians(gps1.x())),Math.cos(Math.toRadians(gps0.x()))*Math.sin(Math.toRadians(gps1.x())) - Math.sin(Math.toRadians(gps0.x()))*Math.cos(Math.toRadians(gps1.x()))*Math.cos(Math.toRadians(gps1.y()-gps0.y())));
+        if(!azimuthMikreKaze) {
+            azimuth = Math.atan2(Math.sin(Math.toRadians(gps1.y()-gps0.y())) * Math.cos(Math.toRadians(gps1.x())),Math.cos(Math.toRadians(gps0.x()))*Math.sin(Math.toRadians(gps1.x())) - Math.sin(Math.toRadians(gps0.x()))*Math.cos(Math.toRadians(gps1.x()))*Math.cos(Math.toRadians(gps1.y()-gps0.y())));
+            azimuth = Math.toDegrees(azimuth);
+        }
         while (azimuth<0){ //only positive azimuth.
             azimuth += 360;
         }
