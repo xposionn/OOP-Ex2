@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>GIS.Meta_data_obj</OriginalElement>
+  <nodes>
+    <node x="444.0" y="0.0">GIS.Meta_data</node>
+    <node x="0.0" y="123.0">Geom.Point3D</node>
+    <node x="355.0" y="212.0">GIS.Meta_data_obj</node>
+    <node x="1297.0" y="1255.0">File_format.Csv2Layer</node>
+    <node x="438.0" y="1255.0">Algorithms.MultiCSV</node>
+    <node x="0.0" y="1521.0">File_format.Csv2kml</node>
+    <node x="712.0" y="1255.0">Algorithms.TimeChange</node>
+    <node x="1474.0" y="168.0">GIS.GIS_layer_obj</node>
+    <node x="46.5" y="0.0">Geom.Geom_element</node>
+    <node x="237.0" y="1255.0">File_format.CsvTable</node>
+    <node x="10.5" y="1255.0">GIS.GIS_project</node>
+    <node x="0.0" y="1379.0">GIS.GIS_project_obj</node>
+    <node x="741.0" y="189.0">Coords.MyCoords</node>
+    <node x="1474.0" y="0.0">GIS.GIS_layer</node>
+    <node x="1180.0" y="0.0">GIS.GIS_element</node>
+    <node x="983.0" y="1255.0">File_format.TableLayer</node>
+    <node x="1121.0" y="146.0">GIS.GIS_element_obj</node>
+    <node x="741.0" y="0.0">Coords.coords_converter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Geom.Point3D" target="Geom.Geom_element">
+      <point x="0.0" y="-543.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="Coords.MyCoords" target="Coords.coords_converter">
+      <point x="0.0" y="-81.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="GIS.GIS_element_obj" target="GIS.GIS_element">
+      <point x="0.0" y="-70.5" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="GIS.GIS_layer_obj" target="GIS.GIS_layer">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="GIS.GIS_project_obj" target="GIS.GIS_project">
+      <point x="0.0" y="-48.5" />
+      <point x="0.0" y="37.0" />
+    </edge>
+    <edge source="GIS.Meta_data_obj" target="GIS.Meta_data">
+      <point x="0.0" y="-170.0" />
+      <point x="0.0" y="81.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5933333333333335" x="806.0745384828057" y="971.2374643635749" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
