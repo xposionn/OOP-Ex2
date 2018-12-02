@@ -13,7 +13,6 @@ import java.io.File;
  * with timestamps to show timeline.
  */
 public class MultiCSV {
-
     /**
      * Driver method to create a project using the recursive method.
      * @param folderName folder name to scan for all CSV files.
