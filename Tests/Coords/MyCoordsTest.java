@@ -12,14 +12,14 @@ class MyCoordsTest {
     Point3D testa2 = new Point3D(32.106352, 35.205225, 650);
     Point3D vtesta = new Point3D(337.6989921, -359.2492069, -20);
     double DistanceA = 493.45780156501763;
-    double AzimutA = 0;
+    double AzimutA = 313.2;
     double ElevationA = Math.asin((testa1.z()-testa2.z())/DistanceA);
 
     Point3D testb1 = new Point3D(26,27,33);
     Point3D testb2 = new Point3D(26.0001,27.0010,30);
     Point3D vtestb = new Point3D(11.11949266,99.94133804,-3);
     double DistanceB = 100.558;
-    double AzimutB = 41.15;
+    double AzimutB = 83.65;
     double ElevationB = Math.asin((testb1.z()-testb2.z())/DistanceB);
 
 
@@ -27,7 +27,7 @@ class MyCoordsTest {
     Point3D testc2 = new Point3D(26.0001,28.05,30);
     Point3D vtestc = new Point3D(11.11949266,4097.59451,-3);
     double DistanceC = 4097.609597;
-    double AzimutC = 180;
+    double AzimutC = 89.84;
     double ElevationC = Math.asin((testc1.z()-testc2.z())/DistanceC);
 
 
