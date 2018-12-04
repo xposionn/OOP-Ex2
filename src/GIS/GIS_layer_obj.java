@@ -1,11 +1,11 @@
 package GIS;
 
+import Algorithms.TimeChange;
 import Geom.Point3D;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.security.spec.AlgorithmParameterSpec;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ import java.util.Iterator;
  */
 public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
 
-    Meta_data layerMeta;
+    private Meta_data layerMeta;
 
     /**
      * Getter method for the layer meta data.
@@ -95,16 +95,14 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
         //first two lines is irrelevant for the google format KML.
 
         String kmlContent = "<Folder>\n<name>"+layerMeta.getName()+"</name>\n";
-        Iterator<GIS_element> it = this.iterator();
-        while(it.hasNext()) {
-            GIS_element elem = it.next();
+        for (GIS_element elem : this) {
             Point3D point = (Point3D) elem.getGeom();
             kmlContent += "<Placemark>\n" +
                     "<name>" + elem.getData().getName() + "</name>\n" +
                     "<description>" + elem.getData().allInfo() + "</description>\n" +
-                    "<styleUrl>"+ elem.getData().getStyleUrlColor()+"</styleUrl>\n" +
-                    "<TimeStamp><when>"+ Algorithms.TimeChange.longtoUTC(elem.getData().getUTC())+"</when></TimeStamp>\n"+
-                     "<Point>\n"+
+                    "<styleUrl>" + elem.getData().getStyleUrlColor() + "</styleUrl>\n" +
+                    "<TimeStamp><when>" + TimeChange.longtoUTC(elem.getData().getUTC()) + "</when></TimeStamp>\n" +
+                    "<Point>\n" +
                     "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
                     "</Point>\n" +
                     "</Placemark>\n";

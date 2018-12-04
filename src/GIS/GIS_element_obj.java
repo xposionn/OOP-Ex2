@@ -9,8 +9,8 @@ import Geom.Point3D;
  *  color, string, timing...
  */
 public class GIS_element_obj implements GIS_element {
-    Geom_element geom;
-    Meta_data metaData;
+    private Geom_element geom;
+    private Meta_data metaData;
 
 
     /**

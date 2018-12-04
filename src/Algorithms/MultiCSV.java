@@ -29,7 +29,7 @@ public class MultiCSV {
      * @param file a specific file in a folder.
      * @param project the GIS project we add the layers to.
      */
-    static void addTree(File file,GIS_project project) {
+    private static void addTree(File file, GIS_project project) {
         File[] children = file.listFiles(); //all files inside directory
         if (children != null) {
             for (File child : children) {
