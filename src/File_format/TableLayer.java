@@ -20,7 +20,7 @@ public class TableLayer {
      * @param fileName the file name of the Csv table, it will be used to update the GIS layer META DATA with this name.
      * @return GIS_layer, completed layer with all relevant variables.
      */
-    public GIS_layer TableLayer(CsvTable csvTable, String fileName){
+    GIS_layer tableLayer(CsvTable csvTable, String fileName){
 
         GIS_layer layer = new GIS_layer_obj();
         Iterator<String []> iterator = csvTable.iterator();
@@ -44,7 +44,7 @@ public class TableLayer {
             } else if (header[i].equals("SSID") || header[i].equals("Name")) { //name
                 nameIndex = i;
             } else if (header[i].equals("Color")) {
-                colorIndex = i;
+                colorIndex = i; //will be used later in assignments.
             } else if (header[i].equals("FirstSeen") || header[i].equals("Timestamp")) {
                 timeIndex = i;
             } else if (header[i].equals("MAC")) {

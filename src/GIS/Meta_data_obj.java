@@ -67,25 +67,25 @@ public class Meta_data_obj implements Meta_data {
      */
     public String allInfo(){ //name is also handled separately, as a placemark name.
         StringBuilder info = new StringBuilder();
-        info.append("Name: <b>" + this.name +"</b><br/>");
-        info.append("Timestamp (UTC): <b>" + this.UTCtime +"</b><br/>");
-        info.append("Date: <b>" + Algorithms.TimeChange.longtoUTC(this.UTCtime).replaceAll("[T,Z]"," ")+"</b><br/>");
+        info.append("Name: <b>").append(this.name).append("</b><br/>");
+        info.append("Timestamp (UTC): <b>").append(this.UTCtime).append("</b><br/>");
+        info.append("Date: <b>").append(Algorithms.TimeChange.longtoUTC(this.UTCtime).replaceAll("[T,Z]", " ")).append("</b><br/>");
         if(wifiPointEx2DATA!=null){
-            info.append("BSSID: <b>" + wifiPointEx2DATA[0] + "</b><br/>");
-            info.append("Capabilities: <b>" + wifiPointEx2DATA[1] + "</b><br/>");
-            info.append("AccuracyMeters: <b>" + wifiPointEx2DATA[2] + "</b><br/>");
+            info.append("BSSID: <b>").append(wifiPointEx2DATA[0]).append("</b><br/>");
+            info.append("Capabilities: <b>").append(wifiPointEx2DATA[1]).append("</b><br/>");
+            info.append("AccuracyMeters: <b>").append(wifiPointEx2DATA[2]).append("</b><br/>");
         }
         if(this.color!=null)
-            info.append("Color in HEX: <b>" + this.color +"</b><br/>");
+            info.append("Color in HEX: <b>").append(this.color).append("</b><br/>");
         if(this.type != null)
             if (this.type.equals("P"))
                 info.append("Type: Player<br/>");
             else if (this.type.equals("F"))
                 info.append("Type: Fruit<br/>");
         if (this.speed != null)
-            info.append("Speed: " + this.speed +"<br/>");
+            info.append("Speed: ").append(this.speed).append("<br/>");
         if(this.radius != null)
-            info.append("Eating Radius: " + radius +"<br/>");
+            info.append("Eating Radius: ").append(radius).append("<br/>");
 
     return info.toString();
     }

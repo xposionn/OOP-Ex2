@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class CsvTable {
 
-    ArrayList<String[]> csvTable;
+    private ArrayList<String[]> csvTable;
 
     /**
      * This method will return the header of the csv table, in a string[] array.
@@ -26,7 +26,7 @@ public class CsvTable {
 
     /**
      * Override toString method.
-     * @return
+     * @return String of the csv.
      */
     @Override
     public String toString() {
@@ -37,8 +37,8 @@ public class CsvTable {
 
     /**
      * This constructor will get a CSV file and will try to read it and construct a csvTable object from it.
-     * @param csv
-     * @throws IOException
+     * @param csv the csv File
+     * @throws IOException exception in buffers.
      */
     public CsvTable(File csv) throws IOException {
         csvTable = new ArrayList<>();

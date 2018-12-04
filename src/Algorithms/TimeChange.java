@@ -22,12 +22,11 @@ public class TimeChange {
         try {
             dateInString = dateInString.replaceAll(" ", "T");
             dateInString += 'Z';
-            date = (Date)formatter.parse(dateInString);
+            date = formatter.parse(dateInString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        long mills = date.getTime();
-        return mills;
+        return date.getTime();
     }
 
     /**
@@ -37,8 +36,7 @@ public class TimeChange {
      */
     public static String longtoUTC(long time){
 
-        String out = Instant.ofEpochMilli(time).atOffset(ZoneOffset.UTC).toString(); //from long to String output: dateThourZ
-        return out;
+        return Instant.ofEpochMilli(time).atOffset(ZoneOffset.UTC).toString();
     }
 
 }

@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
 
-    Meta_data projectMeta;
+    private Meta_data projectMeta;
 
     /**
      * Constructor for the GIS_project. takes projectName as string to create the project with current system time in meta.
@@ -34,7 +34,6 @@ public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
      * This method will transform the current GIS_project (the current HashMap of GIS_Layers) into one KML file.
      * It will include a complete code which can be run through Google Earth application.
      * The method will return the filename of the KML output file as string.
-     * @return String, the filename of the KML output file.
      * @param fileNameForNewKML String, the filename requested as the name of the file output.
      */
     public void toKml(String fileNameForNewKML) {
@@ -56,9 +55,7 @@ public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
         try {
             FileWriter fw = new FileWriter(fileNameForNewKML);
             BufferedWriter bw = new BufferedWriter(fw);
-            Iterator<GIS_layer> iterator = this.iterator();
-            while (iterator.hasNext()) {
-                GIS_layer layer = iterator.next();
+            for (GIS_layer layer : this) {
                 String kmlLayer = layer.toKmlForProject();
                 kmlContent.add(kmlLayer);
             }
