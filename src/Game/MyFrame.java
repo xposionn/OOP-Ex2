@@ -2,10 +2,14 @@ package Game;
 
 import javax.swing.*;
 
+
 public class MyFrame {
-    private JLabel welcomeHeader;
-    private JLabel developedByFooter;
-    private JButton loadGameBtn;
-    private JButton saveGameBtn;
-    private JButton newGameBtn;
+
+    public static void main(String[] args)
+    {
+        GameWindow window = new GameWindow();
+        window.setVisible(true);
+        window.setSize(window.myImage.getWidth(),window.myImage.getHeight());
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
