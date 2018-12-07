@@ -1,7 +1,5 @@
 package Geom;
 
-import Geom.Point3D;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
