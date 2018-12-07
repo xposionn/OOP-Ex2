@@ -1,4 +1,4 @@
-package Game;
+package GUI;
 
 import java.awt.Graphics;
 import java.awt.Menu;

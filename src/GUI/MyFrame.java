@@ -1,4 +1,4 @@
-package Game;
+package GUI;
 
 import javax.swing.*;
 
