@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 public class GameWindow extends JFrame implements MouseListener
 {
     public BufferedImage myImage;
+    private Game.Game game;
 
     public GameWindow()
     {
@@ -33,16 +34,15 @@ public class GameWindow extends JFrame implements MouseListener
         MenuItem saveGame = new MenuItem("Save Game");
         MenuItem loadGame = new MenuItem("Load Game");
         Menu algo = new Menu("Algorithm"); //game menu
-        MenuItem eatAll = new MenuItem("Eat all fruits");
-
+        MenuItem eatAll = new MenuItem("Calculate Best Routes");
 
         menuBar.add(game);
         game.add(saveGame);
         game.add(loadGame);
+
         menuBar.add(algo);
         algo.add(eatAll);
         this.setMenuBar(menuBar);
-
         try {
             myImage = ImageIO.read(new File("./Resources/GameMaps/Ariel1.png"));
         } catch (IOException e) {
@@ -52,7 +52,6 @@ public class GameWindow extends JFrame implements MouseListener
 
     int x = -1;
     int y = -1;
-
     public void paint(Graphics g)
     {
         g.drawImage(myImage, 0, 0, this);
@@ -77,8 +76,6 @@ public class GameWindow extends JFrame implements MouseListener
 
     @Override
     public void mouseEntered(MouseEvent arg0) {
-        System.out.println("mouse entered");
-
     }
 
     @Override
