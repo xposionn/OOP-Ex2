@@ -1,24 +1,17 @@
 package Game;
 
-import GIS.GIS_element;
-import GIS.Meta_data;
-import Geom.Geom_element;
 import Geom.Point3D;
 
-public class Fruit implements GIS_element {
+public class Fruit {
+    private Point3D location;
+    boolean isEaten;
 
-    @Override
-    public Geom_element getGeom() {
-        return null;
+    public Fruit(Point3D location) {
+        this.location = location;
+        isEaten = false;
     }
 
-    @Override
-    public Meta_data getData() {
-        return null;
-    }
-
-    @Override
-    public void translate(Point3D vec) {
-
+    public void eatFruit(){
+        this.isEaten = true;
     }
 }
