@@ -12,7 +12,6 @@ public class Game {
      * @param csvGameFile CSV file to load.
      */
     public Game(File csvGameFile) {
-
     }
 
     /**
@@ -20,7 +19,6 @@ public class Game {
      * @return file path for CSV file.
      */
     public String saveGameToCsv(){
-
         return "csv file path";
     }
 }
