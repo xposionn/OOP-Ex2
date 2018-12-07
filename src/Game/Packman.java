@@ -4,9 +4,9 @@ import Geom.Point3D;
 
 public class Packman {
     private Point3D location;
-    private long speed;
-    private long orientationHORIZONTAL;
-    private long orientationVERTICAL;
+    private double speed;
+    private double orientationHORIZONTAL;
+    private double orientationVERTICAL;
 
     /**
      * Constructor for out packman robot.
@@ -21,4 +21,38 @@ public class Packman {
         this.orientationHORIZONTAL = orientationHORIZONTAL;
         this.orientationVERTICAL = orientationVERTICAL;
     }
+
+    /***** Setters and getters *****/
+    public Point3D getLocation() {
+        return location;
+    }
+
+    public void setLocation(Point3D location) {
+        this.location = location;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public double getOrientationHORIZONTAL() {
+        return orientationHORIZONTAL;
+    }
+
+    public void setOrientationHORIZONTAL(double orientationHORIZONTAL) {
+        this.orientationHORIZONTAL = orientationHORIZONTAL;
+    }
+
+    public double getOrientationVERTICAL() {
+        return orientationVERTICAL;
+    }
+
+    public void setOrientationVERTICAL(double orientationVERTICAL) {
+        this.orientationVERTICAL = orientationVERTICAL;
+    }
+
 }

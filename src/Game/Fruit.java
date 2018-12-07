@@ -14,4 +14,21 @@ public class Fruit {
     public void eatFruit(){
         this.isEaten = true;
     }
+
+    /***** Setters and getters *****/
+    public Point3D getLocation() {
+        return location;
+    }
+
+    public void setLocation(Point3D location) {
+        this.location = location;
+    }
+
+    public boolean isEaten() {
+        return isEaten;
+    }
+
+    public void setEaten(boolean eaten) {
+        isEaten = eaten;
+    }
 }
