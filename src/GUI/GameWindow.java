@@ -1,9 +1,6 @@
 package GUI;
 
-import java.awt.Graphics;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -11,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 
 public class GameWindow extends JFrame implements MouseListener
@@ -35,6 +32,10 @@ public class GameWindow extends JFrame implements MouseListener
         MenuItem loadGame = new MenuItem("Load Game");
         Menu algo = new Menu("Algorithm"); //game menu
         MenuItem eatAll = new MenuItem("Calculate Best Routes");
+        JLabel label1 = new JLabel();
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("GameMaps/Ariel1.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+        label1.setIcon(imageIcon);
+
 
         menuBar.add(game);
         game.add(saveGame);
