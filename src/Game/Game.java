@@ -17,7 +17,7 @@ public class Game {
         Point3D downRight = new Point3D(35.20238,32.10190);
         pacmen = new GIS_layer_obj();
         fruits = new GIS_layer_obj();
-        map = new Map(new File("D:\\Projects\\IdeaProjects\\OOP-Ex2\\Resources\\GameMaps\\Ariel1.png"),topLeft,downRight);
+        map = new Map(new File("./Resources/GameMaps/Ariel1.png"),topLeft,downRight);
     }
 
     /**
