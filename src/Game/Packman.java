@@ -1,8 +1,11 @@
 package Game;
 
+import GIS.GIS_element;
+import GIS.Meta_data;
+import Geom.Geom_element;
 import Geom.Point3D;
 
-public class Packman {
+public class Packman implements GIS_element {
     private Point3D location;
     private double speed;
     private double orientationHORIZONTAL;
@@ -55,4 +58,18 @@ public class Packman {
         this.orientationVERTICAL = orientationVERTICAL;
     }
 
+    @Override
+    public Geom_element getGeom() {
+        return null;
+    }
+
+    @Override
+    public Meta_data getData() {
+        return null;
+    }
+
+    @Override
+    public void translate(Point3D vec) {
+
+    }
 }

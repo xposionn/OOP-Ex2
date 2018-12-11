@@ -1,8 +1,11 @@
 package Game;
 
+import GIS.GIS_element;
+import GIS.Meta_data;
+import Geom.Geom_element;
 import Geom.Point3D;
 
-public class Fruit {
+public class Fruit implements GIS_element {
     private Point3D location;
     boolean isEaten;
 
@@ -30,5 +33,20 @@ public class Fruit {
 
     public void setEaten(boolean eaten) {
         isEaten = eaten;
+    }
+
+    @Override
+    public Geom_element getGeom() {
+        return null;
+    }
+
+    @Override
+    public Meta_data getData() {
+        return null;
+    }
+
+    @Override
+    public void translate(Point3D vec) {
+
     }
 }
