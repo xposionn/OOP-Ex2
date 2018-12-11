@@ -6,7 +6,7 @@ import GIS.Meta_data_element;
 import Geom.Geom_element;
 import Geom.Point3D;
 
-public class Pacman extends GIS_element_obj {
+public class Packman extends GIS_element_obj {
     private Point3D orientation; //Yaw, Roll, Pitch. as in: https://upload.wikimedia.org/wikipedia/commons/5/54/Flight_dynamics_with_text.png
     private double speed;
     private double eatRadius;
@@ -16,21 +16,21 @@ public class Pacman extends GIS_element_obj {
      * @param geometryOfElement Geom_element, the geometry object of the element.
      * @param dataOfElement     Meta_data, the data of the element.
      */
-    public Pacman(Geom_element geometryOfElement, Meta_data_element dataOfElement) {
+    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement) {
         super(geometryOfElement, dataOfElement);
         this.orientation = new Point3D(1,1,1);
         this.speed = 1;
         this.eatRadius = 1;
     }
 
-    public Pacman(Geom_element geometryOfElement, Meta_data_element dataOfElement, double speed, double eatRadius) {
+    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement, double speed, double eatRadius) {
         super(geometryOfElement, dataOfElement);
         this.orientation = new Point3D(1,1,1);
         this.speed = speed;
         this.eatRadius = eatRadius;
     }
 
-    public Pacman(Geom_element geometryOfElement, Meta_data dataOfElement, Point3D orientation, double speed, double eatRadius) {
+    public Packman(Geom_element geometryOfElement, Meta_data dataOfElement, Point3D orientation, double speed, double eatRadius) {
         super(geometryOfElement, dataOfElement);
         this.orientation = orientation;
         this.speed = speed;

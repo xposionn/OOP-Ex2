@@ -12,7 +12,7 @@ public class Meta_data_element implements Meta_data{
     /**
      * Constructor function, will be called with only a name and UTCtime as used in GIS layer and GIS project meta data.
      * @param name name of the object including this meta data.
-     * @param type indication P = Pacman, F = Fruit.
+     * @param type indication P = Packman, F = Fruit.
      */
     public Meta_data_element(String name, String type){ //constructor used with only name and type. assigns default color.
         this.name = name;
@@ -24,7 +24,7 @@ public class Meta_data_element implements Meta_data{
     /**
      * Constructor function, will be called with only a name and UTCtime as used in GIS layer and GIS project meta data.
      * @param name name of the object including this meta data.
-     * @param type indication P = Pacman, F = Fruit.
+     * @param type indication P = Packman, F = Fruit.
      * @param color color of the object in HEX string.
      */
     public Meta_data_element(String name, String type, String color){

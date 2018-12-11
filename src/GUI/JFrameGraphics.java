@@ -50,7 +50,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Pacman and Fruits");
+        JFrame frame = new JFrame("Packman and Fruits");
         JFrameGraphics fr = new JFrameGraphics();
         frame.getContentPane().add(fr);
         frame.setSize(900, 600);
@@ -62,7 +62,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         MenuBar MainMenu = new MenuBar();
         frame.setMenuBar(MainMenu);
         Menu AddMenu = new Menu("Add:");
-        MenuItem Pacman = new MenuItem("Pacman");
+        MenuItem Pacman = new MenuItem("Packman");
         MenuItem Fruit = new MenuItem("Fruit");
         Fruit.addActionListener(e -> fr.type = 2);
         Pacman.addActionListener((e -> fr.type = 1));

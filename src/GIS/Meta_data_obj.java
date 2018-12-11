@@ -44,10 +44,10 @@ public class Meta_data_obj implements Meta_data {
 
     /**
      * Constructor function, will be called with a name, UTCtime, type, speed, radius.
-     * this constructor is relevant for Ex3 with Pacman (player) or Fruit(food) including all its information.
+     * this constructor is relevant for Ex3 with Packman (player) or Fruit(food) including all its information.
      * @param name name of the player.
      * @param UTCtimeLONG timestamp in UTC long.
-     * @param type indication P = Pacman, F = Fruit.
+     * @param type indication P = Packman, F = Fruit.
      * @param speed speed of the player.
      * @param radius eating radius of a player, the smallest distance a player can eat a fruit.
      */
