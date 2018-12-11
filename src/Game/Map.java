@@ -9,7 +9,8 @@ import java.io.IOException;
 
 public class Map implements MapInterface{
 
-    private BufferedImage buffimage;
+    private File Image;
+    private BufferedImage ImageFile;
     private Point3D topLeft;
     private Point3D downRight;
     private Point3D topLeftPixel;
@@ -17,15 +18,17 @@ public class Map implements MapInterface{
 
 
     public Map(File image, Point3D topLeft, Point3D downRight) {
+        this.Image = image;
         try {
-            buffimage = ImageIO.read(image);
-        } catch (IOException e) {
-            e.printStackTrace();
+            ImageFile = ImageIO.read(image);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
+
         this.topLeft = topLeft;
         this.downRight = downRight;
         this.topLeftPixel = new Point3D(0,0,0);
-        this.rightDownPixel = new Point3D(buffimage.getWidth(),buffimage.getHeight(),0);
+        this.rightDownPixel = new Point3D(ImageFile.getWidth(),ImageFile.getHeight(),0);
     }
 
     @Override
@@ -70,9 +73,7 @@ public class Map implements MapInterface{
     }
 
 
-    public BufferedImage getBuffimage() {
-        return buffimage;
+    public String getImagePath() {
+        return this.Image.getPath();
     }
-
-
 }
