@@ -2,7 +2,6 @@ package GIS;
 
 import Geom.Point3D;
 
-import java.util.ArrayList;
 
 /**
  * This class represents data to be saved for GIS elements, layers, projects.
@@ -65,7 +64,7 @@ public class Meta_data_obj implements Meta_data {
      * it will return a String containing all the meta_data as in KML format ready.
      * @return String containing all the meta_data as in KML format ready.
      */
-    public String allInfo(){ //name is also handled separately, as a placemark name.
+    public String toStringKML(){ //name is also handled separately, as a placemark name.
         StringBuilder info = new StringBuilder();
         info.append("Name: <b>").append(this.name).append("</b><br/>");
         info.append("Timestamp (UTC): <b>").append(this.UTCtime).append("</b><br/>");
@@ -90,31 +89,31 @@ public class Meta_data_obj implements Meta_data {
     return info.toString();
     }
 
-    /**
-     * This method will return a String color in KML format used in Google Earth to indicate if wifi point on map
-     * should be red, yellow, or green, based on security.
-     * algorithm to decide if wifi point is green/yellow/red. based on security.
-     * this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
-     * @return String, red yellow or green in KML format ready.
-     */
-    @Override
-    public String getStyleUrlColor() {
-        if(this.wifiPointEx2DATA!=null && this.wifiPointEx2DATA[1]!=null){
-            //this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
-            String securityWifi = wifiPointEx2DATA[1];
-            if (securityWifi.contains("WPA")) { //includes WPA2. both red.
-                return "#red";
-            } else if (securityWifi.contains("WEP")) {
-                return "#yellow";
-            }
-            else{ //probably bad security. ESS,WPS,BLE,IBSS, UNKNOWN;il  etc.    wifi point is green.
-                return "#green";
-            }
-        }
-        else{ //default color to return.
-        }
-        return null;
-    }
+//    /**
+//     * This method will return a String color in KML format used in Google Earth to indicate if wifi point on map
+//     * should be red, yellow, or green, based on security.
+//     * algorithm to decide if wifi point is green/yellow/red. based on security.
+//     * this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
+//     * @return String, red yellow or green in KML format ready.
+//     */
+//    @Override
+//    public String getStyleUrlColor() {
+//        if(this.wifiPointEx2DATA!=null && this.wifiPointEx2DATA[1]!=null){
+//            //this.wifiPointEx2DATA[1] is the capabilities (security) for the wifi point. determine by this factor.
+//            String securityWifi = wifiPointEx2DATA[1];
+//            if (securityWifi.contains("WPA")) { //includes WPA2. both red.
+//                return "#red";
+//            } else if (securityWifi.contains("WEP")) {
+//                return "#yellow";
+//            }
+//            else{ //probably bad security. ESS,WPS,BLE,IBSS, UNKNOWN;il  etc.    wifi point is green.
+//                return "#green";
+//            }
+//        }
+//        else{ //default color to return.
+//        }
+//        return null;
+//    }
 
 
     /******* Setters and Getters ********/
