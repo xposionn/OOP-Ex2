@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 
 /**
  * This class represents a GIS layer as a HashMap including GIS_elements inside, and also meta data for the layer
@@ -66,8 +65,8 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
                 Point3D point = (Point3D)elem.getGeom();
                 String kmlElement = "<Placemark>\n" +
                         "<name>" + elem.getData().getName() + "</name>\n" +
-                        "<description>" + elem.getData().allInfo() + "</description>\n" +
-                        "<styleUrl>"+ elem.getData().getStyleUrlColor()+"</styleUrl>\n" +
+                        "<description>" + elem.getData().toStringKML() + "</description>\n" +
+//                        "<styleUrl>"+ elem.getData().getStyleUrlColor()+"</styleUrl>\n" +
                         "<TimeStamp><when>"+ Algorithms.TimeChange.longtoUTC(elem.getData().getUTC())+"</when></TimeStamp>\n"+
                         "<Point>\n"+
                         "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
@@ -99,8 +98,8 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
             Point3D point = (Point3D) elem.getGeom();
             kmlContent += "<Placemark>\n" +
                     "<name>" + elem.getData().getName() + "</name>\n" +
-                    "<description>" + elem.getData().allInfo() + "</description>\n" +
-                    "<styleUrl>" + elem.getData().getStyleUrlColor() + "</styleUrl>\n" +
+                    "<description>" + elem.getData().toStringKML() + "</description>\n" +
+//                    "<styleUrl>" + elem.getData().getStyleUrlColor() + "</styleUrl>\n" +
                     "<TimeStamp><when>" + TimeChange.longtoUTC(elem.getData().getUTC()) + "</when></TimeStamp>\n" +
                     "<Point>\n" +
                     "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height

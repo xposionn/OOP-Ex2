@@ -1,27 +1,41 @@
 package Game;
 
-import Geom.Point3D;
+import GIS.GIS_element;
+import GIS.GIS_element_obj;
+import GIS.Meta_data_element;
+import Geom.Geom_element;
 
-public class Fruit {
-    private Point3D location;
-    boolean isEaten;
+public class Fruit extends GIS_element_obj implements GIS_element {
+    /*
+    has the following fields from GIS element:
+    Geom_element, Meta_data (name, color, type, utcTime).
+     */
+    private double weight; //fruit weight.
+    private boolean isEaten;
 
-    public Fruit(Point3D location) {
-        this.location = location;
-        isEaten = false;
+    /**
+     * Constructor for the GIS_element object. gets a Geom_element and Meta_data.
+     *
+     * @param geometryOfElement Geom_element, the geometry object of the element.
+     * @param dataOfElement     Meta_data, the data of the element.
+     */
+    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement) {
+        super(geometryOfElement, dataOfElement);
+        this.weight = 1;
+        this.isEaten = false;
     }
 
-    public void eatFruit(){
-        this.isEaten = true;
+    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement, double weight) {
+        super(geometryOfElement, dataOfElement);
+        this.weight = weight;
     }
 
-    /***** Setters and getters *****/
-    public Point3D getLocation() {
-        return location;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setLocation(Point3D location) {
-        this.location = location;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public boolean isEaten() {

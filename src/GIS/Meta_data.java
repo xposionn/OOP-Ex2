@@ -14,7 +14,5 @@ public interface Meta_data {
 
 	String getName();
 
-	public String allInfo();
-
-	String getStyleUrlColor();
+	public String toStringKML();
 }

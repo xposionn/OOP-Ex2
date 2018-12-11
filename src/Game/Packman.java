@@ -1,34 +1,40 @@
 package Game;
 
+import GIS.GIS_element_obj;
+import GIS.Meta_data;
+import GIS.Meta_data_element;
+import Geom.Geom_element;
 import Geom.Point3D;
 
-public class Packman {
-    private Point3D location;
+public class Packman extends GIS_element_obj {
+    private Point3D orientation; //Yaw, Roll, Pitch. as in: https://upload.wikimedia.org/wikipedia/commons/5/54/Flight_dynamics_with_text.png
     private double speed;
-    private double orientationHORIZONTAL;
-    private double orientationVERTICAL;
+    private double eatRadius;
 
     /**
-     * Constructor for out packman robot.
-     * @param location point3d location in lat,lon,alt.
-     * @param speed the packman speed.
-     * @param orientationHORIZONTAL its horizontal orientation.
-     * @param orientationVERTICAL its vertical orientation.
+     * Constructor for the GIS_element object. gets a Geom_element and Meta_data.
+     * @param geometryOfElement Geom_element, the geometry object of the element.
+     * @param dataOfElement     Meta_data, the data of the element.
      */
-    public Packman(Point3D location, long speed, long orientationHORIZONTAL, long orientationVERTICAL) {
-        this.location = location;
+    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement) {
+        super(geometryOfElement, dataOfElement);
+        this.orientation = new Point3D(1,1,1);
+        this.speed = 1;
+        this.eatRadius = 1;
+    }
+
+    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement, double speed, double eatRadius) {
+        super(geometryOfElement, dataOfElement);
+        this.orientation = new Point3D(1,1,1);
         this.speed = speed;
-        this.orientationHORIZONTAL = orientationHORIZONTAL;
-        this.orientationVERTICAL = orientationVERTICAL;
+        this.eatRadius = eatRadius;
     }
 
-    /***** Setters and getters *****/
-    public Point3D getLocation() {
-        return location;
-    }
-
-    public void setLocation(Point3D location) {
-        this.location = location;
+    public Packman(Geom_element geometryOfElement, Meta_data dataOfElement, Point3D orientation, double speed, double eatRadius) {
+        super(geometryOfElement, dataOfElement);
+        this.orientation = orientation;
+        this.speed = speed;
+        this.eatRadius = eatRadius;
     }
 
     public double getSpeed() {
@@ -39,20 +45,19 @@ public class Packman {
         this.speed = speed;
     }
 
-    public double getOrientationHORIZONTAL() {
-        return orientationHORIZONTAL;
+    public double getEatRadius() {
+        return eatRadius;
     }
 
-    public void setOrientationHORIZONTAL(double orientationHORIZONTAL) {
-        this.orientationHORIZONTAL = orientationHORIZONTAL;
+    public void setEatRadius(double eatRadius) {
+        this.eatRadius = eatRadius;
     }
 
-    public double getOrientationVERTICAL() {
-        return orientationVERTICAL;
+    public Point3D getOrientation() {
+        return orientation;
     }
 
-    public void setOrientationVERTICAL(double orientationVERTICAL) {
-        this.orientationVERTICAL = orientationVERTICAL;
+    public void setOrientation(Point3D orientation) {
+        this.orientation = orientation;
     }
-
 }
