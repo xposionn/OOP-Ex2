@@ -1,5 +1,6 @@
 package GUI;
 
+import GIS.Meta_data_element;
 import Game.Game;
 import Game.Packman;
 import Game.Fruit;
@@ -12,7 +13,7 @@ import java.awt.event.MouseListener;
 import java.util.Iterator;
 
 /**
- * Code taken from: https://javatutorial.net/display-text-and-graphics-java-jframe
+ * some of the code is taken from: https://javatutorial.net/display-text-and-graphics-java-jframe
  */
 public class JFrameGraphics extends JPanel implements MouseListener {
 
@@ -35,15 +36,15 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Iterator FruitIterator = game.getFruits().iterator();
 
         while (PacIterator.hasNext()) {
-            Packman Pac = (Packman)PacIterator.next();
-            Point3D Pixel = game.getMap().CoordsToPixels(Pac.getLocation(), getHeight(), getWidth());
+            Packman pacman = (Packman)PacIterator.next();
+            Point3D Pixel = game.getMap().CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth());
             g.setColor(Color.GREEN);
             g.fillOval((int) Pixel.x(), (int) Pixel.y(), 15, 15);
         }
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
-            Point3D Pixel = game.getMap().CoordsToPixels(fruit.getLocation(), getHeight(), getWidth());
+            Point3D Pixel = game.getMap().CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth());
             g.setColor(Color.blue);
             g.fillOval((int) Pixel.x(), (int) Pixel.y(), 15, 15);
         }
@@ -78,13 +79,15 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         if (type == 1) {
             Point3D point = new Point3D(e.getX(), e.getY(), 0);
             Point3D globalpoint = game.getMap().PixelsToCoords(point, getHeight(), getWidth());
-            Packman pac = new Packman(globalpoint, 1, 0, 0);
+            Meta_data_element pacman_meta = new Meta_data_element("Packman name", "P"); //color is white as default.
+            Packman pac = new Packman(globalpoint, pacman_meta, 1, 1); //orientation is (1,1,1) as default.
             game.getPacmen().add(pac);
         }
         if (type == 2) {
             Point3D point = new Point3D(e.getX(), e.getY(), 0);
             Point3D globalpoint2 = game.getMap().PixelsToCoords(point, getHeight(), getWidth());
-            Fruit fruit = new Fruit(globalpoint2);
+            Meta_data_element fruit_meta = new Meta_data_element("Fruit name", "F"); //color is white as default.
+            Fruit fruit = new Fruit(globalpoint2,fruit_meta,1);
             game.getFruits().add(fruit);
         }
         repaint();
