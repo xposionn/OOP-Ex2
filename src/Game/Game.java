@@ -9,7 +9,6 @@ import java.io.File;
 public class Game {
     GIS_layer fruits;
     GIS_layer pacmen;
-    Map map;
 
 
     public Game() {
@@ -17,7 +16,6 @@ public class Game {
         Point3D downRight = new Point3D(35.20238,32.10190);
         pacmen = new GIS_layer_obj();
         fruits = new GIS_layer_obj();
-        map = new Map(new File("./Resources/GameMaps/Ariel1.png"),topLeft,downRight);
     }
 
     /**
@@ -44,7 +42,4 @@ public class Game {
         return pacmen;
     }
 
-    public Map getMap() {
-        return map;
-    }
 }
