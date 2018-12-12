@@ -23,7 +23,7 @@ public class Csv2kml {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        TableLayer layer = new TableLayer();
+        CsvReaderToLayer layer = new CsvReaderToLayer();
         GIS_layer testlayer = layer.tableLayer(csvTable, csv.getName());
         testlayer.toKml();
     }

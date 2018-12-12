@@ -11,7 +11,7 @@ import java.util.Iterator;
  * it will generate the GIS_layer according to values available inside the csvTable, and if some are not available, it will ignore them and will only apply
  * and add the values to the GIS_layer if they are present.
  */
-public class TableLayer {
+public class CsvReaderToLayer {
 
     /**
      * This method will iterate through the csv header and check for specific index of values, such as Lon,Lat,Alt, name, color, type, etc.

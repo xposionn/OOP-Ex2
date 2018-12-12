@@ -24,7 +24,7 @@ public class Csv2Layer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        TableLayer layer = new TableLayer();
+        CsvReaderToLayer layer = new CsvReaderToLayer();
         GIS_layer testlayer = layer.tableLayer(csvTable, csv.getName());
         return testlayer;
     }
