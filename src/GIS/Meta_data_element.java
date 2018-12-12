@@ -16,7 +16,10 @@ public class Meta_data_element implements Meta_data{
      */
     public Meta_data_element(String name, String type){ //constructor used with only name and type. assigns default color.
         this.name = name;
-        this.color = "#ffffff"; //default color - white.
+        if(type.equals("F")) //color for fruit.
+            this.color = "#FF0000"; //default color - white.
+        else //color for everything else. pacman for example.
+            this.color = "#f0ff00";
         this.type = type;
         this.UTCtime = System.currentTimeMillis();
     }
