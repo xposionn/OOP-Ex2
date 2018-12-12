@@ -27,8 +27,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     public JFrameGraphics() {
         this.game = new Game();
-        Point3D topLeft = new Point3D(35.212336,32.10569);
-        Point3D downRight = new Point3D(35.20238,32.10190);
+        Point3D topLeft = new Point3D(35.20236,32.10572);
+        Point3D downRight = new Point3D(35.21235,32.10194);
         this.map = new Map(new File("Resources/GameMaps/Ariel1.png"),topLeft,downRight);
         addMouseListener(this);
     }

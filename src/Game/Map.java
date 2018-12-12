@@ -49,23 +49,20 @@ public class Map implements MapInterface{
 
 
         double wPixel = Width*xRatio;
-        double hPixel = Height*yRatio;
+        double hPixel = Height-Height*yRatio;
 
         Point3D pixel = new Point3D(wPixel,hPixel,0);
         return pixel;
     }
 
     @Override
-    public Point3D PixelsToCoords(Point3D p,double Height,double Width) {
+    public Point3D PixelsToCoords(Point3D p,double frameHeight,double frameWidth) {
 
-        double width = rightDownPixel.x();
         double latRange = downRight.x()-topLeft.x();
-        double xToCoords = (p.x()/Width)*latRange + topLeft.x();
-
-        double height = rightDownPixel.y();
         double longRange = topLeft.y()-downRight.y();
 
-        double yToCoords = (p.y()/Height)*longRange + downRight.y();
+        double xToCoords = (p.x()/frameWidth)*latRange + topLeft.x();
+        double yToCoords = (1-(p.y()/frameHeight))*longRange + downRight.y();
 
         Point3D returnPoint = new Point3D(xToCoords,yToCoords,0);
         return returnPoint;
