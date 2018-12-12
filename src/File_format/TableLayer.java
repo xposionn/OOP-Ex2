@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 /**
  * This class will transform a CsvTable object into GIS_layer to be used across the application.
- * It will check for specific values inside the CsvTable including Lon, Lat, Alt, Name, color, type, time(timestamp), and some wifi point datas if available.
+ * It will check for specific values inside the CsvTable including Lon, Lat, Alt, Name, color, type, time(timestamp), and some extra data if available. (speed etc)
  * it will generate the GIS_layer according to values available inside the csvTable, and if some are not available, it will ignore them and will only apply
  * and add the values to the GIS_layer if they are present.
  */
@@ -15,7 +15,7 @@ public class TableLayer {
 
     /**
      * This method will iterate through the csv header and check for specific index of values, such as Lon,Lat,Alt, name, color, type, etc.
-     * Then, for each available variable it founds, it will add it to an GIS_layer object accordingly and will return the completed GIS layer.
+     * Then, for each available variable it finds, it will add it to an GIS_layer object accordingly and will return the completed GIS layer.
      * @param csvTable The Csv table we are transforming into the GIS_layer.
      * @param fileName the file name of the Csv table, it will be used to update the GIS layer META DATA with this name.
      * @return GIS_layer, completed layer with all relevant variables.
@@ -25,15 +25,15 @@ public class TableLayer {
         GIS_layer layer = new GIS_layer_obj();
         Iterator<String []> iterator = csvTable.iterator();
         String[] header = csvTable.getHeader();
-        int latIndex=0;
-        int longIndex=0;
-        int altIndex=0;
-        int nameIndex=0;
-        int colorIndex=0;
-        int timeIndex=0;
-        int BSSIDindex = -1;
-        int CapabilitiesIndex = -1;
-        int AccuracyMetersIndex = -1;
+        int latIndex=-1;
+        int longIndex=-1;
+        int altIndex=-1;
+        int nameIndex=-1;
+        int colorIndex=-1;
+        int timeIndex=-1;
+//        int BSSIDindex = -1;
+//        int CapabilitiesIndex = -1;
+//        int AccuracyMetersIndex = -1;
         for (int i = 0; i < header.length; i++) {
             if (header[i].equals("CurrentLatitude") || header[i].equals("Lat")) {
                 latIndex = i;
@@ -44,18 +44,18 @@ public class TableLayer {
             } else if (header[i].equals("SSID") || header[i].equals("Name")) { //name
                 nameIndex = i;
             } else if (header[i].equals("Color")) {
-                colorIndex = i; //will be used later in assignments.
+                colorIndex = i; //will be used later in assignments. extra functionality.
             } else if (header[i].equals("FirstSeen") || header[i].equals("Timestamp")) {
                 timeIndex = i;
-            } else if (header[i].equals("MAC")) {
-                BSSIDindex = i;
-            } else if (header[i].equals("AuthMode")) {
-                CapabilitiesIndex = i;
-            } else if (header[i].equals("AccuracyMeters")) {
-                AccuracyMetersIndex = i;
-            }
+//            } else if (header[i].equals("MAC")) {
+//                BSSIDindex = i;
+//            } else if (header[i].equals("AuthMode")) {
+//                CapabilitiesIndex = i;
+//            } else if (header[i].equals("AccuracyMeters")) {
+//                AccuracyMetersIndex = i;
+//            }
         }
-        boolean itsWifiPointObject = (BSSIDindex!= -1) && (CapabilitiesIndex != -1) && (AccuracyMetersIndex != -1);
+//        boolean itsWifiPointObject = (BSSIDindex!= -1) && (CapabilitiesIndex != -1) && (AccuracyMetersIndex != -1);
         double elemLat = 0;
         double elemLon = 0;
         double elemAlt = 0;
@@ -73,16 +73,16 @@ public class TableLayer {
             }
             Point3D elementGeom = new Point3D(elemLat,elemLon,elemAlt);
             Meta_data metaData;
-            if(itsWifiPointObject){ //to call for relevant constructor of meta.
-                String[] wifiMeta = new String[3];
-                wifiMeta[0] = element[BSSIDindex];
-                wifiMeta[1] = element[CapabilitiesIndex];
-                wifiMeta[2] = element[AccuracyMetersIndex];
-                metaData = new Meta_data_obj(element[nameIndex],elemTime,wifiMeta);
-            }
-            else { //its not a wifi point. check if it player or fruit here etc. to call for relevant constructor of meta.
+//            if(itsWifiPointObject){ //to call for relevant constructor of meta.
+//                String[] wifiMeta = new String[3];
+//                wifiMeta[0] = element[BSSIDindex];
+//                wifiMeta[1] = element[CapabilitiesIndex];
+////                wifiMeta[2] = element[AccuracyMetersIndex];
+//                metaData = new Meta_data_obj(element[nameIndex],elemTime,wifiMeta);
+//            }
+//            else { //its not a wifi point. check if it player or fruit here etc. to call for relevant constructor of meta.
                 metaData = new Meta_data_obj(element[nameIndex], elemTime);
-            }
+//            }
             GIS_element_obj element_obj = new GIS_element_obj(elementGeom,metaData);
             layer.add(element_obj);
         }
