@@ -11,7 +11,7 @@ import java.util.Iterator;
  * it will generate the GIS_layer according to values available inside the csvTable, and if some are not available, it will ignore them and will only apply
  * and add the values to the GIS_layer if they are present.
  */
-public class CsvReaderToLayer {
+public class CsvTableReaderToLayer {
 
     /**
      * This method will iterate through the csv header and check for specific index of values, such as Lon,Lat,Alt, name, color, type, etc.
@@ -21,7 +21,7 @@ public class CsvReaderToLayer {
      * @param fileName the file name of the Csv table, it will be used to update the GIS layer META DATA with this name.
      * @return GIS_layer, completed layer with all relevant variables.
      */
-    GIS_layer tableLayer(CsvTable csvTable, String fileName) {
+    GIS_layer CsvTableReaderToLayer(CsvTable csvTable, String fileName) {
 
         GIS_layer layer = new GIS_layer_obj();
         Iterator<String[]> iterator = csvTable.iterator();
@@ -37,8 +37,6 @@ public class CsvReaderToLayer {
         int idIndex = -1;
         int radiusIndex = -1;
 //        int BSSIDindex = -1;
-//        int CapabilitiesIndex = -1;
-//        int AccuracyMetersIndex = -1;
         for (int i = 0; i < header.length; i++) {
             if (header[i].equals("CurrentLatitude") || header[i].equals("Lat")) {
                 latIndex = i;
@@ -61,15 +59,11 @@ public class CsvReaderToLayer {
             } else if (header[i].equals("Radius")) {
                 radiusIndex = i;
             }
-//            } else if (header[i].equals("MAC")) {
-//                BSSIDindex = i;
-//            } else if (header[i].equals("AuthMode")) {
-//                CapabilitiesIndex = i;
-//            } else if (header[i].equals("AccuracyMeters")) {
-//                AccuracyMetersIndex = i;
-//            }
-            }//end for loop on header.
-//        boolean itsWifiPointObject = (BSSIDindex!= -1) && (CapabilitiesIndex != -1) && (AccuracyMetersIndex != -1);
+        }//end for loop on header.
+        //check for must-have indexes found in file.
+        if(latIndex== -1 || longIndex == -1 || altIndex == -1 || typeIndex == -1 || speedOrWeightIndex == -1){
+            throw new RuntimeException("CSV file is not compatible. Must have the following in header: lat,lon,alt,type,speed/weight");
+        }
             double elemLat = 0;
             double elemLon = 0;
             double elemAlt = 0;
@@ -86,18 +80,8 @@ public class CsvReaderToLayer {
                     e.printStackTrace();
                 }
                 Point3D elementGeom = new Point3D(elemLat, elemLon, elemAlt);
-                Meta_data metaData;
-//            if(itsWifiPointObject){ //to call for relevant constructor of meta.
-//                String[] wifiMeta = new String[3];
-//                wifiMeta[0] = element[BSSIDindex];
-//                wifiMeta[1] = element[CapabilitiesIndex];
-////                wifiMeta[2] = element[AccuracyMetersIndex];
-//                metaData = new Meta_data_obj(element[nameIndex],elemTime,wifiMeta);
-//            }
-//            else { //its not a wifi point. check if it player or fruit here etc. to call for relevant constructor of meta.
-                metaData = new Meta_data_obj(element[nameIndex], elemTime);
-//            }
-                GIS_element_obj element_obj = new GIS_element_obj(elementGeom, metaData);
+                Meta_data metaDataElem = new Meta_data_element(element[idIndex], element[typeIndex]);
+                GIS_element_obj element_obj = new GIS_element_obj(elementGeom, metaDataElem);
                 layer.add(element_obj);
             }
             layer.setMeta(new Meta_data_obj(fileName, System.currentTimeMillis())); //meta of the layer. initiated with time as the creation time of the layer!
