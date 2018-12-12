@@ -13,6 +13,14 @@ public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
 
     private Meta_data projectMeta;
 
+    public Meta_data getProjectMeta() {
+        return projectMeta;
+    }
+
+    public void setProjectMeta(Meta_data projectMeta) {
+        this.projectMeta = projectMeta;
+    }
+
     /**
      * Constructor for the GIS_project. takes projectName as string to create the project with current system time in meta.
      * @param projectName string, name for the project object.

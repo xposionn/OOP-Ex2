@@ -2,20 +2,22 @@ package Game;
 
 import GIS.GIS_layer;
 import GIS.GIS_layer_obj;
+import GIS.Meta_data_layerAndProject;
 import Geom.Point3D;
 
 import java.io.File;
 
 public class Game {
+
     GIS_layer fruits;
     GIS_layer pacmen;
 
 
     public Game() {
-        Point3D topLeft = new Point3D(35.212336,32.10569);
-        Point3D downRight = new Point3D(35.20238,32.10190);
         pacmen = new GIS_layer_obj();
+        pacmen.setMeta(new Meta_data_layerAndProject("Pacmen Layer"));
         fruits = new GIS_layer_obj();
+        fruits.setMeta(new Meta_data_layerAndProject("Fruits Layer"));
     }
 
     /**
