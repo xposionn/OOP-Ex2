@@ -84,14 +84,14 @@ public class CsvTableReaderToLayer {
                     String colorHEXvalue = element[colorIndex];
                     metaDataElem.setColor(colorHEXvalue);
                 }
-                if(timeIndex!=-1) { //TODO: will have to change once we code the best route algorithm.
+                if(timeIndex!=-1) { //TODO: will have to change once we code the best best-route algorithm.
                     elemTime = Algorithms.TimeChange.stringUTCtoLong(element[timeIndex]);
                     metaDataElem.setUTCtime(elemTime);
                 }
                 GIS_element_obj element_obj = new GIS_element_obj(elementGeom, metaDataElem);
                 layer.add(element_obj);
             }
-            layer.setMeta(new Meta_data_obj(fileName, System.currentTimeMillis())); //meta of the layer. initiated with time as the creation time of the layer!
+            layer.setMeta(new Meta_data_layerAndProject(fileName)); //meta of the layer. initiated with time as the creation time of the layer!
             return layer;
         }
     }
