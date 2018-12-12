@@ -62,7 +62,7 @@ public class CsvTableReaderToLayer {
         }//end for loop on header.
         //check for must-have indexes found in file.
         if(latIndex== -1 || longIndex == -1 || altIndex == -1 || typeIndex == -1 || speedOrWeightIndex == -1){
-            throw new RuntimeException("CSV file is not compatible. Must have the following in header: lat,lon,alt,type,speed/weight");
+            throw new RuntimeException("CSV file is not compatible.\n Must have the following in header: lat,lon,alt,type,speed/weight");
         }
             double elemLat = 0;
             double elemLon = 0;
@@ -75,12 +75,19 @@ public class CsvTableReaderToLayer {
                     elemLat = Double.parseDouble(element[latIndex]);
                     elemLon = Double.parseDouble(element[longIndex]);
                     elemAlt = Double.parseDouble(element[altIndex]);
-                    elemTime = Algorithms.TimeChange.stringUTCtoLong(element[timeIndex]);
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
                 Point3D elementGeom = new Point3D(elemLat, elemLon, elemAlt);
                 Meta_data metaDataElem = new Meta_data_element(element[idIndex], element[typeIndex]);
+                if(colorIndex!=-1){
+                    String colorHEXvalue = element[colorIndex];
+                    metaDataElem.setColor(colorHEXvalue);
+                }
+                if(timeIndex!=-1) { //TODO: will have to change once we code the best route algorithm.
+                    elemTime = Algorithms.TimeChange.stringUTCtoLong(element[timeIndex]);
+                    metaDataElem.setUTCtime(elemTime);
+                }
                 GIS_element_obj element_obj = new GIS_element_obj(elementGeom, metaDataElem);
                 layer.add(element_obj);
             }
