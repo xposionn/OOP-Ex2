@@ -44,14 +44,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         while (PacIterator.hasNext()) {
             Packman pacman = (Packman)PacIterator.next();
             Point3D Pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth());
-            g.setColor(Color.GREEN);
+            g.setColor(Color.decode(pacman.getData().getColor()));
             g.fillOval((int) Pixel.x(), (int) Pixel.y(), 15, 15);
         }
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
             Point3D Pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth());
-            g.setColor(Color.blue);
+            g.setColor(Color.decode(fruit.getData().getColor()));
             g.fillOval((int) Pixel.x(), (int) Pixel.y(), 15, 15);
         }
     }
