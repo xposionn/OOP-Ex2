@@ -5,6 +5,8 @@ import GIS.*;
 import Geom.Point3D;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Game {
 
@@ -42,9 +44,63 @@ public class Game {
      * Saves current game state into CSV file. returns CSV file path.
      * @return file path for CSV file.
      */
-    public String saveGameToCsv(){
-        //TODO: implement method.
-        return "csv file path";
+    public void saveGameToCsv(String fullPath){
+        final String COMMA = ",";
+        final String NEW_LINE = "\n";
+        String CSVheader = "Type,id,Lat,Lon,Alt,Speed/Weight,Radius";
+        FileWriter fileWriter = null;
+
+        try {
+            fileWriter = new FileWriter(fullPath);
+            fileWriter.append(CSVheader); //add header
+            fileWriter.append(NEW_LINE); //new line separator after the header
+
+            //Write all pacmen objects to the CSV file
+            int ID = 1;
+            for (GIS_element pacman : this.pacmen) {
+                fileWriter.append(pacman.getData().getType()); //type
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(ID++)); //value of integer ID, then increase by one.
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).x())); //lat
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).y())); //lon
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).z())); //alt
+                fileWriter.append(COMMA);
+                fileWriter.append("1"); //speed TODO: change this hard-coded value.
+                fileWriter.append(COMMA);
+                fileWriter.append("1"); //radius TODO: change this hard-coded value.
+                fileWriter.append(NEW_LINE);
+            }
+            //Write all fruits objects to the CSV file
+            for (GIS_element fruit : this.fruits) {
+                fileWriter.append(fruit.getData().getType()); //type
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(ID++)); //value of integer ID, then increase by one.
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).x())); //lat
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).y())); //lon
+                fileWriter.append(COMMA);
+                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).z())); //alt
+                fileWriter.append(COMMA);
+                fileWriter.append("1"); //weight TODO: change this hard-coded value.
+                fileWriter.append(NEW_LINE);
+            }
+            System.out.println("CSV file created successfully");
+        } catch (Exception e) {
+            System.out.println("Error in CsvFileWriter");
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error while flushing/closing fileWriter !!!");
+                e.printStackTrace();
+            }
+        }
     }
 
     public GIS_layer getFruits() {
