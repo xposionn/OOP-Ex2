@@ -20,10 +20,10 @@ import java.util.Iterator;
  */
 public class JFrameGraphics extends JPanel implements MouseListener {
 
-    Image image;
-    Game game;
+    Image image; //game background image.
+    Game game; //game object to work with.
     int type = 0;
-    Map map;
+    Map map; //map object according to provided image.
 
 
     public JFrameGraphics() {
