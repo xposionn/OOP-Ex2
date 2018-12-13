@@ -60,8 +60,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Packman and Fruits");
-        JFrameGraphics fr = new JFrameGraphics();
-        frame.getContentPane().add(fr);
+        JFrameGraphics ourJFrame = new JFrameGraphics();
+        frame.getContentPane().add(ourJFrame);
         frame.setSize(900, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
@@ -75,8 +75,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         MenuItem Pacman = new MenuItem("Packman");
         MenuItem Fruit = new MenuItem("Fruit");
 
-        Fruit.addActionListener(e -> fr.type = 2);
-        Pacman.addActionListener((e -> fr.type = 1));
+        Fruit.addActionListener(e -> ourJFrame.type = 2);
+        Pacman.addActionListener((e -> ourJFrame.type = 1));
 
         AddMenu.add(Pacman);
         AddMenu.add(Fruit);
@@ -90,6 +90,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             chooser.setFileFilter(filter);
             int returnValue = chooser.showOpenDialog(null);
             if(returnValue == JFileChooser.APPROVE_OPTION){
+                File file = new File(String.valueOf(chooser.getSelectedFile()));
+                ourJFrame.loadFile(file);
+
                 System.out.println(chooser.getSelectedFile());
             }else{
                 System.out.println("Error");
@@ -98,6 +101,11 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         MainMenu.add(File);
         MainMenu.add(AddMenu);
 
+
+    }
+
+    private void loadFile(File file) {
+        this.game = new Game(file);
 
     }
 
