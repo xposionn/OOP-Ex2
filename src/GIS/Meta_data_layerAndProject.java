@@ -53,4 +53,9 @@ public class Meta_data_layerAndProject implements Meta_data {
     public void setUTCtime(long UTCtime) {
 
     }
+
+    @Override
+    public String getType() {
+        return null;
+    }
 }

@@ -1,13 +1,14 @@
 package GUI;
 
 import GIS.Meta_data_element;
+import Game.Fruit;
 import Game.Game;
 import Game.Map;
 import Game.Packman;
-import Game.Fruit;
 import Geom.Point3D;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -19,11 +20,10 @@ import java.util.Iterator;
  */
 public class JFrameGraphics extends JPanel implements MouseListener {
 
-    Image image;
-    Game game;
+    Image image; //game background image.
+    Game game; //game object to work with.
     int type = 0;
-    Map map;
-
+    Map map; //map object according to provided image.
 
     public JFrameGraphics() {
         this.game = new Game();
@@ -43,23 +43,23 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         while (PacIterator.hasNext()) {
             Packman pacman = (Packman)PacIterator.next();
-            Point3D Pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth());
+            Point3D pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth(),false);
             g.setColor(Color.decode(pacman.getData().getColor()));
-            g.fillOval((int) Pixel.x()-8, (int) Pixel.y()-8, 16, 16);
+            g.fillOval((int) pixel.x()-8, (int) pixel.y()-8, 16, 16);
         }
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
-            Point3D Pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth());
+            Point3D pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
             g.setColor(Color.decode(fruit.getData().getColor()));
-            g.fillOval((int) Pixel.x()-5, (int) Pixel.y()-5, 10, 10);
+            g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
         }
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Packman and Fruits");
-        JFrameGraphics fr = new JFrameGraphics();
-        frame.getContentPane().add(fr);
+        JFrame frame = new JFrame("Pacman and Fruits");
+        JFrameGraphics ourJFrame = new JFrameGraphics();
+        frame.getContentPane().add(ourJFrame);
         frame.setSize(900, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
@@ -68,15 +68,47 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         MenuBar MainMenu = new MenuBar();
         frame.setMenuBar(MainMenu);
+        Menu File = new Menu("File");
         Menu AddMenu = new Menu("Add:");
-        MenuItem Pacman = new MenuItem("Packman");
+        MenuItem Pacman = new MenuItem("Pacman");
         MenuItem Fruit = new MenuItem("Fruit");
-        Fruit.addActionListener(e -> fr.type = 2);
-        Pacman.addActionListener((e -> fr.type = 1));
+
+        Fruit.addActionListener(e -> ourJFrame.type = 2);
+        Pacman.addActionListener((e -> ourJFrame.type = 1));
+
         AddMenu.add(Pacman);
         AddMenu.add(Fruit);
+
+        MenuItem Load = new MenuItem("Load From CSV");
+        File.add(Load);
+        Load.addActionListener(e->{
+            JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
+            FileNameExtensionFilter filter =   new FileNameExtensionFilter(
+                    "CSV Files", "csv");
+            chooser.setFileFilter(filter);
+            chooser.setAcceptAllFileFilterUsed(false);  // disable the "All files" option.
+            int returnValue = chooser.showOpenDialog(null);
+            if(returnValue == JFileChooser.APPROVE_OPTION){
+                File file = new File(String.valueOf(chooser.getSelectedFile()));
+                ourJFrame.loadFile(file);
+                System.out.println(chooser.getSelectedFile());
+            }else{
+                System.out.println("Error");
+            }
+        });
+        MainMenu.add(File);
         MainMenu.add(AddMenu);
 
+
+    }
+
+    private void loadFile(File file) {
+        try {
+            this.game = new Game(file);
+            repaint();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "This CSV file is not compatible with our game.");
+        }
 
     }
 
