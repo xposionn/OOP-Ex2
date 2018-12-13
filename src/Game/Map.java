@@ -32,7 +32,7 @@ public class Map implements MapInterface{
     }
 
     @Override
-    public Point3D CoordsToPixels(Point3D p,double Height,double Width){
+    public Point3D CoordsToPixels(Point3D p,double panelHeight,double panelWidth,boolean latLonSwitched){
         double rightX = downRight.x(); //30
         double leftX = topLeft.x();//10
         double maxY = topLeft.y(); //10
@@ -48,11 +48,24 @@ public class Map implements MapInterface{
         double yRatio = (y-minY)/(yRange);
 
 
-        double wPixel = Width*xRatio;
-        double hPixel = Height-Height*yRatio;
-
-        Point3D pixel = new Point3D(wPixel,hPixel,0);
-        return pixel;
+        double wPixel = panelWidth*xRatio;
+        double hPixel = panelHeight-panelHeight*yRatio;
+        Point3D pixel;
+        if(!latLonSwitched) {
+            pixel = new Point3D(wPixel,hPixel,0);
+        } else {
+            pixel = new Point3D(wPixel,hPixel,1);
+        }
+        if(pixel.x()>=0 && pixel.x() <= panelWidth && pixel.y()>=0 && pixel.y()<=panelWidth) //check if inside panel.
+            return pixel;
+        else{
+            Point3D switchedLanLon = new Point3D(p.y(),p.x(),0);
+            Point3D pixelAfterSwitch = CoordsToPixels(switchedLanLon,panelHeight,panelWidth,true);
+            if(pixelAfterSwitch.x()>=0 && pixelAfterSwitch.x() <= panelWidth && pixelAfterSwitch.y()>=0 && pixelAfterSwitch.y()<=panelWidth){
+                return pixelAfterSwitch;
+            }
+            else throw new RuntimeException("You Provided GPS points with coordinates outside of our map.");
+        }
     }
 
     @Override
