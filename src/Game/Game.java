@@ -33,7 +33,7 @@ public class Game {
             if(elem.getData().getType().equals("P")){
                 pacmen.add(new Packman(elem.getGeom(), (Meta_data_element) elem.getData(),1,1));
             }else if(elem.getData().getType().equals("F")){
-                fruits.add(elem);
+                fruits.add(new Fruit(elem.getGeom(), (Meta_data_element) elem.getData(),1));
             }
         }
 

@@ -1,11 +1,10 @@
 package GUI;
 
-import File_format.Main;
 import GIS.Meta_data_element;
+import Game.Fruit;
 import Game.Game;
 import Game.Map;
 import Game.Packman;
-import Game.Fruit;
 import Geom.Point3D;
 
 import javax.swing.*;
