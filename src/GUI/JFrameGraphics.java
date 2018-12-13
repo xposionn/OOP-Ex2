@@ -1,5 +1,6 @@
 package GUI;
 
+import File_format.Main;
 import GIS.Meta_data_element;
 import Game.Game;
 import Game.Map;
@@ -8,6 +9,7 @@ import Game.Fruit;
 import Geom.Point3D;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -68,13 +70,32 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         MenuBar MainMenu = new MenuBar();
         frame.setMenuBar(MainMenu);
+        Menu File = new Menu("File");
         Menu AddMenu = new Menu("Add:");
         MenuItem Pacman = new MenuItem("Packman");
         MenuItem Fruit = new MenuItem("Fruit");
+
         Fruit.addActionListener(e -> fr.type = 2);
         Pacman.addActionListener((e -> fr.type = 1));
+
         AddMenu.add(Pacman);
         AddMenu.add(Fruit);
+
+        MenuItem Load = new MenuItem("Load From CSV:");
+        File.add(Load);
+        Load.addActionListener(e->{
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter =   new FileNameExtensionFilter(
+                    "CSV Files", "csv");
+            chooser.setFileFilter(filter);
+            int returnValue = chooser.showOpenDialog(null);
+            if(returnValue == JFileChooser.APPROVE_OPTION){
+                System.out.println(chooser.getSelectedFile());
+            }else{
+                System.out.println("Error");
+            }
+        });
+        MainMenu.add(File);
         MainMenu.add(AddMenu);
 
 
