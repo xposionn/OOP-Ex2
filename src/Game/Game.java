@@ -37,9 +37,11 @@ public class Game {
         while(fullIterator.hasNext()){
             GIS_element elem = (GIS_element) fullIterator.next();
             if(elem.getData().getType().equals("P")){
-                pacmen.add(new Packman(elem.getGeom(), elem.getData(), elem.getSpeed(),elem.getEatRadius()));
+                Packman pac = (Packman)elem;
+                pacmen.add(pac);
             }else if(elem.getData().getType().equals("F")){
-                fruits.add(new Fruit(elem.getGeom(), elem.getData(),elem.getWeight()));
+                Fruit fruit = (Fruit)elem;
+                fruits.add(fruit);
             }
         }
     }
@@ -74,9 +76,9 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
-                fileWriter.append(""+ pacman.getSpeed());
+                fileWriter.append(String.valueOf(pacman.getSpeed()));
                 fileWriter.append(COMMA);
-                fileWriter.append(""+ pacman.getEatRadius());
+                fileWriter.append(String.valueOf(pacman.getEatRadius()));
                 fileWriter.append(NEW_LINE);
             }
             //Write all fruits objects to the CSV file
@@ -93,7 +95,7 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
-                fileWriter.append(""+fruit.getWeight());
+                fileWriter.append(String.valueOf(fruit.getWeight()));
                 fileWriter.append(NEW_LINE);
             }
             System.out.println("CSV file created successfully");
