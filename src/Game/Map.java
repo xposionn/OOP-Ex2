@@ -16,7 +16,6 @@ public class Map implements MapInterface{
     private Point3D topLeftPixel;
     private Point3D rightDownPixel;
 
-
     public Map(File image, Point3D topLeft, Point3D downRight) {
         this.Image = image;
         try {
@@ -56,7 +55,7 @@ public class Map implements MapInterface{
         }
         if(pixel.x()>=0 && pixel.x() <= panelWidth && pixel.y()>=0 && pixel.y()<=panelWidth) //check if inside panel.
             return pixel;
-        else{
+        else{ //out of bounds from our panel.
             if(pixel.z()==1){ //after switching lat-lon
                 throw new RuntimeException("You Provided GPS points with coordinates outside of the game map.");
             }
