@@ -36,8 +36,6 @@ public class Game {
                 fruits.add(new Fruit(elem.getGeom(), (Meta_data_element) elem.getData(),1));
             }
         }
-
-
     }
 
     /**
