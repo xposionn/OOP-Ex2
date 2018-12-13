@@ -28,21 +28,18 @@ public class Game {
      */
 
     public Game(File csvGameFile) {
-        System.out.println("trying to build from game 1"); //TODO: REMOVE THIS LINE
         pacmen = new GIS_layer_obj();
         fruits = new GIS_layer_obj();
         Csv2Layer layer = new Csv2Layer();
-        System.out.println("trying to build from game 2"); //TODO: REMOVE THIS LINE
         GIS_layer fullLayer = layer.csv2Layer(csvGameFile.getAbsolutePath());
         Iterator fullIterator = fullLayer.iterator();
-        System.out.println("trying to build from game 3"); //TODO: REMOVE THIS LINE
 
         while(fullIterator.hasNext()){
             GIS_element elem = (GIS_element) fullIterator.next();
             if(elem.getData().getType().equals("P")){
-                pacmen.add(new Packman(elem.getGeom(), elem.getData(), elem.getSpeed(),1));
+                pacmen.add(new Packman(elem.getGeom(), elem.getData(), elem.getSpeed(),elem.getEatRadius()));
             }else if(elem.getData().getType().equals("F")){
-                fruits.add(new Fruit(elem.getGeom(), elem.getData(),1));
+                fruits.add(new Fruit(elem.getGeom(), elem.getData(),elem.getWeight()));
             }
         }
     }
@@ -77,14 +74,15 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
-                fileWriter.append(""+ pacman.getSpeed()); //speed TODO: change this hard-coded value.
-                System.out.println(pacman.getSpeed()); //TODO: Check this speed.
+                fileWriter.append(""+ pacman.getSpeed());
                 fileWriter.append(COMMA);
-                fileWriter.append("1"); //radius TODO: change this hard-coded value.
+                fileWriter.append(""+ pacman.getEatRadius());
                 fileWriter.append(NEW_LINE);
             }
             //Write all fruits objects to the CSV file
-            for (GIS_element fruit : this.fruits) {
+            Iterator itFruit = this.fruits.iterator();
+           while(itFruit.hasNext()) {
+                Fruit fruit = (Fruit)itFruit.next();
                 fileWriter.append(fruit.getData().getType()); //type
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(ID++)); //value of integer ID, then increase by one.
@@ -95,7 +93,7 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
-                fileWriter.append("1"); //weight TODO: change this hard-coded value.
+                fileWriter.append(""+fruit.getWeight());
                 fileWriter.append(NEW_LINE);
             }
             System.out.println("CSV file created successfully");

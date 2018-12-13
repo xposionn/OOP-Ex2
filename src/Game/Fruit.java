@@ -29,9 +29,9 @@ public class Fruit extends GIS_element_obj implements GIS_element {
         super(geometryOfElement, dataOfElement);
         this.weight = weight;
     }
-
+    @Override
     public double getWeight() {
-        return weight;
+        return this.weight;
     }
 
     public void setWeight(double weight) {

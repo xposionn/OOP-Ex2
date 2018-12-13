@@ -45,6 +45,7 @@ public class Packman extends GIS_element_obj implements GIS_element {
         this.speed = speed;
     }
 
+    @Override
     public double getEatRadius() {
         return eatRadius;
     }

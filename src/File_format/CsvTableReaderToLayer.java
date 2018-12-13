@@ -98,7 +98,7 @@ public class CsvTableReaderToLayer {
                     Packman element_obj = new Packman(elementGeom, metaDataElem,speedOrWeight,radius);
                     layer.add(element_obj);
                 }else if(element[typeIndex].equals("F")){
-                    Fruit element_obj = new Fruit(elementGeom, metaDataElem);
+                    Fruit element_obj = new Fruit(elementGeom, metaDataElem,speedOrWeight);
                     layer.add(element_obj);
                 }
             }
