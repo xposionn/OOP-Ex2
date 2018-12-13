@@ -67,20 +67,4 @@ public class GIS_element_obj implements GIS_element {
         MyCoords coords = new MyCoords();
         this.geom = coords.add((Point3D)this.geom,vec);
     }
-
-    @Override
-    public double getSpeed() {
-        return 0;
-    }
-
-    @Override
-    public double getEatRadius() {
-        return 0;
-    }
-
-    @Override
-    public double getWeight(){
-     return 0;
-    }
-
 }
