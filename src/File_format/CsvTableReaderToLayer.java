@@ -96,10 +96,10 @@ public class CsvTableReaderToLayer {
                 }
                 if(typeIndex!= -1 && element[typeIndex].equals("P")){
                     radius = Double.parseDouble(element[radiusIndex]);
-                    Packman element_obj = new Packman(elementGeom, metaDataElem,speedOrWeight,radius);
+                    Packman element_obj = new Packman(elementGeom, (Meta_data_element)metaDataElem,speedOrWeight,radius);
                     layer.add(element_obj);
                 }else if(typeIndex != -1 && element[typeIndex].equals("F")){
-                    Fruit element_obj = new Fruit(elementGeom, metaDataElem,speedOrWeight);
+                    Fruit element_obj = new Fruit(elementGeom, (Meta_data_element)metaDataElem,speedOrWeight);
                     layer.add(element_obj);
                 }
             }
