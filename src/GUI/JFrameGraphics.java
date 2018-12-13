@@ -25,7 +25,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     int type = 0;
     Map map; //map object according to provided image.
 
-
     public JFrameGraphics() {
         this.game = new Game();
         Point3D topLeft = new Point3D(35.20236,32.10572);
@@ -44,21 +43,21 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         while (PacIterator.hasNext()) {
             Packman pacman = (Packman)PacIterator.next();
-            Point3D Pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth(),false);
+            Point3D pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth(),false);
             g.setColor(Color.decode(pacman.getData().getColor()));
-            g.fillOval((int) Pixel.x()-8, (int) Pixel.y()-8, 16, 16);
+            g.fillOval((int) pixel.x()-8, (int) pixel.y()-8, 16, 16);
         }
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
-            Point3D Pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
+            Point3D pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
             g.setColor(Color.decode(fruit.getData().getColor()));
-            g.fillOval((int) Pixel.x()-5, (int) Pixel.y()-5, 10, 10);
+            g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
         }
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Packman and Fruits");
+        JFrame frame = new JFrame("Pacman and Fruits");
         JFrameGraphics ourJFrame = new JFrameGraphics();
         frame.getContentPane().add(ourJFrame);
         frame.setSize(900, 600);
@@ -71,7 +70,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         frame.setMenuBar(MainMenu);
         Menu File = new Menu("File");
         Menu AddMenu = new Menu("Add:");
-        MenuItem Pacman = new MenuItem("Packman");
+        MenuItem Pacman = new MenuItem("Pacman");
         MenuItem Fruit = new MenuItem("Fruit");
 
         Fruit.addActionListener(e -> ourJFrame.type = 2);
