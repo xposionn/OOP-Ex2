@@ -1,6 +1,8 @@
 package File_format;
 
 import GIS.*;
+import Game.Fruit;
+import Game.Packman;
 import Geom.Point3D;
 
 import java.util.Iterator;
@@ -68,6 +70,8 @@ public class CsvTableReaderToLayer {
             double elemLon = 0;
             double elemAlt = 0;
             long elemTime = 0;
+            double speedOrWeight = 0;
+            double radius = 0;
             iterator.next(); //ignore the header
             while (iterator.hasNext()) {
                 String[] element = iterator.next();
@@ -75,6 +79,7 @@ public class CsvTableReaderToLayer {
                     elemLat = Double.parseDouble(element[latIndex]);
                     elemLon = Double.parseDouble(element[longIndex]);
                     elemAlt = Double.parseDouble(element[altIndex]);
+                    speedOrWeight = Double.parseDouble(element[speedOrWeightIndex]);
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
@@ -88,8 +93,14 @@ public class CsvTableReaderToLayer {
                     elemTime = Algorithms.TimeChange.stringUTCtoLong(element[timeIndex]);
                     metaDataElem.setUTCtime(elemTime);
                 }
-                GIS_element_obj element_obj = new GIS_element_obj(elementGeom, metaDataElem);
-                layer.add(element_obj);
+                if(element[typeIndex].equals("P")){
+                    radius = Double.parseDouble(element[radiusIndex]);
+                    Packman element_obj = new Packman(elementGeom, metaDataElem,speedOrWeight,radius);
+                    layer.add(element_obj);
+                }else if(element[typeIndex].equals("F")){
+                    Fruit element_obj = new Fruit(elementGeom, metaDataElem);
+                    layer.add(element_obj);
+                }
             }
             layer.setMeta(new Meta_data_layerAndProject(fileName)); //meta of the layer. initiated with time as the creation time of the layer!
             return layer;
