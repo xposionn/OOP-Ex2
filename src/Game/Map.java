@@ -38,7 +38,6 @@ public class Map implements MapInterface{
         double maxY = topLeft.y(); //10
         double minY = downRight.y();//0
 
-
         double x = p.x(); //20
         double y = p.y();//5
         double xRange =  rightX - leftX; //20
@@ -46,7 +45,6 @@ public class Map implements MapInterface{
 
         double xRatio = (x-leftX)/(xRange);
         double yRatio = (y-minY)/(yRange);
-
 
         double wPixel = panelWidth*xRatio;
         double hPixel = panelHeight-panelHeight*yRatio;
@@ -59,12 +57,11 @@ public class Map implements MapInterface{
         if(pixel.x()>=0 && pixel.x() <= panelWidth && pixel.y()>=0 && pixel.y()<=panelWidth) //check if inside panel.
             return pixel;
         else{
-            Point3D switchedLanLon = new Point3D(p.y(),p.x(),0);
-            Point3D pixelAfterSwitch = CoordsToPixels(switchedLanLon,panelHeight,panelWidth,true);
-            if(pixelAfterSwitch.x()>=0 && pixelAfterSwitch.x() <= panelWidth && pixelAfterSwitch.y()>=0 && pixelAfterSwitch.y()<=panelWidth){
-                return pixelAfterSwitch;
+            if(pixel.z()==1){ //after switching lat-lon
+                throw new RuntimeException("You Provided GPS points with coordinates outside of the game map.");
             }
-            else throw new RuntimeException("You Provided GPS points with coordinates outside of our map.");
+            Point3D switchedLanLon = new Point3D(p.y(),p.x(),0);
+            return CoordsToPixels(switchedLanLon,panelHeight,panelWidth,true);
         }
     }
 
