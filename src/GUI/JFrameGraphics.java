@@ -68,20 +68,20 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         MenuBar MainMenu = new MenuBar();
         frame.setMenuBar(MainMenu);
-        Menu File = new Menu("File");
-        Menu AddMenu = new Menu("Add:");
-        MenuItem Pacman = new MenuItem("Pacman");
-        MenuItem Fruit = new MenuItem("Fruit");
+        Menu fileMenu = new Menu("File");
+        Menu addMenu = new Menu("Add");
+        MenuItem pacmenItemMenu = new MenuItem("Pacman");
+        MenuItem fruitItemMenu = new MenuItem("Fruit");
 
-        Fruit.addActionListener(e -> ourJFrame.type = 2);
-        Pacman.addActionListener((e -> ourJFrame.type = 1));
+        fruitItemMenu.addActionListener(e -> ourJFrame.type = 2);
+        pacmenItemMenu.addActionListener((e -> ourJFrame.type = 1));
 
-        AddMenu.add(Pacman);
-        AddMenu.add(Fruit);
+        addMenu.add(pacmenItemMenu);
+        addMenu.add(fruitItemMenu);
 
-        MenuItem Load = new MenuItem("Load From CSV");
-        File.add(Load);
-        Load.addActionListener(e->{
+        MenuItem loadFromCsvItemMenu = new MenuItem("Load From CSV");
+        fileMenu.add(loadFromCsvItemMenu);
+        loadFromCsvItemMenu.addActionListener(e->{
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
             FileNameExtensionFilter filter =   new FileNameExtensionFilter(
                     "CSV Files", "csv");
@@ -96,10 +96,37 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 System.out.println("Error");
             }
         });
-        MainMenu.add(File);
-        MainMenu.add(AddMenu);
+
+        MenuItem saveToCsvItemMenu = new MenuItem("Save To CSV");
+        fileMenu.add(saveToCsvItemMenu);
+        saveToCsvItemMenu.addActionListener(e->{
+            JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
+            FileNameExtensionFilter filter =   new FileNameExtensionFilter(
+                    "CSV Files", "csv");
+            chooser.setFileFilter(filter);
+            chooser.setAcceptAllFileFilterUsed(false);  // disable the "All files" option.
+            int returnValue = chooser.showSaveDialog(null);
+            if(returnValue == JFileChooser.APPROVE_OPTION){
+                File file = new File(String.valueOf(chooser.getSelectedFile()));
+                if (file.getName().endsWith(".csv")) {
+                    ourJFrame.saveFile(file);
+                    System.out.println(chooser.getSelectedFile());
+                }else{
+                    JOptionPane.showMessageDialog(null, "Saved games must end with .csv file extension!! Try again.");
+                }
+            }else{
+                System.out.println("Error");
+            }
+        });
+
+        MainMenu.add(fileMenu);
+        MainMenu.add(addMenu);
 
 
+    }
+
+    private void saveFile(File file) {
+        this.game.saveGameToCsv(file.getAbsolutePath());
     }
 
     private void loadFile(File file) {
