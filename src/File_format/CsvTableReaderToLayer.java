@@ -79,7 +79,8 @@ public class CsvTableReaderToLayer {
                     elemLat = Double.parseDouble(element[latIndex]);
                     elemLon = Double.parseDouble(element[longIndex]);
                     elemAlt = Double.parseDouble(element[altIndex]);
-                    speedOrWeight = Double.parseDouble(element[speedOrWeightIndex]);
+                    if(speedOrWeightIndex!=-1)
+                        speedOrWeight = Double.parseDouble(element[speedOrWeightIndex]);
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
@@ -93,12 +94,12 @@ public class CsvTableReaderToLayer {
                     elemTime = Algorithms.TimeChange.stringUTCtoLong(element[timeIndex]);
                     metaDataElem.setUTCtime(elemTime);
                 }
-                if(element[typeIndex].equals("P")){
+                if(typeIndex!= -1 && element[typeIndex].equals("P")){
                     radius = Double.parseDouble(element[radiusIndex]);
-                    Packman element_obj = new Packman(elementGeom, metaDataElem,speedOrWeight,radius);
+                    Packman element_obj = new Packman(elementGeom, (Meta_data_element)metaDataElem,speedOrWeight,radius);
                     layer.add(element_obj);
-                }else if(element[typeIndex].equals("F")){
-                    Fruit element_obj = new Fruit(elementGeom, metaDataElem,speedOrWeight);
+                }else if(typeIndex != -1 && element[typeIndex].equals("F")){
+                    Fruit element_obj = new Fruit(elementGeom, (Meta_data_element)metaDataElem,speedOrWeight);
                     layer.add(element_obj);
                 }
             }

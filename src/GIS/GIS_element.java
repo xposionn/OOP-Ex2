@@ -15,9 +15,4 @@ public interface GIS_element {
     public Meta_data getData();
 
     public void translate(Point3D vec);
-
-    double getSpeed();
-
-    double getEatRadius();
-    double getWeight();
 }

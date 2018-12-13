@@ -3,6 +3,7 @@ package Game;
 import GIS.GIS_element;
 import GIS.GIS_element_obj;
 import GIS.Meta_data;
+import GIS.Meta_data_element;
 import Geom.Geom_element;
 
 public class Fruit extends GIS_element_obj implements GIS_element {
@@ -14,22 +15,22 @@ public class Fruit extends GIS_element_obj implements GIS_element {
     private boolean isEaten;
 
     /**
-     * Constructor for the GIS_element object. gets a Geom_element and Meta_data.
+     * Constructor for the GIS_element object. gets a Geom_element and Meta_data_element.
      *
      * @param geometryOfElement Geom_element, the geometry object of the element.
      * @param dataOfElement     Meta_data, the data of the element.
      */
-    public Fruit(Geom_element geometryOfElement, Meta_data dataOfElement) {
+    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement) {
         super(geometryOfElement, dataOfElement);
         this.weight = 1;
         this.isEaten = false;
     }
 
-    public Fruit(Geom_element geometryOfElement, Meta_data dataOfElement, double weight) {
+    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement, double weight) {
         super(geometryOfElement, dataOfElement);
         this.weight = weight;
     }
-    @Override
+
     public double getWeight() {
         return this.weight;
     }
