@@ -20,4 +20,5 @@ public interface Meta_data {
 
 	void setColor(String color);
 	void setUTCtime(long UTCtime);
+	String getType();
 }

@@ -1,8 +1,7 @@
 package Game;
 
-import GIS.GIS_layer;
-import GIS.GIS_layer_obj;
-import GIS.Meta_data_layerAndProject;
+import File_format.Csv2Layer;
+import GIS.*;
 import Geom.Point3D;
 
 import java.io.File;
@@ -26,6 +25,18 @@ public class Game {
      */
 
     public Game(File csvGameFile) {
+        pacmen = new GIS_layer_obj();
+        fruits = new GIS_layer_obj();
+        Csv2Layer layer = new Csv2Layer();
+        GIS_layer fullLayer = layer.csv2Layer(csvGameFile.getAbsolutePath());
+        for(GIS_element elem:fullLayer){
+            if(elem.getData().getType().equals("P")){
+                pacmen.add(new Packman(elem.getGeom(), (Meta_data_element) elem.getData(),1,1));
+            }else if(elem.getData().getType().equals("F")){
+                fruits.add(elem);
+            }
+        }
+
 
     }
 

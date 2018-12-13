@@ -106,6 +106,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     private void loadFile(File file) {
         this.game = new Game(file);
+        repaint();
 
     }
 
