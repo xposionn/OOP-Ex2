@@ -44,14 +44,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         while (PacIterator.hasNext()) {
             Packman pacman = (Packman)PacIterator.next();
-            Point3D Pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth());
+            Point3D Pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth(),false);
             g.setColor(Color.decode(pacman.getData().getColor()));
             g.fillOval((int) Pixel.x()-8, (int) Pixel.y()-8, 16, 16);
         }
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
-            Point3D Pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth());
+            Point3D Pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
             g.setColor(Color.decode(fruit.getData().getColor()));
             g.fillOval((int) Pixel.x()-5, (int) Pixel.y()-5, 10, 10);
         }
@@ -80,18 +80,18 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         AddMenu.add(Pacman);
         AddMenu.add(Fruit);
 
-        MenuItem Load = new MenuItem("Load From CSV:");
+        MenuItem Load = new MenuItem("Load From CSV");
         File.add(Load);
         Load.addActionListener(e->{
-            JFileChooser chooser = new JFileChooser();
+            JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
             FileNameExtensionFilter filter =   new FileNameExtensionFilter(
                     "CSV Files", "csv");
             chooser.setFileFilter(filter);
+            chooser.setAcceptAllFileFilterUsed(false);  // disable the "All files" option.
             int returnValue = chooser.showOpenDialog(null);
             if(returnValue == JFileChooser.APPROVE_OPTION){
                 File file = new File(String.valueOf(chooser.getSelectedFile()));
                 ourJFrame.loadFile(file);
-
                 System.out.println(chooser.getSelectedFile());
             }else{
                 System.out.println("Error");
