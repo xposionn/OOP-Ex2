@@ -104,8 +104,12 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     }
 
     private void loadFile(File file) {
-        this.game = new Game(file);
-        repaint();
+        try {
+            this.game = new Game(file);
+            repaint();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "This CSV file is not compatible with our game.");
+        }
 
     }
 
