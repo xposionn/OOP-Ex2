@@ -62,7 +62,7 @@ public class Map implements MapInterface{
             }
             Point3D switchedLanLon = new Point3D(p.y(),p.x(),0);
             return CoordsToPixels(switchedLanLon,panelHeight,panelWidth,true);
-        }
+        } //TODO: ask Boaz if this is acceptable.
     }
 
     @Override
