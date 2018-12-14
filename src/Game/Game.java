@@ -14,7 +14,6 @@ public class Game {
     GIS_layer fruits;
     GIS_layer pacmen;
 
-
     public Game() {
         pacmen = new GIS_layer_obj();
         pacmen.setMeta(new Meta_data_layerAndProject("Pacmen Layer"));
@@ -62,13 +61,12 @@ public class Game {
             fileWriter.append(NEW_LINE); //new line separator after the header
 
             //Write all pacmen objects to the CSV file
-            int ID = 1;
             Iterator itpackman = this.pacmen.iterator();
             while (itpackman.hasNext()) {
                 Packman pacman = (Packman)itpackman.next();
                 fileWriter.append(pacman.getData().getType()); //type
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(ID++)); //value of integer ID, then increase by one.
+                fileWriter.append(String.valueOf(pacman.getID())); //ID
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).x())); //lat
                 fileWriter.append(COMMA);
@@ -87,7 +85,7 @@ public class Game {
                 Fruit fruit = (Fruit)itFruit.next();
                 fileWriter.append(fruit.getData().getType()); //type
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(ID++)); //value of integer ID, then increase by one.
+                fileWriter.append(String.valueOf(fruit.getID())); //ID
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).x())); //lat
                 fileWriter.append(COMMA);
