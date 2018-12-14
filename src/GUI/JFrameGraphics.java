@@ -24,7 +24,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     private Game game; //game object to work with.
     private int type = 0;
     private Map map; //map object according to provided image.
-    private int IDelements = 1;
+    private int IDfruits = 0;
+    private int IDpacs = 0;
 
     public JFrameGraphics() {
         this.game = new Game();
@@ -146,14 +147,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             Point3D point = new Point3D(e.getX(), e.getY(), 0);
             Point3D globalpoint = map.PixelsToCoords(point, getHeight(), getWidth());
             Meta_data_element pacman_meta = new Meta_data_element("Packman name", "P"); //color is white as default.
-            Packman pac = new Packman(globalpoint, pacman_meta,IDelements++, 1, 1); //orientation is (1,1,1) as default.
+            Packman pac = new Packman(globalpoint, pacman_meta,IDpacs++, 1, 1); //orientation is (1,1,1) as default.
             game.getPacmen().add(pac);
         }
         if (type == 2) {
             Point3D point = new Point3D(e.getX(), e.getY(), 0);
             Point3D globalpoint2 = map.PixelsToCoords(point, getHeight(), getWidth());
-            Meta_data_element fruit_meta = new Meta_data_element("Fruit name", "F"); //color is white as default.
-            Fruit fruit = new Fruit(globalpoint2,fruit_meta,IDelements++,1);
+            Meta_data_element fruit_meta = new Meta_data_element("Fruit name", "F"); //color is red as default.
+            Fruit fruit = new Fruit(globalpoint2,fruit_meta,IDfruits++,1);
             game.getFruits().add(fruit);
         }
         repaint();
