@@ -45,14 +45,30 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         while (PacIterator.hasNext()) {
             Packman pacman = (Packman)PacIterator.next();
-            Point3D pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth(),false);
+            Point3D pixel = null;
+            try { //pixel might be out of map bounds.
+                pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth(),false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                this.game = new Game();
+                g.drawImage(image, 0, 0, w, h, this);
+                break;
+            }
             g.setColor(Color.decode(pacman.getData().getColor()));
             g.fillOval((int) pixel.x()-8, (int) pixel.y()-8, 16, 16);
         }
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
-            Point3D pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
+            Point3D pixel = null;
+            try { //pixel might be out of map bounds.
+                pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                this.game = new Game();
+                g.drawImage(image, 0, 0, w, h, this);
+                break;
+            }
             g.setColor(Color.decode(fruit.getData().getColor()));
             g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
         }
