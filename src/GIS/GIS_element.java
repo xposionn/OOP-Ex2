@@ -15,4 +15,6 @@ public interface GIS_element {
     public Meta_data getData();
 
     public void translate(Point3D vec);
+
+    public int getID();
 }
