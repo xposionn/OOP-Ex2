@@ -17,22 +17,22 @@ public class Packman extends GIS_element_obj implements GIS_element {
      * @param geometryOfElement Geom_element, the geometry object of the element.
      * @param dataOfElement     Meta_data, the data of the element.
      */
-    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement) { //Meta_data_element is here ON PURPOSE, we must build new pacman object with this type of meta.
-        super(geometryOfElement, dataOfElement);
+    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement, int ID) { //Meta_data_element is here ON PURPOSE, we must build new pacman object with this type of meta.
+        super(geometryOfElement, dataOfElement, ID);
         this.orientation = new Point3D(1,1,1);
         this.speed = 1;
         this.eatRadius = 1;
     }
 
-    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement, double speed, double eatRadius) {
-        super(geometryOfElement, dataOfElement);
+    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement,int ID, double speed, double eatRadius) {
+        super(geometryOfElement, dataOfElement, ID);
         this.orientation = new Point3D(1,1,1);
         this.speed = speed;
         this.eatRadius = eatRadius;
     }
 
-    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement, Point3D orientation, double speed, double eatRadius) {
-        super(geometryOfElement, dataOfElement);
+    public Packman(Geom_element geometryOfElement, Meta_data_element dataOfElement, int ID, Point3D orientation, double speed, double eatRadius) {
+        super(geometryOfElement, dataOfElement, ID);
         this.orientation = orientation;
         this.speed = speed;
         this.eatRadius = eatRadius;

@@ -15,19 +15,19 @@ public class Fruit extends GIS_element_obj implements GIS_element {
     private boolean isEaten;
 
     /**
-     * Constructor for the GIS_element object. gets a Geom_element and Meta_data_element.
+     * Constructor for the GIS_element object. gets a Geom_element, Meta_data_element and ID.
      *
      * @param geometryOfElement Geom_element, the geometry object of the element.
      * @param dataOfElement     Meta_data, the data of the element.
      */
-    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement) {
-        super(geometryOfElement, dataOfElement);
+    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement,int ID) {
+        super(geometryOfElement, dataOfElement, ID);
         this.weight = 1;
         this.isEaten = false;
     }
 
-    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement, double weight) {
-        super(geometryOfElement, dataOfElement);
+    public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement, int ID, double weight) {
+        super(geometryOfElement, dataOfElement,ID);
         this.weight = weight;
     }
 

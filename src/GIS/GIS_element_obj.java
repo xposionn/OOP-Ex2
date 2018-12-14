@@ -11,16 +11,18 @@ import Geom.Point3D;
 public class GIS_element_obj implements GIS_element {
     private Geom_element geom;
     private Meta_data metaData;
+    private int ID;
 
 
     /**
-     * Constructor for the GIS_element object. gets a Geom_element and Meta_data.
+     * Constructor for the GIS_element object. gets a Geom_element, Meta_data and ID.
      * @param geometryOfElement Geom_element, the geometry object of the element.
      * @param dataOfElement Meta_data, the data of the element.
      */
-    public GIS_element_obj(Geom_element geometryOfElement, Meta_data dataOfElement) {
+    public GIS_element_obj(Geom_element geometryOfElement, Meta_data dataOfElement, int ID) {
         this.geom = geometryOfElement;
         this.metaData = dataOfElement;
+        this.ID = ID;
     }
 
     /******** Getters and Setters ********/
@@ -66,5 +68,14 @@ public class GIS_element_obj implements GIS_element {
     public void translate(Point3D vec) {
         MyCoords coords = new MyCoords();
         this.geom = coords.add((Point3D)this.geom,vec);
+    }
+
+    @Override
+    public int getID() {
+        return this.ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }

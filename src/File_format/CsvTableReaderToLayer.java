@@ -38,7 +38,6 @@ public class CsvTableReaderToLayer {
         int typeIndex = -1;
         int idIndex = -1;
         int radiusIndex = -1;
-//        int BSSIDindex = -1;
         for (int i = 0; i < header.length; i++) {
             if (header[i].equals("CurrentLatitude") || header[i].equals("Lat")) {
                 latIndex = i;
@@ -63,15 +62,17 @@ public class CsvTableReaderToLayer {
             }
         }//end for loop on header.
         //check for must-have indexes found in file.
-        if(latIndex== -1 || longIndex == -1 || altIndex == -1 || typeIndex == -1 || speedOrWeightIndex == -1){
-            throw new RuntimeException("CSV file is not compatible.\n Must have the following in header: lat,lon,alt,type,speed/weight");
+        if(latIndex== -1 || longIndex == -1 || altIndex == -1 || typeIndex == -1 || speedOrWeightIndex == -1 || idIndex == -1){
+            throw new RuntimeException("CSV file is not compatible.\n Must have the following in header: lat,lon,alt,type,id,speed/weight");
         }
+        else {
             double elemLat = 0;
             double elemLon = 0;
             double elemAlt = 0;
             long elemTime = 0;
             double speedOrWeight = 0;
             double radius = 0;
+            int ID = 0;
             iterator.next(); //ignore the header
             while (iterator.hasNext()) {
                 String[] element = iterator.next();
@@ -79,27 +80,27 @@ public class CsvTableReaderToLayer {
                     elemLat = Double.parseDouble(element[latIndex]);
                     elemLon = Double.parseDouble(element[longIndex]);
                     elemAlt = Double.parseDouble(element[altIndex]);
-                    if(speedOrWeightIndex!=-1)
-                        speedOrWeight = Double.parseDouble(element[speedOrWeightIndex]);
+                    speedOrWeight = Double.parseDouble(element[speedOrWeightIndex]);
+                    ID = Integer.parseInt(element[idIndex]);
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
                 Point3D elementGeom = new Point3D(elemLat, elemLon, elemAlt);
                 Meta_data metaDataElem = new Meta_data_element(element[idIndex], element[typeIndex]);
-                if(colorIndex!=-1){
+                if (colorIndex != -1) { //optional.
                     String colorHEXvalue = element[colorIndex];
                     metaDataElem.setColor(colorHEXvalue);
                 }
-                if(timeIndex!=-1) { //TODO: will have to change once we code the best best-route algorithm.
+                if (timeIndex != -1) {//optional. //TODO: will have to change once we code the best best-route algorithm.
                     elemTime = Algorithms.TimeChange.stringUTCtoLong(element[timeIndex]);
                     metaDataElem.setUTCtime(elemTime);
                 }
-                if(typeIndex!= -1 && element[typeIndex].equals("P")){
+                if (element[typeIndex].equals("P")) {
                     radius = Double.parseDouble(element[radiusIndex]);
-                    Packman element_obj = new Packman(elementGeom, (Meta_data_element)metaDataElem,speedOrWeight,radius);
+                    Packman element_obj = new Packman(elementGeom, (Meta_data_element) metaDataElem,ID, speedOrWeight, radius);
                     layer.add(element_obj);
-                }else if(typeIndex != -1 && element[typeIndex].equals("F")){
-                    Fruit element_obj = new Fruit(elementGeom, (Meta_data_element)metaDataElem,speedOrWeight);
+                } else if (element[typeIndex].equals("F")) {
+                    Fruit element_obj = new Fruit(elementGeom, (Meta_data_element) metaDataElem,ID, speedOrWeight);
                     layer.add(element_obj);
                 }
             }
@@ -107,3 +108,4 @@ public class CsvTableReaderToLayer {
             return layer;
         }
     }
+}
