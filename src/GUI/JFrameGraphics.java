@@ -186,7 +186,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                     while (pathIt.hasNext()) {
                         Path path = pathIt.next();
                         System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime(0.001*(currentTime-startTime)));
+                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime(currentTime-startTime)); /**DO NOT CHANGE
+                         This is calculated REAL-TIME movement of Pacman. separately from FPS. Thread sleeping provides the FPS on screen.**/
+
                         currentTime = System.currentTimeMillis();
                     }
                     ourJFrame.paintImmediately(0, 0, ourJFrame.getWidth(), ourJFrame.getHeight());
