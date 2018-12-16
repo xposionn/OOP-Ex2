@@ -37,10 +37,10 @@ public class Path {
         else
             pathDistance += coordsConv.distance3d((Point3D)this.pacmanInPath.getGeom(),getFruitLoc(0)); //distance from pacman to first Fruit.
         // Loop through our fruits locations till the last one, including the path from the (last-1) to (last) .
-        for (int fruitLocIndex = 0; fruitLocIndex <= fruitIndex; fruitLocIndex++) {
+        for (int fruitLocIndex = 0; fruitLocIndex < fruitIndex; fruitLocIndex++) {
             Point3D fromFruit = getFruitLoc(fruitLocIndex);  // Get fruit location we're travelling from
             Point3D destFruitLoc = fromFruit;  // fruit we're travelling to
-            if (fruitLocIndex + 1 < fruitsInPath.size()) {
+            if (fruitLocIndex + 1 <= fruitIndex) {
                 destFruitLoc = getFruitLoc(fruitLocIndex + 1);
             }
             // Get the distance between the two fruits
@@ -69,15 +69,23 @@ public class Path {
    public Point3D getPacPositionAfterXtime(double timeInSeconds){
        int alreadyEatenDuringThisTime = getHowManyEatenAfterXtime(timeInSeconds);
        MyCoords coordsConv = new MyCoords(); //we use MyCoords object to calculate vector between two Point3D points.
-       Point3D fromFruitLoc = getFruitLoc(alreadyEatenDuringThisTime-1);
+       Point3D fromFruitLoc;
+       double timeFromPacToEatenFruit;
+       if(alreadyEatenDuringThisTime==0) {
+           fromFruitLoc = (Point3D) this.pacmanInPath.getGeom();
+           timeFromPacToEatenFruit = 0;
+       }
+       else {
+           fromFruitLoc = getFruitLoc(alreadyEatenDuringThisTime - 1);
+           timeFromPacToEatenFruit = getDistance(alreadyEatenDuringThisTime - 1) / this.pacmanInPath.getSpeed();
+       }
        Point3D toFruitLoc = getFruitLoc(alreadyEatenDuringThisTime);
        Point3D vectorBetween = coordsConv.vector3D(fromFruitLoc,toFruitLoc);
-       double timeFromPacToEatenFruit = getDistance(alreadyEatenDuringThisTime-1)/this.pacmanInPath.getSpeed();
        double timeLeftToMove = timeInSeconds - timeFromPacToEatenFruit;
        double timeForNextRoute = coordsConv.distance3d(fromFruitLoc, toFruitLoc) / this.pacmanInPath.getSpeed();
        double percentagePathToMove = timeLeftToMove/timeForNextRoute;
        Point3D newPosition = new Point3D(percentagePathToMove * vectorBetween.x(), percentagePathToMove * vectorBetween.y(), percentagePathToMove * vectorBetween.z());
-       return newPosition;
+       return coordsConv.add(fromFruitLoc,newPosition);
    }
 
    public double getTimeBetweenTwoFruits(int fruitIndex1, int fruitIndex2){
@@ -96,6 +104,10 @@ public class Path {
 
     public int getPacmanIDInPath() {
         return this.pacmanInPath.getID();
+    }
+
+    public Packman getPacmanInPath() {
+        return pacmanInPath;
     }
 
     @Override

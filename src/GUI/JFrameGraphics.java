@@ -7,6 +7,7 @@ import Game.Fruit;
 import Game.Game;
 import Game.Map;
 import Game.Packman;
+import Geom.Path;
 import Geom.Point3D;
 
 import javax.swing.*;
@@ -38,6 +39,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     }
 
     public void paint(Graphics g) {
+        System.out.println("Started paint");
         image = Toolkit.getDefaultToolkit().getImage(map.getImagePath());
         int w = this.getWidth();
         int h = this.getHeight();
@@ -74,6 +76,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             g.setColor(Color.decode(fruit.getData().getColor()));
             g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
         }
+        System.out.println("Finished paint");
     }
 
     public static void main(String[] args) {
@@ -90,9 +93,10 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         frame.setMenuBar(MainMenu);
         Menu fileMenu = new Menu("File");
         Menu addMenu = new Menu("Add");
+        Menu algoMenu = new Menu("Algo");
+
         MenuItem pacmenItemMenu = new MenuItem("Pacman");
         MenuItem fruitItemMenu = new MenuItem("Fruit");
-
         fruitItemMenu.addActionListener(e -> ourJFrame.type = 2);
         pacmenItemMenu.addActionListener((e -> ourJFrame.type = 1));
 
@@ -100,6 +104,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         addMenu.add(fruitItemMenu);
 
         MenuItem loadFromCsvItemMenu = new MenuItem("Load From CSV");
+        MenuItem saveToCsvItemMenu = new MenuItem("Save To CSV");
+
+        MenuItem run = new MenuItem("run");
+
+        algoMenu.add(run);
+
+
+
         fileMenu.add(loadFromCsvItemMenu);
         loadFromCsvItemMenu.addActionListener(e->{
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
@@ -117,7 +129,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             }
         });
 
-        MenuItem saveToCsvItemMenu = new MenuItem("Save To CSV");
         fileMenu.add(saveToCsvItemMenu);
         saveToCsvItemMenu.addActionListener(e->{
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
@@ -138,13 +149,11 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 System.out.println("Error");
             }
         });
-        Menu Algo = new Menu("Algo");
-        MenuItem run = new MenuItem("run");
-        Algo.add(run);
+
         run.addActionListener(l->{
             ourJFrame.runAlgo();
         });
-        MainMenu.add(Algo);
+        MainMenu.add(algoMenu);
         MainMenu.add(fileMenu);
         MainMenu.add(addMenu);
 
@@ -154,7 +163,34 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     private void runAlgo() {
         ShortestPathAlgo algo = new ShortestPathAlgo(game.getPacmen(),game.getFruits());
         Solution out = algo.runAlgo();
+        Thread repainter = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
 
+
+                }
+            }
+        });
+//        repainter.start();
+        long startTime = System.currentTimeMillis();
+        long tenSec = 10000;
+
+
+        while(System.currentTimeMillis()-tenSec<startTime){
+            Iterator<Path> pathIt = out.getPaths().iterator();
+            while(pathIt.hasNext()) {
+                Path path = pathIt.next();
+                System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
+                path.getPacmanInPath().setGeom(new Point3D(path.getPacPositionAfterXtime(1)));
+            }
+            repaint();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 

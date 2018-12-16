@@ -11,6 +11,8 @@ import java.util.PriorityQueue;
 public class Solution {
     ArrayList<Path> paths;
 
+
+
     public Solution(PriorityQueue packmen) {
         this.paths = new ArrayList<>();
         ArrayList packmen1 = new ArrayList<>();
@@ -48,5 +50,8 @@ public class Solution {
         return "Solution{" +
                 "paths=" + paths +
                 '}';
+    }
+    public ArrayList<Path> getPaths() {
+        return paths;
     }
 }
