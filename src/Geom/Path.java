@@ -84,4 +84,11 @@ public class Path {
         return this.pacmanInPath.getID();
     }
 
+    @Override
+    public String toString() {
+        return "Path{" +
+                "pacman=" + pacmanInPath.getID() +
+                ", fruitsInPath=" + fruitsInPath +
+                '}';
+    }
 }

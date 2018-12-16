@@ -13,6 +13,7 @@ public class Fruit extends GIS_element_obj implements GIS_element {
      */
     private double weight; //fruit weight.
     private boolean isEaten;
+    private int ID;
 
     /**
      * Constructor for the GIS_element object. gets a Geom_element, Meta_data_element and ID.
@@ -24,11 +25,14 @@ public class Fruit extends GIS_element_obj implements GIS_element {
         super(geometryOfElement, dataOfElement, ID);
         this.weight = 1;
         this.isEaten = false;
+        this.ID = ID;
     }
 
     public Fruit(Geom_element geometryOfElement, Meta_data_element dataOfElement, int ID, double weight) {
         super(geometryOfElement, dataOfElement,ID);
         this.weight = weight;
+        this.ID = ID;
+
     }
 
     public double getWeight() {
@@ -45,5 +49,10 @@ public class Fruit extends GIS_element_obj implements GIS_element {
 
     public void setEaten(boolean eaten) {
         isEaten = eaten;
+    }
+
+    @Override
+    public String toString() {
+        return "Fruit{"+this.ID+"}";
     }
 }

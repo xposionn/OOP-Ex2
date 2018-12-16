@@ -12,7 +12,9 @@ public class Solution {
     ArrayList<Path> paths;
 
     public Solution(PriorityQueue packmen) {
-        ArrayList packmen1 = new ArrayList<>(packmen);
+        this.paths = new ArrayList<>();
+        ArrayList packmen1 = new ArrayList<>();
+        packmen1.addAll(packmen);
         packmen1.sort((o1, o2) -> {
             if(((Packman)o1).getID()-((Packman)o2).getID()>0){
                 return 1;
@@ -24,7 +26,8 @@ public class Solution {
         Iterator<Packman> itPackman = packmen1.iterator();
         while(itPackman.hasNext()){
             Packman packman = itPackman.next();
-            Path path = new Path(packman,new ArrayList<Fruit>());
+            ArrayList<Fruit> fruits = new ArrayList<>();
+            Path path = new Path(packman,fruits);
             paths.add(path);
         }
     }
@@ -38,5 +41,12 @@ public class Solution {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Solution{" +
+                "paths=" + paths +
+                '}';
     }
 }

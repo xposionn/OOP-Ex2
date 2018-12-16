@@ -1,5 +1,7 @@
 package GUI;
 
+import Algorithms.ShortestPathAlgo;
+import Algorithms.Solution;
 import GIS.Meta_data_element;
 import Game.Fruit;
 import Game.Game;
@@ -136,9 +138,22 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 System.out.println("Error");
             }
         });
-
+        Menu Algo = new Menu("Algo");
+        MenuItem run = new MenuItem("run");
+        Algo.add(run);
+        run.addActionListener(l->{
+            ourJFrame.runAlgo();
+        });
+        MainMenu.add(Algo);
         MainMenu.add(fileMenu);
         MainMenu.add(addMenu);
+
+
+    }
+
+    private void runAlgo() {
+        ShortestPathAlgo algo = new ShortestPathAlgo(game.getPacmen(),game.getFruits());
+        Solution out = algo.runAlgo();
 
 
     }

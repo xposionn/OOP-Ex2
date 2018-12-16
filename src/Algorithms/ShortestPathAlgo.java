@@ -1,6 +1,8 @@
 package Algorithms;
 
 import Coords.MyCoords;
+import GIS.GIS_element;
+import GIS.GIS_layer;
 import Game.Fruit;
 import Game.Packman;
 import Geom.Point3D;
@@ -12,18 +14,26 @@ public class ShortestPathAlgo {
     ArrayList<Fruit> fruits;
     MyCoords coords = new MyCoords();
 
-    public ShortestPathAlgo(HashSet<Packman> packmen, HashSet<Fruit> fruits) {
-        this.packmen = new PriorityQueue(packmen.size(), new PackmanComparatorID());
-        this.packmen.addAll(packmen);
+    public ShortestPathAlgo(GIS_layer packmen, GIS_layer fruits) {
+        this.packmen = new PriorityQueue<Packman>(packmen.size(), new PackmanComparatorTime());
+        Iterator<GIS_element> packmanIterator = packmen.iterator();
+        while(packmanIterator.hasNext()){
+            Packman p = (Packman)packmanIterator.next();
+            this.packmen.add(p);
+        }
         this.fruits = new ArrayList<>();
-        this.fruits.addAll(fruits);
+        Iterator<GIS_element> fruitIterator = fruits.iterator();
+        while(fruitIterator.hasNext()){
+            Fruit f = (Fruit) fruitIterator.next();
+            this.fruits.add(f);
+        }
     }
 
     public Solution runAlgo() {
 
         Solution solution = new Solution(packmen);
         while (!fruits.isEmpty()) {
-            Packman p = packmen.peek();
+            Packman p = packmen.poll();
             double min = Double.MAX_VALUE;
             Fruit eatMe= null;
             Iterator<Fruit> itFruit = this.fruits.iterator();
@@ -35,7 +45,10 @@ public class ShortestPathAlgo {
                     min = timeToEat;
                 }
             }
+            p.addTimeTraveled(min);
             solution.getPath(p.getID()).addFruitToPath(eatMe);
+            fruits.remove(eatMe);
+            packmen.add(p);
         }
         return solution;
 
