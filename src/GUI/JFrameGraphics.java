@@ -170,28 +170,35 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Thread repainter = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true) {
+                String timeToRun= JOptionPane.showInputDialog("Animation will run with 60FPS (Frames per second)\n\n" +
+                        "Enter for how long do you want to show path animation in milliseconds:");
+                long timeToPlay = 0;
+                try{
+                    timeToPlay = Long.parseLong(timeToRun);
+                }catch (NumberFormatException e){
+                    JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter milli-seconds to run animation.");
+                }
 
-
+                long startTime = System.currentTimeMillis();
+                long currentTime = System.currentTimeMillis();
+                while (currentTime-startTime<timeToPlay) {
+                    Iterator<Path> pathIt = out.getPaths().iterator();
+                    while (pathIt.hasNext()) {
+                        Path path = pathIt.next();
+                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
+                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime(0.001*(currentTime-startTime)));
+                        currentTime = System.currentTimeMillis();
+                    }
+                    ourJFrame.paintImmediately(0, 0, ourJFrame.getWidth(), ourJFrame.getHeight());
+                    try {
+                        Thread.sleep(17);  //60 FPS
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
-//        repainter.start();
-
-        for(int i = 1 ; i <2000; i++) {
-            Iterator<Path> pathIt = out.getPaths().iterator();
-            while (pathIt.hasNext()) {
-                Path path = pathIt.next();
-                System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime(10*i));
-                ourJFrame.paintImmediately(0, 0, ourJFrame.getWidth(), ourJFrame.getHeight());
-            }
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        repainter.start();
 
     }
 
