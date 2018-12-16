@@ -43,7 +43,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        System.out.println("Started paint");
+//        System.out.println("Started paint");
         image = Toolkit.getDefaultToolkit().getImage(map.getImagePath());
         int w = this.getWidth();
         int h = this.getHeight();
@@ -63,7 +63,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 break;
             }
             g.setColor(Color.decode(pacman.getData().getColor()));
-            g.fillOval((int) pixel.x()-8, (int) pixel.y()-8, 16, 16);
+            g.fillArc((int) pixel.x()-8, (int) pixel.y()-8, 16, 16,30,300);
         }
 
         while (FruitIterator.hasNext()) {
@@ -80,7 +80,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             g.setColor(Color.decode(fruit.getData().getColor()));
             g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
         }
-        System.out.println("Finished paint");
+//        System.out.println("Finished paint");
     }
 
     public static void main(String[] args) {
@@ -167,6 +167,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     private void runAlgo() {
         ShortestPathAlgo algo = new ShortestPathAlgo(game.getPacmen(),game.getFruits());
         Solution out = algo.runAlgo();
+        System.out.println(out); //TODO: delete this.
         Thread repainter = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -197,8 +198,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                     Iterator<Path> pathIt = out.getPaths().iterator();
                     while (pathIt.hasNext()) {
                         Path path = pathIt.next();
-                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime(currentTime-startTime)); /**DO NOT CHANGE
+//                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
+                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((currentTime-startTime)*100)); /**DO NOT CHANGE
                          This is calculated REAL-TIME movement of Pacman. separately from FPS. Thread sleeping provides the FPS on screen.**/
 
                         currentTime = System.currentTimeMillis();
