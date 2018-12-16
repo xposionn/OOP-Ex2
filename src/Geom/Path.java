@@ -59,12 +59,12 @@ public class Path {
      * Gets time (in MS) and returns how many fruits the pacman ate in the path.
      * @param timeInMillis time in seconds.
      */
-   public int getHowManyEatenAfterXtime(long timeInMillis){
+   public int getHowManyEatenAfterXtime(long timeInMillis) {
        int counterFruits = this.fruitsInPath.size();
        int fruitEaten = 0;
-       while(counterFruits>0 && fruitEaten<this.fruitsInPath.size()){
-           if(getDistance(fruitEaten++)/(this.pacmanInPath.getSpeed())*1000 > timeInMillis){
-               return this.fruitsInPath.size()-counterFruits;
+       while (counterFruits > 0 && fruitEaten < this.fruitsInPath.size()) {
+           if (getDistance(fruitEaten++) / (this.pacmanInPath.getSpeed()) * 1000 > timeInMillis) {
+               return this.fruitsInPath.size() - counterFruits;
            }
            counterFruits--;
        }
