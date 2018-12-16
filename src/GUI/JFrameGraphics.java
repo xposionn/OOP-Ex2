@@ -13,6 +13,8 @@ import Geom.Point3D;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -29,6 +31,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     private Map map; //map object according to provided image.
     private int IDfruits = 0;
     private int IDpacs = 0;
+    private static JFrameGraphics ourJFrame;
 
     public JFrameGraphics() {
         this.game = new Game();
@@ -38,7 +41,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         addMouseListener(this);
     }
 
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         System.out.println("Started paint");
         image = Toolkit.getDefaultToolkit().getImage(map.getImagePath());
         int w = this.getWidth();
@@ -81,7 +85,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pacman and Fruits");
-        JFrameGraphics ourJFrame = new JFrameGraphics();
+        ourJFrame = new JFrameGraphics();
         frame.getContentPane().add(ourJFrame);
         frame.setSize(900, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -173,20 +177,17 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             }
         });
 //        repainter.start();
-        long startTime = System.currentTimeMillis();
-        long tenSec = 10000;
 
-
-        while(System.currentTimeMillis()-tenSec<startTime){
+        for(int i = 1 ; i <2000; i++) {
             Iterator<Path> pathIt = out.getPaths().iterator();
-            while(pathIt.hasNext()) {
+            while (pathIt.hasNext()) {
                 Path path = pathIt.next();
                 System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                path.getPacmanInPath().setGeom(new Point3D(path.getPacPositionAfterXtime(1)));
+                path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime(10*i));
+                ourJFrame.paintImmediately(0, 0, ourJFrame.getWidth(), ourJFrame.getHeight());
             }
-            repaint();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
