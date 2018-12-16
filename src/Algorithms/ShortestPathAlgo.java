@@ -25,7 +25,7 @@ public class ShortestPathAlgo {
         while (!fruits.isEmpty()) {
             Packman p = packmen.peek();
             double min = Double.MAX_VALUE;
-            Fruit eatMe;
+            Fruit eatMe= null;
             Iterator<Fruit> itFruit = this.fruits.iterator();
             while (itFruit.hasNext()) {
                 Fruit f = itFruit.next();

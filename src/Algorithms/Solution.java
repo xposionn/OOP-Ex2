@@ -33,7 +33,7 @@ public class Solution {
         Iterator<Path> pathIterator = this.paths.iterator();
         while(pathIterator.hasNext()){
             Path current = pathIterator.next();
-            if(current.getPackmanIDInPath()==id){
+            if(current.getPacmanIDInPath()==id){
                 return current;
             }
         }
