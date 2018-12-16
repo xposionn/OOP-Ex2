@@ -11,13 +11,14 @@ public class Path {
 
     private Packman pacmanInPath;
     private ArrayList<Fruit> fruitsInPath;
-
+    private Point3D pacmanStartPosition;
     //add gps data as needed
 
     //constructor:
     public Path(Packman pacForPath, ArrayList<Fruit> fruitsInPath){
         this.pacmanInPath = pacForPath;
         this.fruitsInPath = fruitsInPath;
+        this.pacmanStartPosition = (Point3D)pacmanInPath.getGeom();
     }
 
 
@@ -35,7 +36,7 @@ public class Path {
             return 0;
         }
         else
-            pathDistance += coordsConv.distance3d((Point3D)this.pacmanInPath.getGeom(),getFruitLoc(0)); //distance from pacman to first Fruit.
+            pathDistance += coordsConv.distance3d(pacmanStartPosition,getFruitLoc(0)); //distance from pacman to first Fruit.
         // Loop through our fruits locations till the last one, including the path from the (last-1) to (last) .
         for (int fruitLocIndex = 0; fruitLocIndex < fruitIndex; fruitLocIndex++) {
             Point3D fromFruit = getFruitLoc(fruitLocIndex);  // Get fruit location we're travelling from
@@ -72,7 +73,7 @@ public class Path {
        Point3D fromFruitLoc;
        double timeFromPacToEatenFruit;
        if(alreadyEatenDuringThisTime==0) {
-           fromFruitLoc = (Point3D) this.pacmanInPath.getGeom();
+           fromFruitLoc = pacmanStartPosition;
            timeFromPacToEatenFruit = 0;
        }
        else {
