@@ -34,6 +34,19 @@ public class Solution {
         }
     }
 
+    public double timeToComplete(){
+        Iterator<Path> pathIt = paths.iterator();
+        double maxTime = Double.MIN_VALUE;
+        while(pathIt.hasNext()){
+            Path currentPath = pathIt.next();
+            double timeToPathCompletion = currentPath.getTravelTimeForPacmanWholePath();
+            if(timeToPathCompletion>maxTime){
+                maxTime = timeToPathCompletion;
+            }
+        }
+        return maxTime;
+    }
+
     public Path getPath(int id) {
         Iterator<Path> pathIterator = this.paths.iterator();
         while(pathIterator.hasNext()){

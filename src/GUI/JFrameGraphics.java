@@ -166,8 +166,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     private void runAlgo() {
         ShortestPathAlgo algo = new ShortestPathAlgo(game.getPacmen(),game.getFruits());
-        Solution out = algo.runAlgo();
-        System.out.println(out); //TODO: delete this.
+        Solution algoSolution = algo.runAlgo();
+        System.out.println(algoSolution); //TODO: delete this.
+        System.out.println("Total time to complete all paths: " + algoSolution.timeToComplete()/1000);
         Thread repainter = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -195,11 +196,11 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 long startTime = System.currentTimeMillis();
                 long currentTime = System.currentTimeMillis();
                 while (currentTime-startTime<timeToPlay) {
-                    Iterator<Path> pathIt = out.getPaths().iterator();
+                    Iterator<Path> pathIt = algoSolution.getPaths().iterator();
                     while (pathIt.hasNext()) {
                         Path path = pathIt.next();
 //                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((currentTime-startTime)*100)); /**DO NOT CHANGE
+                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((currentTime-startTime)*40)); /**DO NOT CHANGE
                          This is calculated REAL-TIME movement of Pacman. separately from FPS. Thread sleeping provides the FPS on screen.**/
 
                         currentTime = System.currentTimeMillis();
