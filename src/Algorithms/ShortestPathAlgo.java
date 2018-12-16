@@ -46,6 +46,7 @@ public class ShortestPathAlgo {
                 }
             }
             p.addTimeTraveled(min);
+            p.setGeom(eatMe.getGeom()); //TODO:packman will be placed at the next fruit position that he will be eat.
             solution.getPath(p.getID()).addFruitToPath(eatMe);
             fruits.remove(eatMe);
             packmen.add(p);
