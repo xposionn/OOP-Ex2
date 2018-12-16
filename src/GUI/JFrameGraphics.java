@@ -187,7 +187,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 }catch (NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter positive integer for your wanted FPS.");
                 }
-                if(FPS<=0 && FPS>144){ //regular checks for bypassing.
+                if(FPS<=0 || FPS>144){ //regular checks for bypassing.
                     JOptionPane.showMessageDialog(null, "You entered invalid FPS value. We will set it to 60FPS. Have fun.");
                     FPS = 60;
                 }
