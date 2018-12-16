@@ -170,13 +170,25 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Thread repainter = new Thread(new Runnable() {
             @Override
             public void run() {
-                String timeToRun= JOptionPane.showInputDialog("Animation will run with 60FPS (Frames per second)\n\n" +
-                        "Enter for how long do you want to show path animation in milliseconds:");
+                String timeToRun= JOptionPane.showInputDialog("Enter for how long do you want to show path animation in milliseconds: ");
                 long timeToPlay = 0;
                 try{
                     timeToPlay = Long.parseLong(timeToRun);
                 }catch (NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter milli-seconds to run animation.");
+                }
+                String fpsString= JOptionPane.showInputDialog("Enter how much FPS (Frames per second) you want to run the animation with: " +
+                        "\nDefault FPS is set to 60. Max is 144 fps. (Your screen probably doesn't support more than that.)");
+
+                int FPS = 60;
+                try{
+                    FPS = Integer.parseInt(fpsString);
+                }catch (NumberFormatException e){
+                    JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter positive integer for your wanted FPS.");
+                }
+                if(FPS<=0 && FPS>144){ //regular checks for bypassing.
+                    JOptionPane.showMessageDialog(null, "You entered invalid FPS value. We will set it to 60FPS. Have fun.");
+                    FPS = 60;
                 }
 
                 long startTime = System.currentTimeMillis();
@@ -193,7 +205,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                     }
                     ourJFrame.paintImmediately(0, 0, ourJFrame.getWidth(), ourJFrame.getHeight());
                     try {
-                        Thread.sleep(17);  //60 FPS
+                        Thread.sleep(1000/FPS);  //FPS determined here. 60 FPS is default.
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
