@@ -16,6 +16,9 @@ public class MyCoords implements coords_converter {
      */
     @Override
     public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+        if(local_vector_in_meter.x()==0 && local_vector_in_meter.y() == 0 && local_vector_in_meter.z() == 0){
+            return gps;
+        }
         if(!isValid_GPS_Point(gps)) throw new RuntimeException("You entered invalid GPS point for the add function.");
         double norm = Math.cos(Math.toRadians(gps.x()));
         double diffNewX = Math.toDegrees(Math.asin(local_vector_in_meter.x() / RADIUS));
@@ -54,6 +57,9 @@ public class MyCoords implements coords_converter {
     @Override
     public double distance3d(Point3D gps0, Point3D gps1) {
         if(!isValid_GPS_Point(gps0) || !isValid_GPS_Point(gps1)) throw new RuntimeException("You entered invalid GPS point for the distance3D function.");
+        else if(gps0.x() == gps1.x() && gps0.y() == gps1.y() && gps0.z() == gps1.z()){
+            return 0;
+        }
         Point3D diffVec = vector3D(gps0, gps1);
         return diffVec.distance3D(new Point3D(0,0,0)); //difference vector is related to 0,0,0 point hence we calc distance according to that.
     }
