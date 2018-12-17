@@ -2,6 +2,7 @@ package GUI;
 
 import Algorithms.ShortestPathAlgo;
 import Algorithms.Solution;
+import File_format.Main;
 import GIS.GIS_element;
 import GIS.Meta_data_element;
 import Game.Fruit;
@@ -141,11 +142,24 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Menu addMenu = new Menu("Add");
         Menu algoMenu = new Menu("Algo");
 
+
+
         MenuItem pacmenItemMenu = new MenuItem("Pacman");
         MenuItem fruitItemMenu = new MenuItem("Fruit");
+        MenuItem reset = new MenuItem("Reset");
+
+
+
         fruitItemMenu.addActionListener(e -> ourJFrame.type = 2);
         pacmenItemMenu.addActionListener((e -> ourJFrame.type = 1));
 
+
+        reset.addActionListener(e -> {
+            ourJFrame.game = new Game();
+            linesSolution.getPaths().clear();
+            ourJFrame.repaint();
+        });
+        addMenu.add(reset);
         addMenu.add(pacmenItemMenu);
         addMenu.add(fruitItemMenu);
 
@@ -210,7 +224,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         ArrayList<GIS_element> packmen = new ArrayList<>(this.game.getPacmen());
         Solution bestSolution = null;
         long bestTime = Long.MAX_VALUE;
-        for(int i=0;i<100;i++) {
+        for(int i=0;i<2000;i++) {
             Collections.shuffle(packmen);
             ShortestPathAlgo algo = new ShortestPathAlgo(packmen,game.getFruits());
             Solution algoSolution = algo.runAlgo();
@@ -219,9 +233,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 bestTime = (long)algoSolution.timeToComplete();
             }
         }
-        this.linesSolution = bestSolution;
-        System.out.println(this.linesSolution); //TODO: delete this.
-        System.out.println("Total time to complete all paths: " + this.linesSolution.timeToComplete()/1000);
+        linesSolution = bestSolution;
+        System.out.println(linesSolution); //TODO: delete this.
+        System.out.println("Total time to complete all paths: " + linesSolution.timeToComplete()/1000);
         Thread repainter = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -257,7 +271,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                     while (pathIt.hasNext()) {
                         Path path = pathIt.next();
 //                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((currentTime-startTime)*10)); /**DO NOT CHANGE
+                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((System.currentTimeMillis()-startTime)*10)); /**DO NOT CHANGE
                          This is calculated REAL-TIME movement of Pacman. separately from FPS. Thread sleeping provides the FPS on screen.**/
 
                         currentTime = System.currentTimeMillis();
