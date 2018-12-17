@@ -28,7 +28,9 @@ public class Game {
 
     public Game(File csvGameFile) {
         pacmen = new GIS_layer_obj();
+        pacmen.setMeta(new Meta_data_layerAndProject("Pacmen Layer"));
         fruits = new GIS_layer_obj();
+        fruits.setMeta(new Meta_data_layerAndProject("Fruits Layer"));
         Csv2Layer layer = new Csv2Layer();
         GIS_layer fullLayer = layer.csv2Layer(csvGameFile.getAbsolutePath());
         Iterator fullIterator = fullLayer.iterator();
