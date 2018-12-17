@@ -5,6 +5,7 @@ import GIS.GIS_element;
 import GIS.GIS_layer;
 import Game.Fruit;
 import Game.Packman;
+import Geom.Path;
 import Geom.Point3D;
 
 import java.util.*;
@@ -14,7 +15,7 @@ public class ShortestPathAlgo {
     ArrayList<Fruit> fruits;
     MyCoords coords = new MyCoords();
 
-    public ShortestPathAlgo(GIS_layer packmen, GIS_layer fruits) {
+    public ShortestPathAlgo(ArrayList<GIS_element> packmen, GIS_layer fruits) {
         this.packmen = new PriorityQueue<Packman>(packmen.size(), new PackmanComparatorTime());
         Iterator<GIS_element> packmanIterator = packmen.iterator();
         while(packmanIterator.hasNext()){
@@ -30,27 +31,35 @@ public class ShortestPathAlgo {
     }
 
     public Solution runAlgo() {
-
+        long bestTime = Long.MAX_VALUE;
         Solution solution = new Solution(packmen);
-        while (!fruits.isEmpty()) {
-            Packman p = packmen.poll();
-            double min = Double.MAX_VALUE;
-            Fruit eatMe= null;
-            Iterator<Fruit> itFruit = this.fruits.iterator();
-            while (itFruit.hasNext()) {
-                Fruit f = itFruit.next();
-                double timeToEat = coords.distance3d((Point3D) p.getGeom(), (Point3D) f.getGeom()) / p.getSpeed();
-                if(timeToEat<min){
-                    eatMe = f;
-                    min = timeToEat;
+            while (!fruits.isEmpty()) {
+                Packman p = packmen.poll();
+                double min = Double.MAX_VALUE;
+                Fruit eatMe = null;
+                Iterator<Fruit> itFruit = this.fruits.iterator();
+                while (itFruit.hasNext()) {
+                    Fruit f = itFruit.next();
+                    double timeToEat = coords.distance3d((Point3D) p.getGeom(), (Point3D) f.getGeom()) / p.getSpeed();
+                    if (timeToEat < min) {
+                        eatMe = f;
+                        min = timeToEat;
+                    }
                 }
-            }
-            p.addTimeTraveled(min);
-            p.setGeom(eatMe.getGeom()); //TODO:packman will be placed at the next fruit position that he will be eat.
-            solution.getPath(p.getID()).addFruitToPath(eatMe);
-            fruits.remove(eatMe);
-            packmen.add(p);
+                p.addTimeTraveled(min);
+                p.setGeom(eatMe.getGeom()); //TODO:packman will be placed at the next fruit position that he will be eat.
+                solution.getPath(p.getID()).addFruitToPath(eatMe);
+                fruits.remove(eatMe);
+                packmen.add(p);
         }
+        System.out.println("Solution to complete"+solution.timeToComplete()/1000);//TODO: delete
+
+        //reset pacman position
+        Iterator<Path> solutionPath = solution.getPaths().iterator();
+            while(solutionPath.hasNext()){
+                Path toChange = solutionPath.next();
+                toChange.getPacmanInPath().setGeom(toChange.getPacmanStartPosition());
+            }
         return solution;
 
 

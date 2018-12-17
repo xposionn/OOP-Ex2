@@ -2,6 +2,7 @@ package GUI;
 
 import Algorithms.ShortestPathAlgo;
 import Algorithms.Solution;
+import GIS.GIS_element;
 import GIS.Meta_data_element;
 import Game.Fruit;
 import Game.Game;
@@ -18,7 +19,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * some of the code is taken from: https://javatutorial.net/display-text-and-graphics-java-jframe
@@ -29,9 +33,11 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     private Game game; //game object to work with.
     private int type = 0;
     private Map map; //map object according to provided image.
+    private static Solution linesSolution;
     private int IDfruits = 0;
     private int IDpacs = 0;
     private static JFrameGraphics ourJFrame;
+
 
     public JFrameGraphics() {
         this.game = new Game();
@@ -51,6 +57,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Iterator PacIterator = game.getPacmen().iterator();
         Iterator FruitIterator = game.getFruits().iterator();
 
+
         while (PacIterator.hasNext()) {
             Packman pacman = (Packman)PacIterator.next();
             Point3D pixel = null;
@@ -68,18 +75,53 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
-            Point3D pixel = null;
-            try { //pixel might be out of map bounds.
-                pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage());
-                this.game = new Game();
-                g.drawImage(image, 0, 0, w, h, this);
-                break;
+            if (!fruit.isEaten()) {
+                Point3D pixel = null;
+                try { //pixel might be out of map bounds.
+                    pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    this.game = new Game();
+                    g.drawImage(image, 0, 0, w, h, this);
+                    break;
+                }
+                g.setColor(Color.decode(fruit.getData().getColor()));
+                g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
             }
-            g.setColor(Color.decode(fruit.getData().getColor()));
-            g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
         }
+        if(this.linesSolution!=null) {
+            Iterator<Path> pathIterator = this.linesSolution.getPaths().iterator();
+            while (pathIterator.hasNext()) {
+                Path path = pathIterator.next();
+                g.setColor(path.getColor());
+                Point3D pixel1, pixel2;
+                try {
+                    pixel1 = map.CoordsToPixels(path.getPacmanStartPosition(), getHeight(), getWidth(), false);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    this.game = new Game();
+                    g.drawImage(image, 0, 0, w, h, this);
+                    break;
+                }
+                Iterator<Fruit> fruitItPath = path.getFruitsInPath().iterator();
+                while (fruitItPath.hasNext()) {
+                    Fruit fruit = fruitItPath.next();
+                    try { //pixel might be out of map bounds.
+                        pixel2 = map.CoordsToPixels((Point3D) fruit.getGeom(), getHeight(), getWidth(), false);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                        this.game = new Game();
+                        g.drawImage(image, 0, 0, w, h, this);
+                        break;
+                    }
+                    Graphics2D g2 = (Graphics2D) g;
+                    g2.setStroke(new BasicStroke(3));
+                    g2.drawLine((int) pixel1.x(), (int) pixel1.y(), (int) pixel2.x(), (int) pixel2.y());
+                    pixel1 = pixel2;
+                }
+            }
+        }
+
 //        System.out.println("Finished paint");
     }
 
@@ -129,7 +171,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 ourJFrame.loadFile(file);
                 System.out.println(chooser.getSelectedFile());
             }else{
-                System.out.println("Error");
+                System.out.println("No file selected.");
             }
         });
 
@@ -150,7 +192,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                     JOptionPane.showMessageDialog(null, "Saved games must end with .csv file extension!! Try again.");
                 }
             }else{
-                System.out.println("Error");
+                System.out.println("Cancel button pressed.");
             }
         });
 
@@ -165,10 +207,21 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     }
 
     private void runAlgo() {
-        ShortestPathAlgo algo = new ShortestPathAlgo(game.getPacmen(),game.getFruits());
-        Solution algoSolution = algo.runAlgo();
-        System.out.println(algoSolution); //TODO: delete this.
-        System.out.println("Total time to complete all paths: " + algoSolution.timeToComplete()/1000);
+        ArrayList<GIS_element> packmen = new ArrayList<>(this.game.getPacmen());
+        Solution bestSolution = null;
+        long bestTime = Long.MAX_VALUE;
+        for(int i=0;i<2000;i++) {
+            Collections.shuffle(packmen);
+            ShortestPathAlgo algo = new ShortestPathAlgo(packmen,game.getFruits());
+            Solution algoSolution = algo.runAlgo();
+            if (bestTime > algoSolution.timeToComplete()) {
+                bestSolution = algoSolution;
+                bestTime = (long)algoSolution.timeToComplete();
+            }
+        }
+        this.linesSolution = bestSolution;
+        System.out.println(this.linesSolution); //TODO: delete this.
+        System.out.println("Total time to complete all paths: " + this.linesSolution.timeToComplete()/1000);
         Thread repainter = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -195,12 +248,12 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                     FPS = 60;
                 }
                 if(timeToPlay ==0 ){
-                    timeToPlay = (long) algoSolution.timeToComplete();
+                    timeToPlay = (long) linesSolution.timeToComplete();
                 }
                 long startTime = System.currentTimeMillis();
                 long currentTime = System.currentTimeMillis();
                 while (currentTime-startTime<timeToPlay) {
-                    Iterator<Path> pathIt = algoSolution.getPaths().iterator();
+                    Iterator<Path> pathIt = linesSolution.getPaths().iterator();
                     while (pathIt.hasNext()) {
                         Path path = pathIt.next();
 //                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());

@@ -60,7 +60,11 @@ public class Path {
     }
 
    public double getTravelTimeForPacmanWholePath(){
-        return getDistance(this.fruitsInPath.size()-1)/pacmanInPath.getSpeed()*1000;
+        if(this.fruitsInPath.size()==0){
+            return 0;
+        }else {
+            return getDistance(this.fruitsInPath.size() - 1) / pacmanInPath.getSpeed() * 1000;
+        }
    }
 
     /**
@@ -80,6 +84,9 @@ public class Path {
    }
 
    public Point3D getPacPositionAfterXtime(long timeInMillis){
+       if(this.fruitsInPath.size()==0){
+           return pacmanStartPosition;
+       }
        int alreadyEatenDuringThisTime = getHowManyEatenAfterXtime(timeInMillis);
        MyCoords coordsConv = new MyCoords(); //we use MyCoords object to calculate vector between two Point3D points.
        Point3D fromFruitLoc;

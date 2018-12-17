@@ -11,12 +11,9 @@ import java.util.PriorityQueue;
 public class Solution {
     ArrayList<Path> paths;
 
-
-
     public Solution(PriorityQueue packmen) {
         this.paths = new ArrayList<>();
-        ArrayList packmen1 = new ArrayList<>();
-        packmen1.addAll(packmen);
+        ArrayList packmen1 = new ArrayList<>(packmen);
         packmen1.sort((o1, o2) -> {
             if(((Packman)o1).getID()-((Packman)o2).getID()>0){
                 return 1;
@@ -35,7 +32,7 @@ public class Solution {
     }
 
     public double timeToComplete(){
-        Iterator<Path> pathIt = paths.iterator();
+        Iterator<Path> pathIt = this.paths.iterator();
         double maxTime = Double.MIN_VALUE;
         while(pathIt.hasNext()){
             Path currentPath = pathIt.next();
