@@ -40,6 +40,13 @@ public class Packman extends GIS_element_obj implements GIS_element {
 
     }
 
+    public double distancePointFromEatRadius(Point3D p){
+        double d = p.distance3D((Point3D)this.getGeom());
+        double dr = d - this.getEatRadius();
+        double ans = Math.max(0, dr);
+        return ans;
+    }
+
     public double getSpeed() {
         return speed;
     }
