@@ -172,12 +172,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Thread repainter = new Thread(new Runnable() {
             @Override
             public void run() {
-                String timeToRun= JOptionPane.showInputDialog("Enter for how long do you want to show path animation in milliseconds: ");
+                String timeToRun= JOptionPane.showInputDialog("Enter for how long do you want to show path animation in milliseconds: \n" +
+                        "Enter 0 for full animation.");
                 long timeToPlay = 0;
                 try{
                     timeToPlay = Long.parseLong(timeToRun);
                 }catch (NumberFormatException e){
                     JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter milli-seconds to run animation.");
+                    timeToPlay = 0;
                 }
                 String fpsString= JOptionPane.showInputDialog("Enter how much FPS (Frames per second) you want to run the animation with: " +
                         "\nDefault FPS is set to 60. Max is 144 fps. (Your screen probably doesn't support more than that.)");
@@ -192,7 +194,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                     JOptionPane.showMessageDialog(null, "You entered invalid FPS value. We will set it to 60FPS. Have fun.");
                     FPS = 60;
                 }
-
+                if(timeToPlay ==0 ){
+                    timeToPlay = (long) algoSolution.timeToComplete();
+                }
                 long startTime = System.currentTimeMillis();
                 long currentTime = System.currentTimeMillis();
                 while (currentTime-startTime<timeToPlay) {
