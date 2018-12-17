@@ -236,55 +236,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         linesSolution = bestSolution;
         System.out.println(linesSolution); //TODO: delete this.
         System.out.println("Total time to complete all paths: " + linesSolution.timeToComplete()/1000);
-        Thread repainter = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String timeToRun= JOptionPane.showInputDialog("Enter for how long do you want to show path animation in milliseconds: \n" +
-                        "Enter 0 for full animation.");
-                long timeToPlay = 0;
-                try{
-                    timeToPlay = Long.parseLong(timeToRun);
-                }catch (NumberFormatException e){
-                    JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter milli-seconds to run animation.");
-                    timeToPlay = 0;
-                }
-                String fpsString= JOptionPane.showInputDialog("Enter how much FPS (Frames per second) you want to run the animation with: " +
-                        "\nDefault FPS is set to 60. Max is 144 fps. (Your screen probably doesn't support more than that.)");
-
-                int FPS = 60;
-                try{
-                    FPS = Integer.parseInt(fpsString);
-                }catch (NumberFormatException e){
-                    JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter positive integer for your wanted FPS.");
-                }
-                if(FPS<=0 || FPS>144){ //regular checks for bypassing.
-                    JOptionPane.showMessageDialog(null, "You entered invalid FPS value. We will set it to 60FPS. Have fun.");
-                    FPS = 60;
-                }
-                if(timeToPlay ==0 ){
-                    timeToPlay = (long) linesSolution.timeToComplete();
-                }
-                long startTime = System.currentTimeMillis();
-                long currentTime = System.currentTimeMillis();
-                while (currentTime-startTime<timeToPlay) {
-                    Iterator<Path> pathIt = linesSolution.getPaths().iterator();
-                    while (pathIt.hasNext()) {
-                        Path path = pathIt.next();
-//                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                        path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((System.currentTimeMillis()-startTime)*10)); /**DO NOT CHANGE
-                         This is calculated REAL-TIME movement of Pacman. separately from FPS. Thread sleeping provides the FPS on screen.**/
-
-                        currentTime = System.currentTimeMillis();
-                    }
-                    ourJFrame.paintImmediately(0, 0, ourJFrame.getWidth(), ourJFrame.getHeight());
-                    try {
-                        Thread.sleep(1000/FPS);  //FPS determined here. 60 FPS is default.
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
+        Painter paint = new Painter(bestSolution,ourJFrame);
+        Thread repainter = new Thread(paint);
         repainter.start();
 
     }
