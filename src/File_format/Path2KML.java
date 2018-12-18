@@ -1,10 +1,12 @@
 package File_format;
 
 import Algorithms.Solution;
+import Algorithms.TimeChange;
+import GIS.GIS_element;
 import GIS.GIS_layer;
 import Game.Fruit;
 import Game.Game;
-import Game.Map;
+import Game.Packman;
 import Geom.Path;
 import Geom.Point3D;
 
@@ -12,12 +14,21 @@ import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.InterfaceAddress;
 import java.util.Iterator;
 
 public class Path2KML {
 
     private String styleStringForPaths(Solution solution){
         StringBuilder kmlString = new StringBuilder();
+        kmlString.append("<Style id=\"hiker-icon\">\n" +
+                "      <IconStyle>\n" +
+                "        <Icon>\n" +
+                "          <href>http://maps.google.com/mapfiles/ms/icons/hiker.png</href>\n" +
+                "        </Icon>\n" +
+                "        <hotSpot x=\"0\" y=\".5\" xunits=\"fraction\" yunits=\"fraction\"/>\n" +
+                "      </IconStyle>\n" +
+                "    </Style>");
         for(Path path: solution.getPaths()) {
             kmlString.append("<Style id=\"" + path.getPacmanInPath().getID() + "PathColor\">");
             kmlString.append("<LineStyle>");
@@ -105,7 +116,38 @@ public class Path2KML {
     }
 
     public String fruitsToKML(GIS_layer fruits){
+        Iterator<GIS_element> frs = fruits.iterator();
+        while(frs.hasNext()){
+            GIS_element fr = frs.next();
+            fr.getData().setUTCtime(1545159030685l); //TODO: same as time for pacmen in pamenMovementKML func.
+        }
         return fruits.toKmlForProject(); //from EX2.
+    }
+
+    public String pacmenMovementKML(Solution pathSolution){
+        StringBuilder kmlString = new StringBuilder();
+        StringBuilder pacmanPlacemarkSnapshot = new StringBuilder();
+        double timeToComplete = pathSolution.timeToComplete();
+        for (Path path : pathSolution.getPaths()) {
+            kmlString.append("<Folder><name>Snapshots for Pacman: " + path.getPacmanInPath().getID()+"</name>");
+            Packman pac = path.getPacmanInPath();
+            pac.getData().setUTCtime(1545159030685l); //could be anything, just reset time for every pacman, before snapshots.TODO: you can change this.
+            for(int i=0;i<timeToComplete/1000;i++){ //each iteration is 1 second.
+                Point3D newPosition = path.getPacPositionAfterXtime(i*1000);
+                kmlString.append("<Placemark>\n" +
+                        "<name>" + pac.getID() + "</name>\n" +
+                        "<description>" + pac.getData().toStringKML() + "</description>\n" +
+//                        "<styleUrl>" + "#hiker-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) TODO: we can use the pacman object color
+                        "<TimeSpan><begin>" + TimeChange.longtoUTC(pac.getData().getUTC()+i*1000) + "</begin><end>"+TimeChange.longtoUTC(pac.getData().getUTC()+(i+1)*1000)+"</end></TimeSpan>\n" +
+//                        "<TimeStamp><when>"+ TimeChange.longtoUTC(pac.getData().getUTC()+i*1000)+"</when></TimeStamp>"+
+                        "<Point>\n" +
+                        "<coordinates>" + newPosition.toStringKMLgoogle()+ "</coordinates>\n" + //0 at Z is relative to ground height
+                        "</Point>\n" +
+                        "</Placemark>\n");
+            }
+            kmlString.append("</Folder>");
+        }
+        return kmlString.toString();
     }
 
     public void constructKML(String fileNameForKML, Solution pathSolution, Game game) {
@@ -120,7 +162,7 @@ public class Path2KML {
 
         kmlContent.append(fruitsToKML(game.getFruits())); //fruits layer completed
 
-        //TODO: add packmen layer with snapshop according to time
+        kmlContent.append(pacmenMovementKML(pathSolution));
 
         kmlContent.append("</Document></kml>");
 
