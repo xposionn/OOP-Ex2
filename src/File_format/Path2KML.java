@@ -21,6 +21,24 @@ public class Path2KML {
         kmlSTRING.append("<LineStyle>");
         kmlSTRING.append("<color>"+ this.path.getColor()); //TODO: add color and complete style tag.
 
+
+        kmlSTRING.append("<width>4</width>\n"); //change value for requested line width.
+        kmlSTRING.append("</LineStyle>\n");
+        kmlSTRING.append("<PolyStyle>\n");
+        kmlSTRING.append("<color>");
+
+        kmlSTRING.append("</color>\n");
+        kmlSTRING.append("</PolyStyle>\n");
+        kmlSTRING.append("</Style>\n");
+
+
+
+        <width>4</width>
+         *       </LineStyle>
+         *       <PolyStyle>
+         *         <color>7f00ff00</color>
+         *       </PolyStyle>
+         *     </Style>
         kmlSTRING.append("<Placemark>\n");
         kmlSTRING.append("<name>Line For Pacman: "+this.path.getPacmanInPath().getID()+"</name>\n");
         kmlSTRING.append("<description>Path for a pacman eating fruits</description>\n");
