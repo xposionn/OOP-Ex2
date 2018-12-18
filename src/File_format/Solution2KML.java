@@ -15,7 +15,7 @@ public class Solution2KML {
         double finishtime = solution.timeToComplete();
         //Create an empty file
         ClassLoader classLoader = getClass().getClassLoader();
-        File kml = new File(String.format("%s/gametoKML.kml", ClassLoader.getResource(".").getFile()));
+//        File kml = new File(String.format("%s/gametoKML.kml", ClassLoader.getResource(".").getFile()));
 
     }
 

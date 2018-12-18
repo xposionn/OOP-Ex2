@@ -35,7 +35,6 @@ public class ShortestPathAlgo {
 
     public Solution runAlgo() {
         Solution solution = new Solution(packmen);
-        System.out.println(fruits.size());
         Iterator<Packman> packmanIterator = packmen.iterator();
         while (packmanIterator.hasNext()) {
             Packman p = packmanIterator.next();
@@ -48,7 +47,6 @@ public class ShortestPathAlgo {
                 }
             }
         }
-        System.out.println(fruits.size());
         while (!fruits.isEmpty()) {
             Packman p = packmen.poll();
             double min = Double.MAX_VALUE;

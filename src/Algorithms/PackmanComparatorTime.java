@@ -11,7 +11,7 @@ public class PackmanComparatorTime implements Comparator<Packman> {
             return (int)(o2.getSpeed()-o1.getSpeed());
         }
         else{
-            return (int)(o1.getTimeTraveled()/o1.getSpeed()-o2.getTimeTraveled()/o2.getSpeed());
+            return (int)(o1.getTimeTraveled()-o2.getTimeTraveled());
 
         }
     }

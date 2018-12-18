@@ -211,7 +211,12 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         });
 
         run.addActionListener(l->{
-            ourJFrame.runAlgo();
+            try {
+                ourJFrame.runAlgo();
+            }catch (RuntimeException e){
+                JOptionPane.showMessageDialog(null, e.getMessage());
+
+            }
         });
         MainMenu.add(algoMenu);
         MainMenu.add(fileMenu);
@@ -221,10 +226,15 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     }
 
     private void runAlgo() {
+        if(this.game.getPacmen().size() == 0){
+            throw new RuntimeException("No pacmen to calculate solution.");
+        } else if(this.game.getFruits().size() == 0){
+            throw new RuntimeException("No fruits to calculate solution.");
+        }
         ArrayList<GIS_element> packmen = new ArrayList<>(this.game.getPacmen());
         Solution bestSolution = null;
         long bestTime = Long.MAX_VALUE;
-        for(int i=0;i<2000;i++) {
+        for(int i=0;i<packmen.size()*game.getFruits().size()*3;i++) { //TODO: change to get faster speed -> less optimized solution.
             Collections.shuffle(packmen);
             ShortestPathAlgo algo = new ShortestPathAlgo(packmen,game.getFruits());
             Solution algoSolution = algo.runAlgo();
