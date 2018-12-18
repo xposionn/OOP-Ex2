@@ -138,14 +138,17 @@ public class Path2KML {
 
     private String colorToKML(Color c){
         int red1 = c.getRed();
-        int blue2 = c.getBlue();
         int green3 = c.getGreen();
-        String red = Integer.toHexString(red1);
-        String blue = Integer.toHexString(blue2);
-        String green = Integer.toHexString(green3);
+        int blue2 = c.getBlue();
+        StringBuilder red = new StringBuilder(Integer.toHexString(red1));
+        StringBuilder green = new StringBuilder(Integer.toHexString(green3));
+        StringBuilder blue = new StringBuilder(Integer.toHexString(blue2));
+        red = red.reverse();
+        green = green.reverse();
+        blue = blue.reverse();
         StringBuilder a = new StringBuilder();
         a.append(red).append(blue).append(green);
-        return "7f"+a.reverse().toString();
+        return "ff"+a.reverse().toString();
     }
 
 
