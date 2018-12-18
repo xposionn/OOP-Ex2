@@ -72,6 +72,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             }
             g.setColor(Color.decode(pacman.getData().getColor()));
             g.fillArc((int) pixel.x()-8, (int) pixel.y()-8, 16, 16,30,300);
+            g.drawString("ID: "+pacman.getID(),(int)pixel.x()-5,(int)pixel.y()-10);
         }
 
         while (FruitIterator.hasNext()) {
@@ -88,6 +89,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
                 }
                 g.setColor(Color.decode(fruit.getData().getColor()));
                 g.fillOval((int) pixel.x()-5, (int) pixel.y()-5, 10, 10);
+                g.drawString("ID:"+fruit.getID(),(int)pixel.x()-5,(int)pixel.y()-5);
             }
         }
         if(this.linesSolution!=null) {
@@ -221,7 +223,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         MainMenu.add(algoMenu);
         MainMenu.add(fileMenu);
         MainMenu.add(addMenu);
-
 
     }
 
