@@ -6,6 +6,7 @@ import Game.Fruit;
 import Game.Game;
 import Geom.Path;
 
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,18 +20,13 @@ public class Path2KML {
 
         kmlSTRING.append("<Style id="+path.getPacmanInPath().getID() + "PathColor");
         kmlSTRING.append("<LineStyle>");
-        kmlSTRING.append("<color>"+ path.getColor()); //TODO: add color and complete style tag.
-
-
+        kmlSTRING.append("<color>"+ colorToKML(path.getColor())+"</color>");
         kmlSTRING.append("<width>4</width>\n"); //change value for requested line width.
         kmlSTRING.append("</LineStyle>\n");
         kmlSTRING.append("<PolyStyle>\n");
-        kmlSTRING.append("<color>");
-
-        kmlSTRING.append("</color>\n");
+        kmlSTRING.append("<color>"+ colorToKML(path.getColor())+ "</color>\n");
         kmlSTRING.append("</PolyStyle>\n");
         kmlSTRING.append("</Style>\n");
-
 
         /**** finished styling, now for path data:   ****/
 
@@ -128,6 +124,20 @@ public class Path2KML {
         }
 
 
+    }
+
+    private String colorToKML(Color c){
+        int red1 = c.getRed();
+        int blue2 = c.getBlue();
+        int green3 = c.getGreen();
+        String red = Integer.toHexString(red1);
+        String blue = Integer.toHexString(blue2);
+        String green = Integer.toHexString(green3);
+        StringBuilder a = new StringBuilder();
+        a.append(red).append(blue).append(green);
+
+        System.out.println(a);
+        return a.reverse().toString();
     }
 
 
