@@ -4,7 +4,9 @@ import Algorithms.Solution;
 import GIS.GIS_layer;
 import Game.Fruit;
 import Game.Game;
+import Game.Map;
 import Geom.Path;
+import Geom.Point3D;
 
 import java.awt.*;
 import java.io.BufferedWriter;
@@ -14,35 +16,40 @@ import java.util.Iterator;
 
 public class Path2KML {
 
+    private String styleStringForPaths(Solution solution){
+        StringBuilder kmlString = new StringBuilder();
+        for(Path path: solution.getPaths()) {
+            kmlString.append("<Style id=\"" + path.getPacmanInPath().getID() + "PathColor\">");
+            kmlString.append("<LineStyle>");
+            kmlString.append("<color>" + colorToKML(path.getColor()) + "</color>");
+            kmlString.append("<width>4</width>\n"); //change value for requested line width.
+            kmlString.append("</LineStyle>\n");
+            kmlString.append("<PolyStyle>\n");
+            kmlString.append("<color>" + colorToKML(path.getColor()) + "</color>\n");
+            kmlString.append("</PolyStyle>\n");
+            kmlString.append("</Style>\n");
+        }
+        return kmlString.toString();
+    }
 
     private String onePathToKMLstring(Path path){
         StringBuilder kmlSTRING = new StringBuilder();
 
-        kmlSTRING.append("<Style id="+path.getPacmanInPath().getID() + "PathColor");
-        kmlSTRING.append("<LineStyle>");
-        kmlSTRING.append("<color>"+ colorToKML(path.getColor())+"</color>");
-        kmlSTRING.append("<width>4</width>\n"); //change value for requested line width.
-        kmlSTRING.append("</LineStyle>\n");
-        kmlSTRING.append("<PolyStyle>\n");
-        kmlSTRING.append("<color>"+ colorToKML(path.getColor())+ "</color>\n");
-        kmlSTRING.append("</PolyStyle>\n");
-        kmlSTRING.append("</Style>\n");
-
-        /**** finished styling, now for path data:   ****/
-
         kmlSTRING.append("<Placemark>\n");
-        kmlSTRING.append("<name>Line For Pacman: "+path.getPacmanInPath().getID()+"</name>\n");
+        kmlSTRING.append("<name>Path For Pacman: "+path.getPacmanInPath().getID()+"</name>\n");
         kmlSTRING.append("<description>Path for a pacman eating fruits</description>\n");
-        kmlSTRING.append("<styleUrl>" + path.getPacmanInPath().getID() + "PathColor"+"</styleUrl>\n");
+        kmlSTRING.append("<styleUrl>#" + path.getPacmanInPath().getID() + "PathColor"+"</styleUrl>\n");
         kmlSTRING.append("<LineString>\n");
         kmlSTRING.append("<extrude>1</extrude>\n"); //change if you want to draw without walls
         kmlSTRING.append("<tessellate>1</tessellate>\n");  //doesn't use it, only with clampToGround altitude mode.
         kmlSTRING.append("<altitudeMode>relativeToGround</altitudeMode>\n"); //relative to ground
         kmlSTRING.append("<coordinates>\n");
-        kmlSTRING.append(path.getPacmanInPath().getGeom()); //pacman path is the first coordinate in our path.
+        kmlSTRING.append(((Point3D)path.getPacmanInPath().getGeom()).toStringKMLgoogle()); //pacman path is the first coordinate in our path.
+        kmlSTRING.append("\n");
         Iterator<Fruit> fruitIt = path.getFruitsInPath().iterator();
         while(fruitIt.hasNext()){
-            kmlSTRING.append(fruitIt.next().getGeom());
+            kmlSTRING.append(((Point3D)fruitIt.next().getGeom()).toStringKMLgoogle());
+            kmlSTRING.append("\n");
         }
         kmlSTRING.append("</coordinates>\n");
         kmlSTRING.append("</LineString>\n");
@@ -105,8 +112,11 @@ public class Path2KML {
         StringBuilder kmlContent = new StringBuilder();
         kmlContent.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n" +
-                "  <Document>");
-        kmlContent.append(solutionPathsToKML(pathSolution)); //paths layer completed
+                "  <Document>\n");
+
+        kmlContent.append(styleStringForPaths(pathSolution)); //add all styles for paths.
+
+        kmlContent.append(solutionPathsToKML(pathSolution)); //paths layer completed.
 
         kmlContent.append(fruitsToKML(game.getFruits())); //fruits layer completed
 
@@ -135,9 +145,7 @@ public class Path2KML {
         String green = Integer.toHexString(green3);
         StringBuilder a = new StringBuilder();
         a.append(red).append(blue).append(green);
-
-        System.out.println(a);
-        return a.reverse().toString();
+        return "7f"+a.reverse().toString();
     }
 
 

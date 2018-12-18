@@ -3,6 +3,7 @@ package GUI;
 import Algorithms.ShortestPathAlgo;
 import Algorithms.Solution;
 import File_format.Main;
+import File_format.Path2KML;
 import GIS.GIS_element;
 import GIS.Meta_data_element;
 import Game.Fruit;
@@ -145,7 +146,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Menu algoMenu = new Menu("Algo");
 
 
-
         MenuItem pacmenItemMenu = new MenuItem("Pacman");
         MenuItem fruitItemMenu = new MenuItem("Fruit");
         MenuItem reset = new MenuItem("Reset");
@@ -167,13 +167,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         MenuItem loadFromCsvItemMenu = new MenuItem("Load From CSV");
         MenuItem saveToCsvItemMenu = new MenuItem("Save To CSV");
+        MenuItem exportToKML = new MenuItem("Export to KML");
 
         MenuItem run = new MenuItem("run");
 
         algoMenu.add(run);
 
 
-
+        //load file
         fileMenu.add(loadFromCsvItemMenu);
         loadFromCsvItemMenu.addActionListener(e->{
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
@@ -191,6 +192,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             }
         });
 
+        //save file
         fileMenu.add(saveToCsvItemMenu);
         saveToCsvItemMenu.addActionListener(e->{
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
@@ -210,6 +212,13 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             }else{
                 System.out.println("Cancel button pressed.");
             }
+        });
+
+        //export to kml
+        fileMenu.add(exportToKML);
+        exportToKML.addActionListener(e->{
+            Path2KML toKml = new Path2KML();
+            toKml.constructKML("test",linesSolution,ourJFrame.game);
         });
 
         run.addActionListener(l->{
