@@ -115,7 +115,7 @@ public class Path2KML {
         kmlContent.append("</Document></kml>");
 
         try {
-            FileWriter fw = new FileWriter(fileNameForKML);
+            FileWriter fw = new FileWriter(fileNameForKML+".kml");
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(kmlContent.toString());
             bw.close();
