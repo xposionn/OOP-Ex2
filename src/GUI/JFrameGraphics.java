@@ -217,8 +217,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //export to kml
         fileMenu.add(exportToKML);
         exportToKML.addActionListener(e->{
+            String fileName= JOptionPane.showInputDialog("Enter name for your kml file: ");
             Path2KML toKml = new Path2KML();
-            toKml.constructKML("test",linesSolution,ourJFrame.game);
+            toKml.constructKML(fileName,linesSolution,ourJFrame.game);
         });
 
         run.addActionListener(l->{
