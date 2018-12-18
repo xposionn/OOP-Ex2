@@ -4,14 +4,17 @@ import Coords.MyCoords;
 import Game.Fruit;
 import Game.Packman;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class Path {
 
     private Packman pacmanInPath;
     private ArrayList<Fruit> fruitsInPath;
     private Point3D pacmanStartPosition;
+    private Color lineColor;
     //add gps data as needed
 
     //constructor:
@@ -19,6 +22,11 @@ public class Path {
         this.pacmanInPath = pacForPath;
         this.fruitsInPath = fruitsInPath;
         this.pacmanStartPosition = (Point3D)pacmanInPath.getGeom();
+        Random rand = new Random();
+        float red = rand.nextFloat();
+        float green = rand.nextFloat();
+        float blue = rand.nextFloat();
+        this.lineColor = new Color(red, green, blue);
     }
 
 
@@ -52,7 +60,11 @@ public class Path {
     }
 
    public double getTravelTimeForPacmanWholePath(){
-        return getDistance(this.fruitsInPath.size()-1)/pacmanInPath.getSpeed()*1000;
+        if(this.fruitsInPath.size()==0){
+            return 0;
+        }else {
+            return getDistance(this.fruitsInPath.size() - 1) / pacmanInPath.getSpeed() * 1000;
+        }
    }
 
     /**
@@ -72,6 +84,9 @@ public class Path {
    }
 
    public Point3D getPacPositionAfterXtime(long timeInMillis){
+       if(this.fruitsInPath.size()==0){
+           return pacmanStartPosition;
+       }
        int alreadyEatenDuringThisTime = getHowManyEatenAfterXtime(timeInMillis);
        MyCoords coordsConv = new MyCoords(); //we use MyCoords object to calculate vector between two Point3D points.
        Point3D fromFruitLoc;
@@ -127,5 +142,17 @@ public class Path {
                 "pacman=" + pacmanInPath.getID() +
                 ", fruitsInPath=" + fruitsInPath +
                 '}';
+    }
+
+    public ArrayList<Fruit> getFruitsInPath() {
+        return fruitsInPath;
+    }
+
+    public Point3D getPacmanStartPosition() {
+        return pacmanStartPosition;
+    }
+
+    public Color getColor() {
+       return this.lineColor;
     }
 }

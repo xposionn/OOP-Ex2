@@ -1,5 +1,6 @@
 package Game;
 
+import Coords.MyCoords;
 import GIS.GIS_element;
 import GIS.GIS_element_obj;
 import GIS.Meta_data_element;
@@ -38,6 +39,14 @@ public class Packman extends GIS_element_obj implements GIS_element {
         this.speed = speed;
         this.eatRadius = eatRadius;
 
+    }
+
+    public double distancePointFromEatRadius(Point3D p){
+        MyCoords coords = new MyCoords();
+        double d = coords.distance3d(p,(Point3D)this.getGeom());
+        double dr = d - this.getEatRadius();
+        double ans = Math.max(0, dr);
+        return ans;
     }
 
     public double getSpeed() {

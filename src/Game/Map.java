@@ -1,5 +1,6 @@
 package Game;
 
+import Coords.MyCoords;
 import Geom.Point3D;
 
 import javax.imageio.ImageIO;
@@ -76,6 +77,23 @@ public class Map implements MapInterface{
         Point3D returnPoint = new Point3D(xToCoords,yToCoords,0);
         return returnPoint;
 
+    }
+
+    public double distance2Pixels(Point3D p1,Point3D p2,double frameHeight,double frameWidth){
+        MyCoords coords = new MyCoords();
+        Point3D p1toGPS = this.PixelsToCoords(p1,frameHeight,frameWidth);
+        Point3D p2toGPS = this.PixelsToCoords(p2,frameHeight,frameWidth);
+        double distance = coords.distance3d(p1toGPS,p2toGPS);
+        return distance;
+    }
+
+    public double azimut2Pixels(Point3D p1,Point3D p2){
+
+        double a = p2.x()-p1.x();
+        double b = p2.y()-p2.y();
+        double c = Math.sqrt(a*a+b*b);
+        double eagle = Math.asin(Math.abs(a)/c);
+        return eagle;
     }
 
 
