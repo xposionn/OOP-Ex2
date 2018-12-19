@@ -2,10 +2,8 @@ package GUI;
 
 import Algorithms.ShortestPathAlgo;
 import Algorithms.Solution;
-import File_format.Main;
 import File_format.Path2KML;
 import GIS.GIS_element;
-import GIS.GIS_layer;
 import GIS.Meta_data_element;
 import Game.Fruit;
 import Game.Game;
@@ -17,15 +15,12 @@ import Geom.Point3D;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Random;
 
 /**
  * some of the code is taken from: https://javatutorial.net/display-text-and-graphics-java-jframe
@@ -34,13 +29,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     private Image image; //game background image.
     private Game game; //game object to work with.
-    private int type = 0;
+    private int typeToAdd = 0; //1 for pacman, 2 for fruits.
     private Map map; //map object according to provided image.
     private static Solution linesSolution;
     private int IDfruits = 0;
     private int IDpacs = 0;
     private static JFrameGraphics ourJFrame;
     private Painter paintThread;
+    private static boolean latLonSwitched = false;
 
 
     public JFrameGraphics() {
@@ -66,27 +62,32 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             Point3D pixel = null;
             try { //pixel might be out of map bounds.
                 pixel = map.CoordsToPixels((Point3D)pacman.getGeom(), getHeight(), getWidth(),false);
+                if(pixel.z()==1){ //z pixel is updated to 1 if the switched lat-lon works for our map!
+                    latLonSwitched = true;
+                }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage());
-                this.game = new Game();
-                g.drawImage(image, 0, 0, w, h, this);
+                resetGame();
+                showMessageToScreen(e.getMessage());
                 break;
             }
             g.setColor(Color.decode(pacman.getData().getColor()));
             g.fillArc((int) pixel.x()-8, (int) pixel.y()-8, 16, 16,30,300);
             g.drawString("ID: "+pacman.getID(),(int)pixel.x()-5,(int)pixel.y()-10);
+            g.drawString("Speed: "+pacman.getSpeed(),(int)pixel.x()-5,(int)pixel.y()-25);
         }
 
         while (FruitIterator.hasNext()) {
             Fruit fruit = (Fruit)FruitIterator.next();
             if (!fruit.isEaten()) {
-                Point3D pixel = null;
+                Point3D pixel;
                 try { //pixel might be out of map bounds.
                     pixel = map.CoordsToPixels((Point3D)fruit.getGeom(), getHeight(), getWidth(),false);
+                    if(pixel.z()==1){ //z pixel is updated to 1 if the switched lat-lon works for our map!
+                        latLonSwitched = true;
+                    }
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage());
-                    this.game = new Game();
-                    g.drawImage(image, 0, 0, w, h, this);
+                    showMessageToScreen(e.getMessage());
+                    resetGame();
                     break;
                 }
                 g.setColor(Color.decode(fruit.getData().getColor()));
@@ -129,6 +130,19 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
 //        System.out.println("Finished paint");
     }
+    private static void showMessageToScreen(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
+
+    private void resetGame() {
+        this.game = new Game();
+        if(linesSolution!=null) //if we have a solution after running algorithm, we will have to erase its paths .
+            linesSolution.getPaths().clear();
+        if(paintThread!=null) //if we have a repainter thread which is showing animation, we will have to kill it.
+            ourJFrame.paintThread.setKeepGoing(false); //kills repainter thread
+        latLonSwitched = false;
+        ourJFrame.repaint();
+    }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pacman and Fruits");
@@ -153,15 +167,13 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
 
 
-        fruitItemMenu.addActionListener(e -> ourJFrame.type = 2);
-        pacmenItemMenu.addActionListener((e -> ourJFrame.type = 1));
+        fruitItemMenu.addActionListener(e -> ourJFrame.typeToAdd = 2);
+        pacmenItemMenu.addActionListener((e -> ourJFrame.typeToAdd = 1));
 
         //reset clicked
         reset.addActionListener(e -> {
-            ourJFrame.game = new Game();
-            linesSolution.getPaths().clear();
+            ourJFrame.resetGame();
             ourJFrame.repaint();
-            ourJFrame.paintThread.setKeepGoing(false); //kills repainter thread
         });
         addMenu.add(reset);
         addMenu.add(pacmenItemMenu);
@@ -219,9 +231,19 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //export to kml clicked
         fileMenu.add(exportToKML);
         exportToKML.addActionListener(e->{
-            String fileName= JOptionPane.showInputDialog("Enter name for your kml file: ");
-            Path2KML toKml = new Path2KML();
-            toKml.constructKML(fileName,linesSolution,ourJFrame.game);
+            if(linesSolution==null){
+                showMessageToScreen("You have to run the algorithm first to find the paths solution.\n" +
+                        "After that, you can try to export again.");
+            }
+            else if(latLonSwitched){
+                showMessageToScreen("You have switched LAT-LON coordinates while loading a CSV file. \n" +
+                        "You can only view where the points would have been if you provided a CORRECT file, \n" +
+                        "But you cannot export this game into KML.");
+            }else {
+                String fileName = JOptionPane.showInputDialog("Enter name for your kml file: ");
+                Path2KML toKml = new Path2KML();
+                toKml.constructKML(fileName, linesSolution, ourJFrame.game);
+            }
         });
 
         //run algo clicked
@@ -285,9 +307,10 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     }
 
     private void loadFile(File file) {
+        resetGame();
         try {
             this.game = new Game(file);
-            repaint();
+            repaint(); //repaint might update latLonSwitched for loaded file. we will give message to the user.
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "This CSV file is not compatible with our game.");
         }
@@ -296,14 +319,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (type == 1) {
+        if (typeToAdd == 1) {
             Point3D point = new Point3D(e.getX(), e.getY(), 0);
             Point3D globalpoint = map.PixelsToCoords(point, getHeight(), getWidth());
             Meta_data_element pacman_meta = new Meta_data_element("Packman name", "P"); //color is white as default.
             Packman pac = new Packman(globalpoint, pacman_meta,IDpacs++, 1, 1); //orientation is (1,1,1) as default.
             game.getPacmen().add(pac);
         }
-        if (type == 2) {
+        if (typeToAdd == 2) {
             Point3D point = new Point3D(e.getX(), e.getY(), 0);
             Point3D globalpoint2 = map.PixelsToCoords(point, getHeight(), getWidth());
             Meta_data_element fruit_meta = new Meta_data_element("Fruit name", "F"); //color is red as default.
