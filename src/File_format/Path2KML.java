@@ -116,12 +116,10 @@ public class Path2KML {
     }
 
     public String fruitsToKML(GIS_layer fruits){
-        Iterator<GIS_element> frs = fruits.iterator();
-        while(frs.hasNext()){
-            GIS_element fr = frs.next();
-//            fr.getData().setUTCtime(1545159030685l); //TODO: same as time for pacmen in pamenMovementKML func.
-        }
-        return fruits.toKmlForProject(); //from EX2.
+        String kmlString = fruits.toKmlForProject();
+//        String newDescription = "</br>Weight: "+"</description>" TODO: add weight for each fruit.
+//        kmlString.replaceAll("</description>",)
+        return kmlString; //from EX2.
     }
 
     public String pacmenMovementKML(Solution pathSolution){
@@ -131,15 +129,16 @@ public class Path2KML {
         for (Path path : pathSolution.getPaths()) {
             kmlString.append("<Folder><name>Snapshots for Pacman: " + path.getPacmanInPath().getID()+"</name>");
             Packman pac = path.getPacmanInPath();
-//            pac.getData().setUTCtime(1545159030685l); //could be anything, just reset time for every pacman, before snapshots.TODO: you can change this.
             for(int i=0;i<timeToComplete/1000;i++){ //each iteration is 1 second.
                 Point3D newPosition = path.getPacPositionAfterXtime(i*1000);
                 kmlString.append("<Placemark>\n" +
                         "<name>" + pac.getID() + "</name>\n" +
-                        "<description>" + pac.getData().toStringKML() + "</description>\n" +
-//                        "<styleUrl>" + "#hiker-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) TODO: we can use the pacman object color
+                        "<description>" + pac.getData().toStringKML() +
+                        "Speed:"+ pac.getSpeed()+ "</br>" +
+                        "Eat Radius:" + pac.getEatRadius()+ "</br>" +
+                        "</description>\n" +
+//                        "<styleUrl>" + "#pacman-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) TODO: we can use the pacman object color
                         "<TimeSpan><begin>" + TimeChange.longtoUTC(pac.getData().getUTC()+i*1000) + "</begin><end>"+TimeChange.longtoUTC(pac.getData().getUTC()+(i+1)*1000)+"</end></TimeSpan>\n" +
-//                        "<TimeStamp><when>"+ TimeChange.longtoUTC(pac.getData().getUTC()+i*1000)+"</when></TimeStamp>"+
                         "<Point>\n" +
                         "<coordinates>" + newPosition.toStringKMLgoogle()+ "</coordinates>\n" + //0 at Z is relative to ground height
                         "</Point>\n" +
