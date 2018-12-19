@@ -81,4 +81,8 @@ public class Packman extends GIS_element_obj implements GIS_element {
     public void addTimeTraveled(double min) {
         this.timeTraveled += min;
     }
+
+    public void setTimeTraveled(double timeTraveled) {
+        this.timeTraveled = timeTraveled;
+    }
 }
