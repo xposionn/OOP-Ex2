@@ -116,15 +116,11 @@ public class Path2KML {
     }
 
     public String fruitsToKML(GIS_layer fruits){
-        String kmlString = fruits.toKmlForProject();
-//        String newDescription = "</br>Weight: "+"</description>" TODO: add weight for each fruit.
-//        kmlString.replaceAll("</description>",)
-        return kmlString; //from EX2.
+        return fruits.toKmlForProject(); //from EX2.
     }
 
     public String pacmenMovementKML(Solution pathSolution){
         StringBuilder kmlString = new StringBuilder();
-        StringBuilder pacmanPlacemarkSnapshot = new StringBuilder();
         double timeToComplete = pathSolution.timeToComplete();
         for (Path path : pathSolution.getPaths()) {
             kmlString.append("<Folder><name>Snapshots for Pacman: " + path.getPacmanInPath().getID()+"</name>");
