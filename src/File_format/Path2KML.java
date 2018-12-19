@@ -119,7 +119,7 @@ public class Path2KML {
         Iterator<GIS_element> frs = fruits.iterator();
         while(frs.hasNext()){
             GIS_element fr = frs.next();
-            fr.getData().setUTCtime(1545159030685l); //TODO: same as time for pacmen in pamenMovementKML func.
+//            fr.getData().setUTCtime(1545159030685l); //TODO: same as time for pacmen in pamenMovementKML func.
         }
         return fruits.toKmlForProject(); //from EX2.
     }
@@ -131,7 +131,7 @@ public class Path2KML {
         for (Path path : pathSolution.getPaths()) {
             kmlString.append("<Folder><name>Snapshots for Pacman: " + path.getPacmanInPath().getID()+"</name>");
             Packman pac = path.getPacmanInPath();
-            pac.getData().setUTCtime(1545159030685l); //could be anything, just reset time for every pacman, before snapshots.TODO: you can change this.
+//            pac.getData().setUTCtime(1545159030685l); //could be anything, just reset time for every pacman, before snapshots.TODO: you can change this.
             for(int i=0;i<timeToComplete/1000;i++){ //each iteration is 1 second.
                 Point3D newPosition = path.getPacPositionAfterXtime(i*1000);
                 kmlString.append("<Placemark>\n" +

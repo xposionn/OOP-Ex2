@@ -2,7 +2,6 @@ package Game;
 
 import GIS.GIS_element;
 import GIS.GIS_element_obj;
-import GIS.Meta_data;
 import GIS.Meta_data_element;
 import Geom.Geom_element;
 
@@ -14,6 +13,7 @@ public class Fruit extends GIS_element_obj implements GIS_element {
     private double weight; //fruit weight.
     private boolean isEaten;
     private int ID;
+    private long timeToEat = 0;
 
     /**
      * Constructor for the GIS_element object. gets a Geom_element, Meta_data_element and ID.
@@ -54,5 +54,13 @@ public class Fruit extends GIS_element_obj implements GIS_element {
     @Override
     public String toString() {
         return "Fruit{"+this.ID+"}";
+    }
+
+    public void setTimeToEat(long timeToEat) {
+        this.timeToEat = timeToEat;
+    }
+
+    public long getTimeToEat() {
+        return timeToEat;
     }
 }

@@ -15,8 +15,11 @@ public class ShortestPathAlgo {
     ArrayList<Fruit> fruits;
     ArrayList<Fruit> Backupfruits;
     MyCoords coords = new MyCoords();
+    long currentTimeStamp;
+
 
     public ShortestPathAlgo(ArrayList<GIS_element> packmen, GIS_layer fruits) {
+        this.currentTimeStamp = System.currentTimeMillis();
         this.packmen = new PriorityQueue<Packman>(packmen.size(), new PackmanComparatorTime());
         Iterator<GIS_element> packmanIterator = packmen.iterator();
         while (packmanIterator.hasNext()) {
@@ -34,7 +37,7 @@ public class ShortestPathAlgo {
     }
 
     public Solution runAlgo() {
-        Solution solution = new Solution(packmen);
+        Solution solution = new Solution(packmen,currentTimeStamp);
         Iterator<Packman> packmanIterator = packmen.iterator();
         while (packmanIterator.hasNext()) {
             Packman p = packmanIterator.next();
@@ -74,11 +77,10 @@ public class ShortestPathAlgo {
         Iterator<Path> solutionPath = solution.getPaths().iterator();
         while (solutionPath.hasNext()) {
             Path toChange = solutionPath.next();
-            toChange.getPacmanInPath().setGeom(toChange.getPacmanStartPosition());
+            Packman packmantoChange = toChange.getPacmanInPath();
+            packmantoChange.setGeom(toChange.getPacmanStartPosition());
         }
         this.fruits = new ArrayList<>(Backupfruits);
         return solution;
-
-
     }
 }

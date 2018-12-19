@@ -5,6 +5,7 @@ import Algorithms.Solution;
 import File_format.Main;
 import File_format.Path2KML;
 import GIS.GIS_element;
+import GIS.GIS_layer;
 import GIS.Meta_data_element;
 import Game.Fruit;
 import Game.Game;
@@ -255,12 +256,26 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             }
         }
         linesSolution = bestSolution;
+        resetTimeAfterAlgoAndSetEatenTimes(linesSolution);
         System.out.println(linesSolution); //TODO: delete this.
         System.out.println("Total time to complete all paths: " + linesSolution.timeToComplete()/1000);
         Painter paint = new Painter(bestSolution,ourJFrame);
         Thread repainter = new Thread(paint);
         repainter.start();
 
+    }
+    private void resetTimeAfterAlgoAndSetEatenTimes(Solution solution){
+        Iterator<Path> paths = solution.getPaths().iterator();
+        while (paths.hasNext()) {
+            Path pt = paths.next();
+            pt.getPacmanInPath().getData().setUTCtime(solution.getTimeStart()); //reset pacman time to the time of best algorithm start time.
+            Iterator<Fruit> frIt = pt.getFruitsInPath().iterator();
+            while(frIt.hasNext()){
+                Fruit frInPath = frIt.next();
+                frInPath.getData().setUTCtime(solution.getTimeStart());//reset fruit time to the time of best algorithm start time.
+                frInPath.setTimeToEat((long)(pt.getDistance(pt.getFruitsInPath().indexOf(frInPath))/(pt.getPacmanInPath().getSpeed()))); //set eaten time for fruit in specific path in best algo solution.
+            }
+        }
     }
 
     private void saveFile(File file) {
