@@ -40,6 +40,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
     private int IDfruits = 0;
     private int IDpacs = 0;
     private static JFrameGraphics ourJFrame;
+    private Painter paintThread;
 
 
     public JFrameGraphics() {
@@ -156,11 +157,12 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         fruitItemMenu.addActionListener(e -> ourJFrame.type = 2);
         pacmenItemMenu.addActionListener((e -> ourJFrame.type = 1));
 
-
+        //reset clicked
         reset.addActionListener(e -> {
             ourJFrame.game = new Game();
             linesSolution.getPaths().clear();
             ourJFrame.repaint();
+            ourJFrame.paintThread.setKeepGoing(false); //kills repainter thread
         });
         addMenu.add(reset);
         addMenu.add(pacmenItemMenu);
@@ -259,8 +261,8 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         resetTimeAfterAlgoAndSetEatenTimes(linesSolution);
         System.out.println(linesSolution); //TODO: delete this.
         System.out.println("Total time to complete all paths: " + linesSolution.timeToComplete()/1000);
-        Painter paint = new Painter(bestSolution,ourJFrame);
-        Thread repainter = new Thread(paint);
+        paintThread = new Painter(bestSolution,ourJFrame);
+        Thread repainter = new Thread(paintThread);
         repainter.start();
 
     }
