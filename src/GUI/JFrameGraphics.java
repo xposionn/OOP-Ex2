@@ -273,7 +273,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             while(frIt.hasNext()){
                 Fruit frInPath = frIt.next();
                 frInPath.getData().setUTCtime(solution.getTimeStart());//reset fruit time to the time of best algorithm start time.
-                frInPath.setTimeToEat((long)(pt.getDistance(pt.getFruitsInPath().indexOf(frInPath))/(pt.getPacmanInPath().getSpeed()))); //set eaten time for fruit in specific path in best algo solution.
+                frInPath.setTimeToEat((long)(pt.getDistance(pt.getFruitsInPath().indexOf(frInPath))/pt.getPacmanInPath().getSpeed()*1000)); //set eaten time for fruit in specific path in best algo solution.
             }
         }
     }

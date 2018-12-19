@@ -1,6 +1,7 @@
 package GIS;
 
 import Algorithms.TimeChange;
+import Game.Fruit;
 import Geom.Point3D;
 
 import java.io.BufferedWriter;
@@ -95,12 +96,13 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
 
         String kmlContent = "<Folder>\n<name>"+layerMeta.getName()+"</name>\n";
         for (GIS_element elem : this) {
+            Fruit fruit = (Fruit)elem;
             Point3D point = (Point3D) elem.getGeom();
             kmlContent += "<Placemark>\n" +
-                    "<name>" + elem.getData().getName() + "</name>\n" +
-                    "<description>" + elem.getData().toStringKML() + "</description>\n" +
+                    "<name>" + fruit.getData().getName() + "</name>\n" +
+                    "<description>" + fruit.getData().toStringKML() + "</description>\n" +
 //                    "<styleUrl>" + elem.getData().getStyleUrlColor() + "</styleUrl>\n" +
-                    "<TimeStamp><when>" + TimeChange.longtoUTC(elem.getData().getUTC()) + "</when></TimeStamp>\n" +
+                    "<TimeSpan><begin>" + TimeChange.longtoUTC(fruit.getData().getUTC()) + "</begin><end>"+TimeChange.longtoUTC(fruit.getData().getUTC()+fruit.getTimeToEat()) +"</end></TimeSpan>\n" +
                     "<Point>\n" +
                     "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
                     "</Point>\n" +
