@@ -2,7 +2,6 @@ package File_format;
 
 import Algorithms.Solution;
 import Algorithms.TimeChange;
-import GIS.GIS_element;
 import GIS.GIS_layer;
 import Game.Fruit;
 import Game.Game;
@@ -14,17 +13,24 @@ import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.InterfaceAddress;
 import java.util.Iterator;
 
 public class Path2KML {
 
-    private String styleStringForPaths(Solution solution){
+    private String styleStringForKML(Solution solution){
         StringBuilder kmlString = new StringBuilder();
-        kmlString.append("<Style id=\"hiker-icon\">\n" +
+        kmlString.append("<Style id=\"pacman-icon\">\n" +
                 "      <IconStyle>\n" +
                 "        <Icon>\n" +
-                "          <href>http://maps.google.com/mapfiles/ms/icons/hiker.png</href>\n" +
+                "          <href>https://i.imgur.com/vfKFip4.png</href>\n" +
+                "        </Icon>\n" +
+                "        <hotSpot x=\"0\" y=\".5\" xunits=\"fraction\" yunits=\"fraction\"/>\n" +
+                "      </IconStyle>\n" +
+                "    </Style>");
+        kmlString.append("<Style id=\"default-icon\">\n" +
+                "      <IconStyle>\n" +
+                "        <Icon>\n" +
+                "          <href>https://i.imgur.com/dA36Dhf.png</href>\n" +
                 "        </Icon>\n" +
                 "        <hotSpot x=\"0\" y=\".5\" xunits=\"fraction\" yunits=\"fraction\"/>\n" +
                 "      </IconStyle>\n" +
@@ -130,10 +136,10 @@ public class Path2KML {
                 kmlString.append("<Placemark>\n" +
                         "<name>" + pac.getID() + "</name>\n" +
                         "<description>" + pac.getData().toStringKML() +
-                        "Speed:"+ pac.getSpeed()+ "</br>" +
-                        "Eat Radius:" + pac.getEatRadius()+ "</br>" +
+                        "Speed:"+ pac.getSpeed()+ "<br/>" +
+                        "Eat Radius:" + pac.getEatRadius()+ "<br/>" +
                         "</description>\n" +
-//                        "<styleUrl>" + "#pacman-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) TODO: we can use the pacman object color
+                        "<styleUrl>" + "#pacman-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) TODO: we can use the pacman object color
                         "<TimeSpan><begin>" + TimeChange.longtoUTC(pac.getData().getUTC()+i*1000) + "</begin><end>"+TimeChange.longtoUTC(pac.getData().getUTC()+(i+1)*1000)+"</end></TimeSpan>\n" +
                         "<Point>\n" +
                         "<coordinates>" + newPosition.toStringKMLgoogle()+ "</coordinates>\n" + //0 at Z is relative to ground height
@@ -151,7 +157,7 @@ public class Path2KML {
                 "<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n" +
                 "  <Document>\n");
 
-        kmlContent.append(styleStringForPaths(pathSolution)); //add all styles for paths.
+        kmlContent.append(styleStringForKML(pathSolution)); //add all styles for paths.
 
         kmlContent.append(solutionPathsToKML(pathSolution)); //paths layer completed.
 

@@ -101,7 +101,7 @@ public class GIS_layer_obj extends HashSet<GIS_element> implements GIS_layer {
             kmlContent += "<Placemark>\n" +
                     "<name>" + fruit.getData().getName() + "</name>\n" +
                     "<description>" + fruit.getData().toStringKML() + "</description>\n" +
-//                    "<styleUrl>" + elem.getData().getStyleUrlColor() + "</styleUrl>\n" +
+                    "<styleUrl>" + "#default-icon" + "</styleUrl>\n" + //can change default icons.
                     "<TimeSpan><begin>" + TimeChange.longtoUTC(fruit.getData().getUTC()) + "</begin><end>"+TimeChange.longtoUTC(fruit.getData().getUTC()+fruit.getTimeToEat()) +"</end></TimeSpan>\n" +
                     "<Point>\n" +
                     "<coordinates>" + point.y() + "," + point.x() + ",0 </coordinates>\n" + //0 at Z is relative to ground height
