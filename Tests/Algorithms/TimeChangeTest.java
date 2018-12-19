@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TimeChangeTest {
 
-    String dateInStr = "2015-03-30 13:47:58";
+    String dateInStr = "2015-03-30T13:47:58Z";
     long dateinlong = 1427712478000L;
 
 

@@ -45,11 +45,11 @@ public class Meta_data_element implements Meta_data{
     public String toStringKML(){ //name is also handled separately, as a placemark name.
         StringBuilder info = new StringBuilder();
         info.append("Name: <b>").append(this.name).append("</b><br/>");
-        info.append("Timestamp (UTC): <b>").append(this.UTCtime).append("</b><br/>");
-        info.append("Date: <b>").append(Algorithms.TimeChange.longtoUTC(this.UTCtime).replaceAll("[T,Z]", " ")).append("</b><br/>");
+        info.append("Timestamp of Algorithm runtime(UTC): <b>").append(this.UTCtime).append("</b><br/>");
         info.append("Color in HEX: <b>").append(this.color).append("</b><br/>");
-        if (this.type.equals("P"))
+        if (this.type.equals("P")) {
             info.append("Type: Player<br/>");
+        }
         else if (this.type.equals("F"))
             info.append("Type: Fruit<br/>");
         return info.toString();

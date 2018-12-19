@@ -9,10 +9,12 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class Solution {
-    ArrayList<Path> paths;
+    private ArrayList<Path> paths;
+    private long timeStart;
 
-    public Solution(PriorityQueue packmen) {
+    public Solution(PriorityQueue packmen, long timeStart) {
         this.paths = new ArrayList<>();
+        this.timeStart = timeStart;
         ArrayList packmen1 = new ArrayList<>(packmen);
         packmen1.sort((o1, o2) -> {
             if(((Packman)o1).getID()-((Packman)o2).getID()>0){
@@ -30,6 +32,7 @@ public class Solution {
             paths.add(path);
         }
     }
+
 
     public double timeToComplete(){
         Iterator<Path> pathIt = this.paths.iterator();
@@ -63,5 +66,9 @@ public class Solution {
     }
     public ArrayList<Path> getPaths() {
         return paths;
+    }
+
+    public long getTimeStart() {
+        return timeStart;
     }
 }
