@@ -34,7 +34,6 @@ public class Game {
         Csv2Layer layer = new Csv2Layer();
         GIS_layer fullLayer = layer.csv2Layer(csvGameFile.getAbsolutePath());
         Iterator fullIterator = fullLayer.iterator();
-
         while(fullIterator.hasNext()){
             GIS_element elem = (GIS_element) fullIterator.next();
             if(elem.getData().getType().equals("P")){
