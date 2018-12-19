@@ -23,9 +23,9 @@ public class Path {
         this.fruitsInPath = fruitsInPath;
         this.pacmanStartPosition = (Point3D)pacmanInPath.getGeom();
         Random rand = new Random();
-        float red = rand.nextFloat();
-        float green = rand.nextFloat();
-        float blue = rand.nextFloat();
+        int red = rand.nextInt(10)*10 + rand.nextInt(10)*10+rand.nextInt(5)*10;
+        int green = rand.nextInt(10)*10 + rand.nextInt(10)*10+rand.nextInt(5)*10;
+        int blue = rand.nextInt(10)*10 + rand.nextInt(10)*10+rand.nextInt(5)*10;
         this.lineColor = new Color(red, green, blue);
     }
 
