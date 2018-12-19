@@ -61,7 +61,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         Iterator PacIterator = game.getPacmen().iterator();
         Iterator FruitIterator = game.getFruits().iterator();
 
-
         while (PacIterator.hasNext()) {
             Packman pacman = (Packman)PacIterator.next();
             Point3D pixel = null;
@@ -217,7 +216,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             }
         });
 
-        //export to kml
+        //export to kml clicked
         fileMenu.add(exportToKML);
         exportToKML.addActionListener(e->{
             String fileName= JOptionPane.showInputDialog("Enter name for your kml file: ");
@@ -225,6 +224,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
             toKml.constructKML(fileName,linesSolution,ourJFrame.game);
         });
 
+        //run algo clicked
         run.addActionListener(l->{
             try {
                 ourJFrame.runAlgo();
@@ -248,7 +248,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         ArrayList<GIS_element> packmen = new ArrayList<>(this.game.getPacmen());
         Solution bestSolution = null;
         long bestTime = Long.MAX_VALUE;
-        for(int i=0;i<packmen.size()*game.getFruits().size()*3;i++) { //TODO: change to get faster speed -> less optimized solution.
+        for(int i=0;i<packmen.size()*game.getFruits().size()*2;i++) { //TODO: change to get faster speed -> less optimized solution.
             Collections.shuffle(packmen);
             ShortestPathAlgo algo = new ShortestPathAlgo(packmen,game.getFruits());
             Solution algoSolution = algo.runAlgo();
