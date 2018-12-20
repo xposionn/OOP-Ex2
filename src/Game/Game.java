@@ -28,6 +28,8 @@ public class Game {
         pacmen.setMeta(new Meta_data_layerAndProject("Pacmen Layer"));
         fruits = new GIS_layer_obj();
         fruits.setMeta(new Meta_data_layerAndProject("Fruits Layer"));
+        this.setIDfruits(0);
+        this.setIDpacs(0);
     }
 
     /**
@@ -48,9 +50,11 @@ public class Game {
             if(elem.getData().getType().equals("P")){
                 Packman pac = (Packman)elem;
                 pacmen.add(pac);
+                this.setIDpacs(this.getIDpacs()+1);
             }else if(elem.getData().getType().equals("F")){
                 Fruit fruit = (Fruit)elem;
                 fruits.add(fruit);
+                this.setIDfruits(this.getIDfruits()+1);
             }
         }
     }

@@ -15,21 +15,18 @@ public class Painter implements Runnable {
      * his job is to run repaint method for repainting the GUI window in different Thread because we dont want the GUI
      * will be stuck.
      */
-    Solution solution;
-    JFrameGraphics frame;
-    boolean keepGoing;
-
+    private Solution solution;
+    private JFrameGraphics frame;
 
     public Painter(Solution sol, JFrameGraphics framer) {
         this.solution = sol;
         this.frame = framer;
-        this.keepGoing = true;
     }
 
     @Override
     public void run() {
         long startingTime = System.currentTimeMillis();
-        while (keepGoing && System.currentTimeMillis() - startingTime < solution.timeToComplete()) {
+        while ( System.currentTimeMillis() - startingTime < solution.timeToComplete()) {
             String timeToRun = JOptionPane.showInputDialog("Enter for how long do you want to show path animation in milliseconds: \n" +
                     "Enter 0 for full animation.");
             long timeToPlay = 0;
@@ -77,8 +74,5 @@ public class Painter implements Runnable {
         }
     }
 
-    public void setKeepGoing(boolean keepGoing) {
-        this.keepGoing = keepGoing;
-    }
 }
 

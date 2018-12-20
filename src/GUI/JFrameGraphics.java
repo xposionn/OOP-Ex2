@@ -135,8 +135,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         this.game = new Game();
         if(linesSolution!=null) //if we have a solution after running algorithm, we will have to erase its paths .
             linesSolution.getPaths().clear();
-        if(paintThread!=null) //if we have a repainter thread which is showing animation, we will have to kill it.
-            ourJFrame.paintThread.setKeepGoing(false); //kills repainter thread
         ourJFrame.repaint();
     }
 
@@ -187,7 +185,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //load file
         fileMenu.add(loadFromCsvItemMenu);
         loadFromCsvItemMenu.addActionListener(e->{
-            //TODO: kill repainter thread before opening window
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
             FileNameExtensionFilter filter =   new FileNameExtensionFilter(
                     "CSV Files", "csv");
@@ -206,7 +203,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //save file
         fileMenu.add(saveToCsvItemMenu);
         saveToCsvItemMenu.addActionListener(e->{
-            //TODO: kill repainter thread before opening window
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
             FileNameExtensionFilter filter =   new FileNameExtensionFilter(
                     "CSV Files", "csv");
@@ -229,7 +225,6 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //export to kml clicked
         fileMenu.add(exportToKML);
         exportToKML.addActionListener(e->{
-            //TODO: kill repainter thread before opening window
             if(linesSolution==null){
                 showMessageToScreen("You have to run the algorithm first to find the paths solution.\n" +
                         "After that, you can try to export again.");
@@ -243,6 +238,7 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         //run algo clicked
         run.addActionListener(l->{
+
             try {
                 ourJFrame.runAlgo();
             }catch (RuntimeException e){
