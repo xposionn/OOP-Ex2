@@ -15,8 +15,8 @@ import java.util.Iterator;
  */
 public class Game {
 
-    GIS_layer fruits;
-    GIS_layer pacmen;
+    private GIS_layer fruits;
+    private GIS_layer pacmen;
     private int IDfruits = 0;
     private int IDpacs = 0;
 
