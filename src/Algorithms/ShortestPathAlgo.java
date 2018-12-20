@@ -21,7 +21,7 @@ public class ShortestPathAlgo {
 
     public ShortestPathAlgo(ArrayList<GIS_element> packmen, GIS_layer fruits) {
         this.currentTimeStamp = System.currentTimeMillis();
-        this.packmen = new PriorityQueue<Packman>(packmen.size(), new PackmanComparatorTime());
+        this.packmen = new PriorityQueue<Packman>(packmen.size(), new PackmanComparator4Algo());
         Iterator<GIS_element> packmanIterator = packmen.iterator();
         while (packmanIterator.hasNext()) {
             Packman p = (Packman) packmanIterator.next();
