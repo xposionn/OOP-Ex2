@@ -41,6 +41,11 @@ public class Packman extends GIS_element_obj implements GIS_element {
 
     }
 
+    /**
+     * This method calculate distance point from radius of packman
+     * @param p - point to distance to
+     * @return the distance between the Radius of packman to Point p.
+     */
     public double distancePointFromEatRadius(Point3D p){
         MyCoords coords = new MyCoords();
         double d = coords.distance3d(p,(Point3D)this.getGeom());

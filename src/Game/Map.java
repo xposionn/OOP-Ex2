@@ -8,6 +8,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * This Class represents a Map Object.
+ * Map object contains
+ * - Image (as File and as BufferedImage)
+ * - topLeft corner of global Point of the Map
+ * - downRight corner of global Point of the Map
+ */
 public class Map implements MapInterface{
 
     private File Image;
@@ -31,6 +38,14 @@ public class Map implements MapInterface{
         this.rightDownPixel = new Point3D(ImageFile.getWidth(),ImageFile.getHeight(),0);
     }
 
+    /**
+     * This method will calculate on a given Point p (in global terms) to pixel in GUI, considering the size of the panel.
+     * @param p - global point
+     * @param panelHeight - the height of the panel
+     * @param panelWidth - the width of the panel
+     * @param latLonSwitched
+     * @return
+     */
     @Override
     public Point3D CoordsToPixels(Point3D p,double panelHeight,double panelWidth,boolean latLonSwitched){
         double rightX = downRight.x(); //30
@@ -65,6 +80,13 @@ public class Map implements MapInterface{
         } //TODO: ask Boaz if this is acceptable.
     }
 
+    /**
+     * This function will calculate the global points of pixel point, considering the frame height and frame width.
+     * @param p - pixel point.
+     * @param frameHeight - the height of the frame
+     * @param frameWidth - the width of the frame
+     * @return
+     */
     @Override
     public Point3D PixelsToCoords(Point3D p,double frameHeight,double frameWidth) {
 
@@ -79,6 +101,14 @@ public class Map implements MapInterface{
 
     }
 
+    /**\
+     * This method will calcutae the distance between 2 pixels and the real gloal points.
+     * @param p1 - first pixel
+     * @param p2 - seond pixel
+     * @param frameHeight - the height of the frame
+     * @param frameWidth - the width of the frame
+     * @return
+     */
     public double distance2Pixels(Point3D p1,Point3D p2,double frameHeight,double frameWidth){
         MyCoords coords = new MyCoords();
         Point3D p1toGPS = this.PixelsToCoords(p1,frameHeight,frameWidth);
@@ -87,6 +117,12 @@ public class Map implements MapInterface{
         return distance;
     }
 
+    /**
+     * This method will calculate the azimut between 2 pixels.
+     * @param p1 - first pixel
+     * @param p2 - second pixel
+     * @return double eagle - the azimut between those 2 pixels.
+     */
     public double azimut2Pixels(Point3D p1,Point3D p2){
 
         double a = p2.x()-p1.x();
@@ -96,7 +132,10 @@ public class Map implements MapInterface{
         return eagle;
     }
 
-
+    /**
+     * This method will return the path of the image that this Map class using.
+     * @return - String - the path of the image.
+     */
     public String getImagePath() {
         return this.Image.getPath();
     }
