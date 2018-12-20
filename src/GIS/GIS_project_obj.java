@@ -26,7 +26,7 @@ public class GIS_project_obj extends HashSet<GIS_layer> implements GIS_project {
      * @param projectName string, name for the project object.
      */
     public GIS_project_obj(String projectName) {
-        projectMeta = new Meta_data_obj(projectName,System.currentTimeMillis()); //meta of the project will now initiate the time to be the creation time of the object.
+        projectMeta = new Meta_data_layerAndProject(projectName);
     }
 
     /**
