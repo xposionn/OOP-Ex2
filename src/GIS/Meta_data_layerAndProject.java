@@ -31,7 +31,7 @@ public class Meta_data_layerAndProject implements Meta_data {
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override

@@ -139,7 +139,7 @@ public class Path2KML {
                         "Speed:"+ pac.getSpeed()+ "<br/>" +
                         "Eat Radius:" + pac.getEatRadius()+ "<br/>" +
                         "</description>\n" +
-                        "<styleUrl>" + "#pacman-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) TODO: we can use the pacman object color
+                        "<styleUrl>" + "#pacman-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) // we can use the pacman object color
                         "<TimeSpan><begin>" + TimeChange.longtoUTC(pac.getData().getUTC()+i*1000) + "</begin><end>"+TimeChange.longtoUTC(pac.getData().getUTC()+(i+1)*1000)+"</end></TimeSpan>\n" +
                         "<Point>\n" +
                         "<coordinates>" + newPosition.toString()+ "</coordinates>\n" + //0 at Z is relative to ground height

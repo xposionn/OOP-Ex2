@@ -249,9 +249,7 @@ public class MyFrame extends JPanel implements MouseListener {
         });
 
         //run algo clicked
-        run.addActionListener(l->{
-            if(ourJFrame.paintThread != null && ourJFrame.paintThread.isKeepGoing()){ //if we have a thread painting in the background, we will stop the animation and kill the thread.
-                ourJFrame.paintThread.stopAnimKillThread();
+        run.addActionListener(l->{ if(ourJFrame.paintThread != null && ourJFrame.paintThread.isKeepGoing()){ /*if we have a thread painting in the background, we will stop the animation and kill the thread.*/ourJFrame.paintThread.stopAnimKillThread();
             }
             try {
                 ourJFrame.runAlgo();
@@ -283,7 +281,7 @@ public class MyFrame extends JPanel implements MouseListener {
         ArrayList<GIS_element> packmen = new ArrayList<>(this.game.getPacmen());
         Solution bestSolution = null;
         long bestTime = Long.MAX_VALUE;
-        for(int i=0;i<packmen.size()*game.getFruits().size()*2;i++) { //TODO: change to get faster speed -> less optimized solution.
+        for(int i=0;i<packmen.size()*game.getFruits().size()*2;i++) { //change to get faster speed -> less optimized solution.
             Collections.shuffle(packmen);
             ShortestPathAlgo algo = new ShortestPathAlgo(packmen,game.getFruits());
             Solution algoSolution = algo.runAlgo();
@@ -294,7 +292,6 @@ public class MyFrame extends JPanel implements MouseListener {
         }
         linesSolution = bestSolution;
         resetTimeAfterAlgoAndSetEatenTimes(linesSolution);
-        System.out.println(linesSolution); //TODO: delete this.
         System.out.println("Total time to complete all paths: " + linesSolution.timeToComplete()/1000);
         paintThread = new Painter(bestSolution,ourJFrame);
         Thread repainter = new Thread(paintThread);
