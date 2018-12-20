@@ -49,11 +49,10 @@ public class Map implements MapInterface{
      * @param p - global point
      * @param panelHeight - the height of the panel
      * @param panelWidth - the width of the panel
-     * @param latLonSwitched
-     * @return
+     * @return pixel on screen. (using only x and y values of Point3D).
      */
     @Override
-    public Point3D CoordsToPixels(Point3D p,double panelHeight,double panelWidth,boolean latLonSwitched){
+    public Point3D CoordsToPixels(Point3D p,double panelHeight,double panelWidth){
         double rightX = downRight.x(); //30
         double leftX = topLeft.x();//10
         double maxY = topLeft.y(); //10
@@ -70,28 +69,20 @@ public class Map implements MapInterface{
         double wPixel = panelWidth*xRatio;
         double hPixel = panelHeight-panelHeight*yRatio;
         Point3D pixel;
-        if(!latLonSwitched) {
-            pixel = new Point3D(wPixel,hPixel,0);
-        } else {
-            pixel = new Point3D(wPixel,hPixel,1);
-        }
+        pixel = new Point3D(wPixel,hPixel,0);
         if(pixel.x()>=0 && pixel.x() <= panelWidth && pixel.y()>=0 && pixel.y()<=panelWidth) //check if inside panel.
             return pixel;
         else{ //out of bounds from our panel.
-            if(pixel.z()==1){ //after switching lat-lon
                 throw new RuntimeException("You Provided GPS points with coordinates outside of the game map.");
             }
-            Point3D switchedLanLon = new Point3D(p.y(),p.x(),0);
-            return CoordsToPixels(switchedLanLon,panelHeight,panelWidth,true);
-        } //TODO: ask Boaz if this is acceptable.
-    }
+        }
 
     /**
      * This function will calculate the global points of pixel point, considering the frame height and frame width.
      * @param p - pixel point.
      * @param frameHeight - the height of the frame
      * @param frameWidth - the width of the frame
-     * @return
+     * @return Point3D the gps location on real world of that pixel
      */
     @Override
     public Point3D PixelsToCoords(Point3D p,double frameHeight,double frameWidth) {
@@ -104,7 +95,6 @@ public class Map implements MapInterface{
 
         Point3D returnPoint = new Point3D(xToCoords,yToCoords,0);
         return returnPoint;
-
     }
 
     /**\

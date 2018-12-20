@@ -17,6 +17,8 @@ public class Game {
 
     GIS_layer fruits;
     GIS_layer pacmen;
+    private int IDfruits = 0;
+    private int IDpacs = 0;
 
     /**
      * Default constructor for the Game. will initiate empty layer for fruits, and an empty layer for pacmen.
@@ -76,9 +78,9 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(pacman.getID())); //ID
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).x())); //lat
+                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).y())); //lat (same as boaz wrong files)
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).y())); //lon
+                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).x())); //lon (same as boaz wrong files)
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
@@ -95,9 +97,9 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(fruit.getID())); //ID
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).x())); //lat
+                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).y())); //lat (same as boaz wrong files)
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).y())); //lon
+                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).x())); //lon (same as boaz wrong files)
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
@@ -120,13 +122,29 @@ public class Game {
     }
 
 
-    /*** Getters  ***/
+    /*** Getters  and Setters ***/
     public GIS_layer getFruits() {
         return fruits;
     }
 
     public GIS_layer getPacmen() {
         return pacmen;
+    }
+
+    public int getIDfruits() {
+        return IDfruits;
+    }
+
+    public void setIDfruits(int IDfruits) {
+        this.IDfruits = IDfruits;
+    }
+
+    public int getIDpacs() {
+        return IDpacs;
+    }
+
+    public void setIDpacs(int IDpacs) {
+        this.IDpacs = IDpacs;
     }
 
 }
