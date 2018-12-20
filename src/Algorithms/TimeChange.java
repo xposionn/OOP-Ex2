@@ -26,7 +26,7 @@ public class TimeChange {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return date.getTime();
+        return date.getTime()+10800000;
     }
 
     /**
@@ -36,7 +36,7 @@ public class TimeChange {
      */
     public static String longtoUTC(long time){
 
-        return Instant.ofEpochMilli(time+10800000).atOffset(ZoneOffset.UTC).toString(); //10 800 000 means 3 hours (cuz utc)
+        return Instant.ofEpochMilli(time).atOffset(ZoneOffset.UTC).toString(); //10 800 000 means 3 hours (cuz utc)
     }
 
 }

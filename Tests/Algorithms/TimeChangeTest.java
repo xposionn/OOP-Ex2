@@ -6,17 +6,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TimeChangeTest {
     //TODO: FIX IT
-    String dateInStr1 = "2015-03-30T13:47:58Z";
+    String dateInStr1 = "2015-03-30T10:47:58Z";
     long dateinlong1 = 1427712478000L;
 
-    String dateInStr2 = "2046-12-06T15:34:38Z";
-    long dateinlong2 = 2427712478000L;
+    String dateInStr2 = "2016-04-04T01:52:49Z";
+    long dateinlong2 = 1459734769000L ;
 
 
-    String dateInStr3 = "2015-03-30T13:56:18Z";
+    String dateInStr3 = "2015-03-30T10:56:18Z";
     long dateinlong3 = 1427712978000L;
 
-    String dateInStr4 = "1970-01-01T00:00:00Z";
+    String dateInStr4 = "1970-01-01T00:00Z";
     long dateinlong4 = 0L;
 
 
@@ -41,7 +41,9 @@ class TimeChangeTest {
         }else{
             fail(utc + "should be equals to: " + dateInStr1);
         }
-    }    @Test
+    }
+
+    @Test
     void longToUTC2() {
         String utc = TimeChange.longtoUTC(dateinlong2);
         if(utc.equals(dateInStr2)){
@@ -49,7 +51,9 @@ class TimeChangeTest {
         }else{
             fail(utc + "should be equals to: " + dateInStr2);
         }
-    }    @Test
+    }
+
+    @Test
     void longToUTC3() {
         String utc = TimeChange.longtoUTC(dateinlong3);
         if(utc.equals(dateInStr3)){
@@ -57,13 +61,15 @@ class TimeChangeTest {
         }else{
             fail(utc + "should be equals to: " + dateInStr3);
         }
-    }    @Test
-    void longToUTC() {
-        String utc = TimeChange.longtoUTC(dateinlong1);
-        if(utc.equals(dateInStr1)){
+    }
+
+    @Test
+    void longToUTC4() {
+        String utc = TimeChange.longtoUTC(dateinlong4);
+        if(utc.equals(dateInStr4)){
 
         }else{
-            fail(utc + "should be equals to: " + dateInStr1);
+            fail(utc + "should be equals to: " + dateInStr4);
         }
     }
 }
