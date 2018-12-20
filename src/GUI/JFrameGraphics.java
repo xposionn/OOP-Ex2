@@ -2,10 +2,8 @@ package GUI;
 
 import Algorithms.ShortestPathAlgo;
 import Algorithms.Solution;
-import File_format.Main;
 import File_format.Path2KML;
 import GIS.GIS_element;
-import GIS.GIS_layer;
 import GIS.Meta_data_element;
 import Game.Fruit;
 import Game.Game;
@@ -17,15 +15,12 @@ import Geom.Point3D;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Random;
 
 /**
  * some of the code is taken from: https://javatutorial.net/display-text-and-graphics-java-jframe
@@ -50,6 +45,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         addMouseListener(this);
     }
 
+    /**
+     * paint function.
+     * will rewrite each time the packmans in they curret location, (if we changed them)
+     * Run on Packman array and Fruits array, and paint them one by one.
+     *
+     * LineSolution will be created and painted too.
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 //        System.out.println("Started paint");
@@ -237,6 +240,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     }
 
+    /**
+     * this method execute by the Menu,
+     * check if there are packmans or fruits in the game.
+     * we consider that everytime the HashSet will be ordred different each time, and we take this HashSet into an Array.
+     * and then we run the algorithm on this shuffled array.
+     * we save the time to complete the solution and the solution,
+     * if the timeToComplete is lower then the lowest time we got untill now, we will save the new Solution and the new BestTime.
+     */
     private void runAlgo() {
         if(this.game.getPacmen().size() == 0){
             throw new RuntimeException("No pacmen to calculate solution.");
@@ -264,6 +275,12 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         repainter.start();
 
     }
+
+    /**
+     * Because we run the algo couple times, we need to set the eating times for each packman, since they are eating from the
+     * beginning each run of the algorithm
+     * @param solution
+     */
     private void resetTimeAfterAlgoAndSetEatenTimes(Solution solution){
         Iterator<Path> paths = solution.getPaths().iterator();
         while (paths.hasNext()) {
@@ -278,10 +295,18 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * This function will save our Game into csv file.
+     * @param file - get File Object to save the game into.
+     */
     private void saveFile(File file) {
         this.game.saveGameToCsv(file.getAbsolutePath());
     }
 
+    /**This function will get File object, and load it into ourgame.
+     *
+     * @param file - File to load
+     */
     private void loadFile(File file) {
         try {
             this.game = new Game(file);
