@@ -9,16 +9,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 
+/**
+ * This class represents our Game object. it will hold two GIS_Layers (hashSet): one for fruits, one for pacmen, each
+ * will hold our objects inside the game.
+ */
 public class Game {
 
     GIS_layer fruits;
     GIS_layer pacmen;
+    private int IDfruits = 0;
+    private int IDpacs = 0;
 
+    /**
+     * Default constructor for the Game. will initiate empty layer for fruits, and an empty layer for pacmen.
+     */
     public Game() {
         pacmen = new GIS_layer_obj();
         pacmen.setMeta(new Meta_data_layerAndProject("Pacmen Layer"));
         fruits = new GIS_layer_obj();
         fruits.setMeta(new Meta_data_layerAndProject("Fruits Layer"));
+        this.setIDfruits(0);
+        this.setIDpacs(0);
     }
 
     /**
@@ -34,15 +45,16 @@ public class Game {
         Csv2Layer layer = new Csv2Layer();
         GIS_layer fullLayer = layer.csv2Layer(csvGameFile.getAbsolutePath());
         Iterator fullIterator = fullLayer.iterator();
-
         while(fullIterator.hasNext()){
             GIS_element elem = (GIS_element) fullIterator.next();
             if(elem.getData().getType().equals("P")){
                 Packman pac = (Packman)elem;
                 pacmen.add(pac);
+                this.setIDpacs(this.getIDpacs()+1);
             }else if(elem.getData().getType().equals("F")){
                 Fruit fruit = (Fruit)elem;
                 fruits.add(fruit);
+                this.setIDfruits(this.getIDfruits()+1);
             }
         }
     }
@@ -70,9 +82,9 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(pacman.getID())); //ID
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).x())); //lat
+                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).y())); //lat (same as boaz wrong files)
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).y())); //lon
+                fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).x())); //lon (same as boaz wrong files)
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)pacman.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
@@ -89,9 +101,9 @@ public class Game {
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(fruit.getID())); //ID
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).x())); //lat
+                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).y())); //lat (same as boaz wrong files)
                 fileWriter.append(COMMA);
-                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).y())); //lon
+                fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).x())); //lon (same as boaz wrong files)
                 fileWriter.append(COMMA);
                 fileWriter.append(String.valueOf(((Point3D)fruit.getGeom()).z())); //alt
                 fileWriter.append(COMMA);
@@ -113,12 +125,30 @@ public class Game {
         }
     }
 
+
+    /*** Getters  and Setters ***/
     public GIS_layer getFruits() {
         return fruits;
     }
 
     public GIS_layer getPacmen() {
         return pacmen;
+    }
+
+    public int getIDfruits() {
+        return IDfruits;
+    }
+
+    public void setIDfruits(int IDfruits) {
+        this.IDfruits = IDfruits;
+    }
+
+    public int getIDpacs() {
+        return IDpacs;
+    }
+
+    public void setIDpacs(int IDpacs) {
+        this.IDpacs = IDpacs;
     }
 
 }

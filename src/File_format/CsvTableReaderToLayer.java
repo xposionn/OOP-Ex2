@@ -85,7 +85,7 @@ public class CsvTableReaderToLayer {
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-                Point3D elementGeom = new Point3D(elemLat, elemLon, elemAlt);
+                Point3D elementGeom = new Point3D(elemLon,elemLat, elemAlt); //TODO: we read opposite because Boaz provided bad csv examples.
                 Meta_data metaDataElem = new Meta_data_element(element[idIndex], element[typeIndex]);
                 if (colorIndex != -1) { //optional.
                     String colorHEXvalue = element[colorIndex];

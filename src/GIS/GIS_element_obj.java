@@ -7,6 +7,7 @@ import Geom.Point3D;
 /**
  *  This class represents a GIS element with geometric representation and meta data such as:
  *  color, string, timing...
+ * @author : Liad and Timoe
  */
 public class GIS_element_obj implements GIS_element {
     private Geom_element geom;

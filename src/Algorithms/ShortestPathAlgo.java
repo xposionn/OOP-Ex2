@@ -10,6 +10,7 @@ import Geom.Point3D;
 
 import java.util.*;
 
+
 public class ShortestPathAlgo {
     PriorityQueue<Packman> packmen;
     ArrayList<Fruit> fruits;
@@ -71,7 +72,6 @@ public class ShortestPathAlgo {
             fruits.remove(eatMe);
             packmen.add(p);
         }
-//        System.out.println("Solution to complete"+solution.timeToComplete()/1000);//TODO: delete
 
         //reset pacman position
         Iterator<Path> solutionPath = solution.getPaths().iterator();
@@ -79,6 +79,7 @@ public class ShortestPathAlgo {
             Path toChange = solutionPath.next();
             Packman packmantoChange = toChange.getPacmanInPath();
             packmantoChange.setGeom(toChange.getPacmanStartPosition());
+            packmantoChange.setTimeTraveled(packmantoChange.getTimeTraveled()*0.75); //TODO: can change to manipulate algo.
         }
         this.fruits = new ArrayList<>(Backupfruits);
         return solution;

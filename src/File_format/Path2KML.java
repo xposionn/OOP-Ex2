@@ -61,11 +61,11 @@ public class Path2KML {
         kmlSTRING.append("<tessellate>1</tessellate>\n");  //doesn't use it, only with clampToGround altitude mode.
         kmlSTRING.append("<altitudeMode>relativeToGround</altitudeMode>\n"); //relative to ground
         kmlSTRING.append("<coordinates>\n");
-        kmlSTRING.append(((Point3D)path.getPacmanInPath().getGeom()).toStringKMLgoogle()); //pacman path is the first coordinate in our path.
+        kmlSTRING.append(((Point3D)path.getPacmanInPath().getGeom()).toString()); //pacman path is the first coordinate in our path.
         kmlSTRING.append("\n");
         Iterator<Fruit> fruitIt = path.getFruitsInPath().iterator();
         while(fruitIt.hasNext()){
-            kmlSTRING.append(((Point3D)fruitIt.next().getGeom()).toStringKMLgoogle());
+            kmlSTRING.append(((Point3D)fruitIt.next().getGeom()).toString());
             kmlSTRING.append("\n");
         }
         kmlSTRING.append("</coordinates>\n");
@@ -142,7 +142,7 @@ public class Path2KML {
                         "<styleUrl>" + "#pacman-icon" + "</styleUrl>\n" + //colorToKML(Color.decode(pac.getData().getColor())) TODO: we can use the pacman object color
                         "<TimeSpan><begin>" + TimeChange.longtoUTC(pac.getData().getUTC()+i*1000) + "</begin><end>"+TimeChange.longtoUTC(pac.getData().getUTC()+(i+1)*1000)+"</end></TimeSpan>\n" +
                         "<Point>\n" +
-                        "<coordinates>" + newPosition.toStringKMLgoogle()+ "</coordinates>\n" + //0 at Z is relative to ground height
+                        "<coordinates>" + newPosition.toString()+ "</coordinates>\n" + //0 at Z is relative to ground height
                         "</Point>\n" +
                         "</Placemark>\n");
             }
