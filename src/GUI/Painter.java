@@ -16,17 +16,25 @@ public class Painter implements Runnable {
      * will be stuck.
      */
     private Solution solution;
-    private JFrameGraphics frame;
+    private MyFrame frame;
 
-    public Painter(Solution sol, JFrameGraphics framer) {
+    public boolean isKeepGoing() {
+        return keepGoing;
+    }
+
+    private boolean keepGoing = true;
+
+    public Painter(Solution sol, MyFrame framer) {
         this.solution = sol;
         this.frame = framer;
     }
 
+    void stopAnimKillThread() {
+        this.keepGoing = false;
+    }
+
     @Override
     public void run() {
-        long startingTime = System.currentTimeMillis();
-        while ( System.currentTimeMillis() - startingTime < solution.timeToComplete()) {
             String timeToRun = JOptionPane.showInputDialog("Enter for how long do you want to show path animation in milliseconds: \n" +
                     "Enter 0 for full animation.");
             long timeToPlay = 0;
@@ -35,6 +43,9 @@ public class Painter implements Runnable {
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Only numbers are allowed! Enter milli-seconds to run animation.");
                 timeToPlay = 0;
+            }
+            if(timeToPlay<0 || timeToPlay>solution.timeToComplete()){
+                timeToPlay = (long)solution.timeToComplete();
             }
             String fpsString = JOptionPane.showInputDialog("Enter how much FPS (Frames per second) you want to run the animation with: " +
                     "\nDefault FPS is set to 60. Max is 144 fps. (Your screen probably doesn't support more than that.)");
@@ -54,14 +65,12 @@ public class Painter implements Runnable {
             }
             long startTime = System.currentTimeMillis();
             long currentTime = System.currentTimeMillis();
-            while (currentTime - startTime < timeToPlay) {
+            while (currentTime - startTime < timeToPlay && keepGoing) {
                 Iterator<Path> pathIt = solution.getPaths().iterator();
                 while (pathIt.hasNext()) {
                     Path path = pathIt.next();
-//                        System.out.println("Pacman id: " + path.getPacmanInPath().getID() + " Pos:" + path.getPacmanInPath().getGeom());
-                    path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((System.currentTimeMillis() - startTime) * 10)); /**DO NOT CHANGE
+                    path.getPacmanInPath().setGeom(path.getPacPositionAfterXtime((System.currentTimeMillis() - startTime))); /**DO NOT CHANGE
                      This is calculated REAL-TIME movement of Pacman. separately from FPS. Thread sleeping provides the FPS on screen.**/
-
                     currentTime = System.currentTimeMillis();
                 }
                 frame.paintImmediately(0, 0, frame.getWidth(), frame.getHeight());
@@ -71,7 +80,7 @@ public class Painter implements Runnable {
                     e.printStackTrace();
                 }
             }
-        }
+
     }
 
 }

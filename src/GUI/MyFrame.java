@@ -25,18 +25,18 @@ import java.util.Iterator;
 /**
  * some of the code is taken from: https://javatutorial.net/display-text-and-graphics-java-jframe
  */
-public class JFrameGraphics extends JPanel implements MouseListener {
+public class MyFrame extends JPanel implements MouseListener {
 
     private Image image; //game background image.
     private Game game; //game object to work with.
     private int typeToAdd = 0; //1 for pacman, 2 for fruits.
     private Map map; //map object according to provided image.
     private static Solution linesSolution;
-    private static JFrameGraphics ourJFrame;
+    private static MyFrame ourJFrame;
     private Painter paintThread;
 
 
-    public JFrameGraphics() {
+    public MyFrame() {
         this.game = new Game();
         Point3D topLeft = new Point3D(35.20236,32.10572);
         Point3D downRight = new Point3D(35.21235,32.10194);
@@ -135,12 +135,15 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         this.game = new Game();
         if(linesSolution!=null) //if we have a solution after running algorithm, we will have to erase its paths .
             linesSolution.getPaths().clear();
+        if(ourJFrame.paintThread != null){
+            ourJFrame.paintThread.stopAnimKillThread();
+        }
         ourJFrame.repaint();
     }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pacman and Fruits");
-        ourJFrame = new JFrameGraphics();
+        ourJFrame = new MyFrame();
         frame.getContentPane().add(ourJFrame);
         frame.setSize(900, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -185,6 +188,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //load file
         fileMenu.add(loadFromCsvItemMenu);
         loadFromCsvItemMenu.addActionListener(e->{
+            if(ourJFrame.paintThread != null){ //if we have a thread painting in the background, we will stop the animation and kill the thread.
+                ourJFrame.paintThread.stopAnimKillThread();
+            }
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
             FileNameExtensionFilter filter =   new FileNameExtensionFilter(
                     "CSV Files", "csv");
@@ -203,6 +209,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //save file
         fileMenu.add(saveToCsvItemMenu);
         saveToCsvItemMenu.addActionListener(e->{
+            if(ourJFrame.paintThread != null){ //if we have a thread painting in the background, we will stop the animation and kill the thread.
+                ourJFrame.paintThread.stopAnimKillThread();
+            }
             JFileChooser chooser = new JFileChooser("./Resources/dataExamples");
             FileNameExtensionFilter filter =   new FileNameExtensionFilter(
                     "CSV Files", "csv");
@@ -225,6 +234,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         //export to kml clicked
         fileMenu.add(exportToKML);
         exportToKML.addActionListener(e->{
+            if(ourJFrame.paintThread != null){ //if we have a thread painting in the background, we will stop the animation and kill the thread.
+                ourJFrame.paintThread.stopAnimKillThread();
+            }
             if(linesSolution==null){
                 showMessageToScreen("You have to run the algorithm first to find the paths solution.\n" +
                         "After that, you can try to export again.");
@@ -238,7 +250,9 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
         //run algo clicked
         run.addActionListener(l->{
-
+            if(ourJFrame.paintThread != null && ourJFrame.paintThread.isKeepGoing()){ //if we have a thread painting in the background, we will stop the animation and kill the thread.
+                ourJFrame.paintThread.stopAnimKillThread();
+            }
             try {
                 ourJFrame.runAlgo();
             }catch (RuntimeException e){
@@ -334,6 +348,11 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if(ourJFrame.paintThread != null && ourJFrame.paintThread.isKeepGoing()){ //if we have a thread painting in the background, we will stop the animation and kill the thread.
+            ourJFrame.paintThread.stopAnimKillThread();
+            showMessageToScreen("You clicked to add into the map while animation was running.\n" +
+                    "We will stop the animation now.");
+        }
         if (typeToAdd == 1) {
             Point3D point = new Point3D(e.getX(), e.getY(), 0);
             Point3D globalpoint = map.PixelsToCoords(point, getHeight(), getWidth());
