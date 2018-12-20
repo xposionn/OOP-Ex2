@@ -16,6 +16,9 @@ class TimeChangeTest {
     String dateInStr3 = "2015-03-30T13:56:18Z";
     long dateinlong3 = 1427712978000L;
 
+    String dateInStr4 = "1970-01-01T00:00:00Z";
+    long dateinlong4 = 0L;
+
 
     @Test
     void stringUTCtoLong1() {

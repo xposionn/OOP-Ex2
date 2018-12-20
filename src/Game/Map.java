@@ -24,6 +24,12 @@ public class Map implements MapInterface{
     private Point3D topLeftPixel;
     private Point3D rightDownPixel;
 
+    /**
+     * Constructor method for the Map object. will create new Map with provided image File, topLeft GPS coordinates, and down right GPS coordinates.
+     * @param image File, our map image file.
+     * @param topLeft a GPS location of real-world coordinates of topLeft corner of image.
+     * @param downRight a GPS location of real-world coordinates of downRight corner of image.
+     */
     public Map(File image, Point3D topLeft, Point3D downRight) {
         this.Image = image;
         try {

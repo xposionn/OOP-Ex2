@@ -9,11 +9,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 
+/**
+ * This class represents our Game object. it will hold two GIS_Layers (hashSet): one for fruits, one for pacmen, each
+ * will hold our objects inside the game.
+ */
 public class Game {
 
     GIS_layer fruits;
     GIS_layer pacmen;
 
+    /**
+     * Default constructor for the Game. will initiate empty layer for fruits, and an empty layer for pacmen.
+     */
     public Game() {
         pacmen = new GIS_layer_obj();
         pacmen.setMeta(new Meta_data_layerAndProject("Pacmen Layer"));
@@ -112,6 +119,8 @@ public class Game {
         }
     }
 
+
+    /*** Getters  ***/
     public GIS_layer getFruits() {
         return fruits;
     }

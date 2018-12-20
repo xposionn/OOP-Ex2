@@ -10,6 +10,9 @@ import Geom.Point3D;
 
 import java.util.*;
 
+/**
+ *
+ */
 public class ShortestPathAlgo {
     PriorityQueue<Packman> packmen;
     ArrayList<Fruit> fruits;
