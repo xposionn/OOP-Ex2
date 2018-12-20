@@ -67,7 +67,7 @@ public class ShortestPathAlgo {
             p.addTimeTraveled(min);
             double ratio = p.distancePointFromEatRadius((Point3D) eatMe.getGeom()) / coords.distance3d((Point3D) p.getGeom(), (Point3D) eatMe.getGeom());
             Point3D vectorBetween = coords.vector3D((Point3D) p.getGeom(), (Point3D) eatMe.getGeom());
-            p.setGeom(coords.add((Point3D) p.getGeom(), new Point3D(vectorBetween.x() * ratio, vectorBetween.y() * ratio, vectorBetween.z() * ratio))); //TODO:packman will be placed at the next fruit position that he will be eat.
+            p.setGeom(coords.add((Point3D) p.getGeom(), new Point3D(vectorBetween.x() * ratio, vectorBetween.y() * ratio, vectorBetween.z() * ratio))); //packman will be placed at the next fruit position that he will eat.
             solution.getPath(p.getID()).addFruitToPath(eatMe);
             fruits.remove(eatMe);
             packmen.add(p);
@@ -79,7 +79,7 @@ public class ShortestPathAlgo {
             Path toChange = solutionPath.next();
             Packman packmantoChange = toChange.getPacmanInPath();
             packmantoChange.setGeom(toChange.getPacmanStartPosition());
-            packmantoChange.setTimeTraveled(packmantoChange.getTimeTraveled()*0.75); //TODO: can change to manipulate algo.
+            packmantoChange.setTimeTraveled(packmantoChange.getTimeTraveled()*0.75); //can change to manipulate algo.
         }
         this.fruits = new ArrayList<>(Backupfruits);
         return solution;

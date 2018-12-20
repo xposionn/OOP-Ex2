@@ -139,25 +139,15 @@ public class Path{
        return coordsConv.add(fromFruitLoc,newPosMov);
    }
 
-        /**This method calculate the time of packman to move from Fruit A to Fruit B
-         *
-         * @param fruitIndex1
-         * @param fruitIndex2
-         * @return time in Seconds
-         */
-        //TODO: this method doesnt count if we have 3rd Fruit between Fruit index 1 and Fruit index 2
-   public double getTimeBetweenTwoFruits(int fruitIndex1, int fruitIndex2){
-       MyCoords coordsConv = new MyCoords(); //we use MyCoords object to calculate distance between two Point3D points.
-       return coordsConv.distance3d(getFruitLoc(fruitIndex1), getFruitLoc(fruitIndex2))/this.pacmanInPath.getSpeed()*1000;
-   }
-
         /**
-         * This method will return the location of Fruit in index X , 0<=x<=size of FruitArr
+         * This method will return the location of Fruit in index X , 0<=x<size of FruitArr
          * @param pathPosition
          * @return Point3D - the location of Fruit
          */
-        //TODO: if we ask for index higher then the size of the arraylist.
     public Point3D getFruitLoc(int pathPosition) { //returns fruit GPS location in Point3D object.
+        if(pathPosition<0 || pathPosition>=this.fruitsInPath.size()){
+            throw new RuntimeException("You asked to get location of fruit index outside of the fruit arrayList bounds!");
+        }
         return (Point3D)fruitsInPath.get(pathPosition).getGeom();
     }
 
