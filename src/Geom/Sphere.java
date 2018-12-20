@@ -13,6 +13,11 @@ public class Sphere implements Geom_element {
         // TODO Auto-generated constructor stub
     }
 
+    /**
+     * This function will calculate the distance between Packman and fruit with consider in the packman Radius
+     * @param p - Point3D of location
+     * @return distance between the radius to p.
+     */
     @Override
     public double distance3D(Point3D p) {
         double d = p.distance3D(this.get_cen());

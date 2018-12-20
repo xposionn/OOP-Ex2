@@ -6,10 +6,13 @@ import Game.Packman;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
-public class Path {
+public class Path{
+        /**
+         * This class represent a Path.
+         * Path include: Packman and his Fruit Routes.
+         */
 
     private Packman pacmanInPath;
     private ArrayList<Fruit> fruitsInPath;
@@ -18,6 +21,12 @@ public class Path {
     //add gps data as needed
 
     //constructor:
+
+        /**
+         * Create a Path by getting packman(that will run in this route,and an array in his Route order.)
+         * @param pacForPath - Packman
+         * @param fruitsInPath - Fruits array
+         */
     public Path(Packman pacForPath, ArrayList<Fruit> fruitsInPath){
         this.pacmanInPath = pacForPath;
         this.fruitsInPath = fruitsInPath;
@@ -32,6 +41,13 @@ public class Path {
 
     //Gets the distance of the path traveled from pacman position to fruit index in path.
     //to get the total distance traveled in the path, call this function with fruit index as Arraylist.size()-1.
+
+        /**this methods get an index of fruit in the Path and calculate the Distance between the packman and the fruit index
+         * considering all the fruits in the route.
+         *
+         * @param fruitIndex
+         * @return distance of the path.
+         */
     public double getDistance(int fruitIndex) {
         if(fruitIndex>=this.fruitsInPath.size())
             throw new RuntimeException("You tried to calculate distance in path for more fruits than in the path");
@@ -59,6 +75,10 @@ public class Path {
         return pathDistance;
     }
 
+        /**this method will calculate the time to finish all the route if fruits by the specific packman that own that route.
+         *
+         * @return time in seconds
+         */
    public double getTravelTimeForPacmanWholePath(){
         if(this.fruitsInPath.size()==0){
             return 0;
@@ -83,6 +103,11 @@ public class Path {
        return fruitEaten;
    }
 
+        /**This method will compute the position of packman after X time, considering his Fruits Route.
+         *
+         * @param timeInMillis - after how much time in MS
+         * @return Point3D point - the location of packman after X time.
+         */
    public Point3D getPacPositionAfterXtime(long timeInMillis){
        if(this.fruitsInPath.size()==0){
            return pacmanStartPosition;
@@ -114,24 +139,48 @@ public class Path {
        return coordsConv.add(fromFruitLoc,newPosMov);
    }
 
+        /**This method calculate the time of packman to move from Fruit A to Fruit B
+         *
+         * @param fruitIndex1
+         * @param fruitIndex2
+         * @return time in Seconds
+         */
+        //TODO: this method doesnt count if we have 3rd Fruit between Fruit index 1 and Fruit index 2
    public double getTimeBetweenTwoFruits(int fruitIndex1, int fruitIndex2){
        MyCoords coordsConv = new MyCoords(); //we use MyCoords object to calculate distance between two Point3D points.
        return coordsConv.distance3d(getFruitLoc(fruitIndex1), getFruitLoc(fruitIndex2))/this.pacmanInPath.getSpeed()*1000;
    }
 
-
+        /**
+         * This method will return the location of Fruit in index X , 0<=x<=size of FruitArr
+         * @param pathPosition
+         * @return Point3D - the location of Fruit
+         */
+        //TODO: if we ask for index higher then the size of the arraylist.
     public Point3D getFruitLoc(int pathPosition) { //returns fruit GPS location in Point3D object.
         return (Point3D)fruitsInPath.get(pathPosition).getGeom();
     }
 
+        /**
+         * This method will add fruit to path, in the last position of the Array.
+         * @param fruitToAdd - fruit to add to packman's Route
+         */
     public void addFruitToPath(Fruit fruitToAdd){
         this.fruitsInPath.add(fruitToAdd);
     }
 
+        /**
+         * This method will return the ID of packman in this specific Route.
+         * @return an ID of packman.
+         */
     public int getPacmanIDInPath() {
         return this.pacmanInPath.getID();
     }
 
+        /**
+         * This method will return the packman that own the Route.
+         * @return Packman who own the Path.
+         */
     public Packman getPacmanInPath() {
         return pacmanInPath;
     }
@@ -144,14 +193,26 @@ public class Path {
                 '}';
     }
 
+        /**
+         * This function will return the Fruite Route
+         * @return Array of Fruits.
+         */
     public ArrayList<Fruit> getFruitsInPath() {
         return fruitsInPath;
     }
 
+        /**
+         * This method will return the starting position of a packman.
+         * @return Point3D - starting position of packman.
+         */
     public Point3D getPacmanStartPosition() {
         return pacmanStartPosition;
     }
 
+        /**
+         * This method will return the Color object of line that will be displayed as a line between the Packman and his Fruits Route
+         * @return Color - the color of the line.
+         */
     public Color getColor() {
        return this.lineColor;
     }

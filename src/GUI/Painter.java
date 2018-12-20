@@ -9,6 +9,12 @@ import java.util.Iterator;
 
 public class Painter implements Runnable {
 
+    /**
+     * This class represent the painter.
+     * this painter will be running into Thread.
+     * his job is to run repaint method for repainting the GUI window in different Thread because we dont want the GUI
+     * will be stuck.
+     */
     Solution solution;
     JFrameGraphics frame;
 
