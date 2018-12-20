@@ -47,6 +47,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         addMouseListener(this);
     }
 
+    /**
+     * paint function.
+     * will rewrite each time the packmans in they curret location, (if we changed them)
+     * Run on Packman array and Fruits array, and paint them one by one.
+     *
+     * LineSolution will be created and painted too.
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 //        System.out.println("Started paint");
@@ -261,6 +269,14 @@ public class JFrameGraphics extends JPanel implements MouseListener {
 
     }
 
+    /**
+     * this method execute by the Menu,
+     * check if there are packmans or fruits in the game.
+     * we consider that everytime the HashSet will be ordred different each time, and we take this HashSet into an Array.
+     * and then we run the algorithm on this shuffled array.
+     * we save the time to complete the solution and the solution,
+     * if the timeToComplete is lower then the lowest time we got untill now, we will save the new Solution and the new BestTime.
+     */
     private void runAlgo() {
         if(this.game.getPacmen().size() == 0){
             throw new RuntimeException("No pacmen to calculate solution.");
@@ -288,6 +304,12 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         repainter.start();
 
     }
+
+    /**
+     * Because we run the algo couple times, we need to set the eating times for each packman, since they are eating from the
+     * beginning each run of the algorithm
+     * @param solution
+     */
     private void resetTimeAfterAlgoAndSetEatenTimes(Solution solution){
         Iterator<Path> paths = solution.getPaths().iterator();
         while (paths.hasNext()) {
@@ -302,10 +324,18 @@ public class JFrameGraphics extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * This function will save our Game into csv file.
+     * @param file - get File Object to save the game into.
+     */
     private void saveFile(File file) {
         this.game.saveGameToCsv(file.getAbsolutePath());
     }
 
+    /**This function will get File object, and load it into ourgame.
+     *
+     * @param file - File to load
+     */
     private void loadFile(File file) {
         resetGame();
         try {
