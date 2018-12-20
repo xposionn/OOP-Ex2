@@ -103,7 +103,7 @@ public class Map implements MapInterface{
      * @param p2 - seond pixel
      * @param frameHeight - the height of the frame
      * @param frameWidth - the width of the frame
-     * @return
+     * @return double, the real-world distance between 2 pixels on map.
      */
     public double distance2Pixels(Point3D p1,Point3D p2,double frameHeight,double frameWidth){
         MyCoords coords = new MyCoords();
