@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>GUI.Painter</OriginalElement>
+  <nodes>
+    <node x="184.75" y="1277.0">GIS.Meta_data</node>
+    <node x="0.0" y="1807.0">Algorithms.ShortestPathAlgo</node>
+    <node x="0.0" y="123.0">Geom.Point3D</node>
+    <node x="847.0" y="402.5">Game.Fruit</node>
+    <node x="0.0" y="2037.0">Algorithms.TimeChange</node>
+    <node x="1732.0" y="1445.0">GIS.GIS_layer_obj</node>
+    <node x="1003.0" y="1807.0">GUI.Painter</node>
+    <node x="1732.0" y="1277.0">GIS.GIS_layer</node>
+    <node x="727.4999999999999" y="0.0">GIS.GIS_element</node>
+    <node x="275.0" y="1533.0">GIS.Meta_data_element</node>
+    <node x="271.0" y="2037.0">File_format.CsvTableReaderToLayer</node>
+    <node x="608.0" y="1423.0">Game.Map</node>
+    <node x="397.0" y="1807.0">Game.Game</node>
+    <node x="658.5" y="168.0">GIS.GIS_element_obj</node>
+    <node x="1248.0" y="0.0">GUI.MyFrame</node>
+    <node x="628.5" y="1277.0">Game.MapInterface</node>
+    <node x="1405.0" y="1277.0">Geom.Path</node>
+    <node x="944.0" y="2037.0">File_format.Csv2Layer</node>
+    <node x="1265.0" y="1807.0">Algorithms.Solution</node>
+    <node x="1738.0" y="1807.0">Algorithms.MultiCSV</node>
+    <node x="1198.0" y="2037.0">File_format.Csv2kml</node>
+    <node x="46.5" y="0.0">Geom.Geom_element</node>
+    <node x="654.0" y="2037.0">Algorithms.PackmanComparator4Algo</node>
+    <node x="1537.0" y="1807.0">File_format.CsvTable</node>
+    <node x="354.99999999999994" y="381.0">Game.Packman</node>
+    <node x="1025.0" y="1466.0">Coords.MyCoords</node>
+    <node x="663.0" y="1807.0">File_format.Path2KML</node>
+    <node x="0.0" y="1544.0">GIS.Meta_data_layerAndProject</node>
+    <node x="1025.0" y="1277.0">Coords.coords_converter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="GIS.Meta_data_layerAndProject" target="GIS.Meta_data">
+      <point x="0.0" y="-103.5" />
+      <point x="127.5" y="1508.0" />
+      <point x="229.0" y="1508.0" />
+      <point x="-44.25" y="103.0" />
+    </edge>
+    <edge source="GIS.GIS_layer_obj" target="GIS.GIS_layer">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="Game.Fruit" target="GIS.GIS_element_obj">
+      <point x="-89.0" y="-93.0" />
+      <point x="936.0" y="356.0" />
+      <point x="904.5" y="356.0" />
+      <point x="82.0" y="81.5" />
+    </edge>
+    <edge source="Coords.MyCoords" target="Coords.coords_converter">
+      <point x="0.0" y="-81.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="GIS.GIS_element_obj" target="GIS.GIS_element">
+      <point x="0.0" y="-81.5" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="Geom.Point3D" target="Geom.Geom_element">
+      <point x="0.0" y="-554.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="Game.Map" target="Game.MapInterface">
+      <point x="0.0" y="-148.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="Game.Fruit" target="GIS.GIS_element">
+      <point x="89.0" y="-93.0" />
+      <point x="1114.0" y="356.0" />
+      <point x="1076.0833333333333" y="356.0" />
+      <point x="1076.0833333333333" y="143.0" />
+      <point x="885.8333333333333" y="143.0" />
+      <point x="63.33333333333337" y="59.0" />
+    </edge>
+    <edge source="Game.Packman" target="GIS.GIS_element_obj">
+      <point x="118.0" y="-114.5" />
+      <point x="709.0" y="356.0" />
+      <point x="740.5" y="356.0" />
+      <point x="-82.0" y="81.5" />
+    </edge>
+    <edge source="Game.Packman" target="GIS.GIS_element">
+      <point x="-118.0" y="-114.5" />
+      <point x="472.99999999999994" y="356.0" />
+      <point x="549.5833333333333" y="356.0" />
+      <point x="549.5833333333333" y="143.0" />
+      <point x="759.1666666666665" y="143.0" />
+      <point x="-63.33333333333337" y="59.0" />
+    </edge>
+    <edge source="GIS.Meta_data_element" target="GIS.Meta_data">
+      <point x="0.0" y="-114.5" />
+      <point x="419.0" y="1508.0" />
+      <point x="317.5" y="1508.0" />
+      <point x="44.25" y="103.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5" x="999.2896825396815" y="623.0" />
+  <SelectedNodes>
+    <node>GUI.Painter</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
