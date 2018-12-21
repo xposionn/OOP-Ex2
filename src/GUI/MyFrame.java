@@ -155,7 +155,7 @@ public class MyFrame extends JPanel implements MouseListener {
         frame.setMenuBar(MainMenu);
         Menu fileMenu = new Menu("File");
         Menu addMenu = new Menu("Add");
-        Menu algoMenu = new Menu("Algo");
+        Menu algoMenu = new Menu("Algorithm");
 
 
         MenuItem pacmenItemMenu = new MenuItem("Pacman");
@@ -172,15 +172,15 @@ public class MyFrame extends JPanel implements MouseListener {
             ourJFrame.resetGame();
             ourJFrame.repaint();
         });
-        addMenu.add(reset);
         addMenu.add(pacmenItemMenu);
         addMenu.add(fruitItemMenu);
+        addMenu.add(reset);
 
         MenuItem loadFromCsvItemMenu = new MenuItem("Load From CSV");
         MenuItem saveToCsvItemMenu = new MenuItem("Save To CSV");
         MenuItem exportToKML = new MenuItem("Export to KML");
 
-        MenuItem run = new MenuItem("run");
+        MenuItem run = new MenuItem("Run");
 
         algoMenu.add(run);
 
@@ -258,9 +258,9 @@ public class MyFrame extends JPanel implements MouseListener {
 
             }
         });
-        MainMenu.add(algoMenu);
         MainMenu.add(fileMenu);
         MainMenu.add(addMenu);
+        MainMenu.add(algoMenu);
 
     }
 
