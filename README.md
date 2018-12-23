@@ -102,6 +102,77 @@ while (!fruits.isEmpty()) {
   packmen.add(p);  
 }
 ````
+Our comparator for the pacman priority queue: (Which pacman we choose to move, each step)
+
+````Java
+public class PackmanComparator4Algo implements Comparator<Packman> {
+    @Override
+    public int compare(Packman o1, Packman o2) {
+        if(o1.getTimeTraveled()==o2.getTimeTraveled()){
+            return (int)(o2.getSpeed()-o1.getSpeed());
+        }
+        else{
+            return (int)(o1.getTimeTraveled()-o2.getTimeTraveled());
+
+        }
+    }
+}
+````
+
+This algorithm is not guaranteed to provide the best/optimal solution.
+But then, we are running this algorithm for many times, each time taking the Hash Set of pacmen and Shuffling it inside an
+ArrayList so the priority queue is different for each algorithm run - for the first pick of pacman at the start of the algorithm.
+We run the algorithm for num of pacmen* num of fruits * 2. We found these are enough algorithm runs to provide a better solution for us.
+
+````Java
+ private void runAlgo() {
+        if(this.game.getPacmen().size() == 0){
+            throw new RuntimeException("No pacmen to calculate solution.");
+        } else if(this.game.getFruits().size() == 0){
+            throw new RuntimeException("No fruits to calculate solution.");
+        }
+        ArrayList<GIS_element> packmen = new ArrayList<>(this.game.getPacmen());
+        Solution bestSolution = null;
+        long bestTime = Long.MAX_VALUE;
+        for(int i=0;i<packmen.size()*game.getFruits().size()*2;i++) { //change to get faster speed -> less optimized solution.
+            Collections.shuffle(packmen);
+            ShortestPathAlgo algo = new ShortestPathAlgo(packmen,game.getFruits());
+            Solution algoSolution = algo.runAlgo();
+            if (bestTime > algoSolution.timeToComplete()) {
+                bestSolution = algoSolution;
+                bestTime = (long)algoSolution.timeToComplete();
+            }
+        }
+        linesSolution = bestSolution;
+        resetTimeAfterAlgoAndSetEatenTimes(linesSolution);
+        System.out.println("Total time to complete all paths: " + linesSolution.timeToComplete()/1000);
+        paintThread = new Painter(bestSolution,ourJFrame);
+        Thread repainter = new Thread(paintThread);
+        repainter.start();
+
+    }
+````
+After each algorithm iteration is done, we reset the pacmen position and fruits back into their arraylist, so the next iteration can calculate properly:
+````Java
+        //reset pacman position
+        Iterator<Path> solutionPath = solution.getPaths().iterator();
+        while (solutionPath.hasNext()) {
+            Path toChange = solutionPath.next();
+            Packman packmantoChange = toChange.getPacmanInPath();
+            packmantoChange.setGeom(toChange.getPacmanStartPosition());
+            packmantoChange.setTimeTraveled(packmantoChange.getTimeTraveled()*0.75); //can change to manipulate algo.
+        }
+        this.fruits = new ArrayList<>(Backupfruits);
+````
+
+Notice, now, instead of actually zero-ing the timeTraveled of each pacman before the next iteration, we are taking the total time traveled for this pacman for all iterations done before hand.
+````Java
+       packmantoChange.setTimeTraveled(packmantoChange.getTimeTraveled()*0.75); //can change to manipulate algo.
+````
+This way, the next time the algorithm runs, it will take into account the time traveled for a pacmen in all previous iterations.
+This will yeild better solutions in these situations: When there is a game with many pacmen with different speeds.
+<br/>
+These situations are considered to be harder problems to solve, and results in up to 50% better optimized solutions then other classmates solutions (comparing the solution time to complete the "map/level" provided in the assignment).
 
 ____________________________________________________________________________________________________________
 
