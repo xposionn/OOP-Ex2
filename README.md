@@ -28,7 +28,7 @@ Saving, Loading CSV files to work inside the application, as well as Exporting t
 Algorithms to solve mTSP/VRP problems as all "Pacmen" will have to eat all "Fruits" as fast as possible (different speeds).
 
 ## Showcase
-Pictures and GIFs here.
+More Pictures and GIFs here after Ex4 is completed.
 ![alt text](https://camo.githubusercontent.com/6720886e5d4570689d94e5adc5162f3c489d8cb3/68747470733a2f2f692e6962622e636f2f5a4b714c6b64622f53637265656e73686f742d312e706e67)
 
 ## EX2 - Release 2.0 (Basic Infrastructure)
