@@ -46,17 +46,18 @@ This release includes "Path", "Solution" and "ShortestPathAlgo", "Game", "Map" "
 ## EX4 - Pre-Release 4.0 - (Assignment not yet given).
 
 ##  How-To
+### Load/Save file Menu
+![alt text](https://i.imgur.com/BiGHdNc.jpg)
 ### Load a file
->add here.
-### Save a file
->etc. etc.
->
->etc. etc.
 
-### Export a file
->etc. etc.
->
->etc. etc.
+>![alt text](https://i.imgur.com/UIJZV0I.png)
+### Save a file
+
+![alt text](https://i.imgur.com/ckQPGyL.png)
+
+### Export to KML file (compatible with Google Earth)
+
+![alt text](https://i.imgur.com/rLI1jXf.jpg)
 
 ## Algorithms Explanation
 We use heuristics algorithms to solve the mTSP / VRP problem (With different speeds variant of the problem).
@@ -172,7 +173,7 @@ Notice, now, instead of actually zero-ing the timeTraveled of each pacman before
 This way, the next time the algorithm runs, it will take into account the time traveled for a pacmen in all previous iterations.
 This will yeild better solutions in these situations: When there is a game with many pacmen with different speeds.
 <br/>
-These situations are considered to be harder problems to solve, and results in up to 50% better optimized solutions then other classmates solutions (comparing the solution time to complete the "map/level" provided in the assignment).
+These situations are considered to be harder problems to solve, and results in up to 50% better optimized solutions than other classmates solutions (comparing the solution time to complete the "map/level" provided in the assignment).
 
 ____________________________________________________________________________________________________________
 
@@ -183,16 +184,19 @@ ________________________________________________________________________________
 ### Overview:
 | Package| Description|
 | ------ | ------ |
-| Coords| [Add here][sameREADME]|
-| GIS 	| [Add here][sameREADME] |
-| Geom | [Add here][sameREADME] |
-| Game | [Add here][sameREADME] |
-| GUI| [Add here][sameREADME] |
-| Algorithms | [Add here][sameREADME] |
-| File_format| [Add here][sameREADME] |
+| Coords| [Will be updated for Ex4][sameREADME]|
+| GIS 	| [Will be updated for Ex4][sameREADME] |
+| Geom | [Will be updated for Ex4][sameREADME] |
+| Game | [Will be updated for Ex4][sameREADME] |
+| GUI| [Will be updated for Ex4][sameREADME] |
+| Algorithms | [Will be updated for Ex4][sameREADME] |
+| File_format| [Will be updated for Ex4][sameREADME] |
 
 
    [sameREADME]: <https://github.com/xposionn/OOP-Ex2/edit/master/README.md>
 
-
-Edit more here as needed.
+### Class Diagram: (Enlarge to view whole image)
+![alt text](https://github.com/xposionn/OOP-Ex2/blob/master/ClassDiagram/Ex3-NoDependenciesClassDiagram.png?raw=true)
+### Class Diagram with dependencies: (Enlarge to view whole image)
+![alt text](https://github.com/xposionn/OOP-Ex2/blob/master/ClassDiagram/Ex3-WithDependenciesClassDiagram.png)
+Will edit more for Ex4.
